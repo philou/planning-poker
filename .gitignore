@@ -73,3 +73,7 @@ build-iPhoneSimulator/
 
 # Emacs files
 *~
+
+# Docker compose local settings
+docker-compose.override.yml
+.env

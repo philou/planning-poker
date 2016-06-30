@@ -1,13 +1,26 @@
-app:
+web:
   build: .
-  command: rails server -p 3000 -b '0.0.0.0'
-  volumes:
-    - .:/app
+  command: 'bash -c ''bundle exec puma -C config/puma.rb'''
+  working_dir: /app/user
+  environment:
+    PORT: 8080
+    DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
   ports:
-    - "3000:3000"
+    - '8080:8080'
   links:
-    - postgres
-postgres:
-  image: postgres:9.4
+    - herokuPostgresql
+shell:
+  build: .
+  command: bash
+  working_dir: /app/user
+  environment:
+    PORT: 8080
+    DATABASE_URL: 'postgres://postgres:@herokuPostgresql:5432/postgres'
   ports:
-    - "5432"
+    - '8080:8080'
+  links:
+    - herokuPostgresql
+  volumes:
+    - '.:/app/user'
+herokuPostgresql:
+  image: postgres

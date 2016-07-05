@@ -4,4 +4,7 @@ db/*.sqlite3-journal
 log/*
 tmp/*
 Dockerfile
+.env
+docker-compose.yml
+docker-compose.override.yml
 README.rdoc

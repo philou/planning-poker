@@ -2,6 +2,8 @@
 
 An app to do enable agile teams to do planning poker estimations remotely
 
+I host an instance on Heroku : https://philous-planning-poker.herokuapp.com/
+
 ## How to deploy your own in 5 minutes
 
 This project uses docker, docker-compose and is Heroku ready. All you need to do is to install these 3 :
@@ -22,6 +24,7 @@ git clone https://github.com/philou/planning-poker.git
 
 Run it locally
 ```
+cd planning-poker
 docker-compose build
 docker-compose up web
 ```

@@ -10,7 +10,8 @@ default: &default
   pool: 5
   timeout: 5000
   username: postgres
-  host: <%= ENV['DATABASE_URL'] %>
+  port: 5432
+  host: herokuPostgresql
 
 development:
   <<: *default
@@ -19,10 +20,11 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+test: &test
   <<: *default
   database: planning_poker_test
 
 production:
   <<: *default
-  database: planning_poker_production
+  url: <%= ENV['DATABASE_URL'] %>
+#  database: planning_poker_production

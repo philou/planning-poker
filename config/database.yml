@@ -24,6 +24,9 @@ test: &test
   <<: *default
   database: planning_poker_test
 
+cucumber:
+  <<: *test
+
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>

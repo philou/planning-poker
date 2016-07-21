@@ -1,0 +1,6 @@
+* As an animator, I'd like to be able to create a team page, in order to vote
+** DONE write the first step
+** TODO fix the first step
+** TODO write the second step
+** TODO fix the second step
+** TODO extract constant for test team name

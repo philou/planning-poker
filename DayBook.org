@@ -1,6 +1,12 @@
 * As an animator, I'd like to be able to create a team page, in order to vote
 ** DONE write the first step
 ** TODO fix the first step
+*** DONE create a homepage controller
+**** simply a static page*
+*** TODO create a session controller
+**** With team and user models ?
 ** TODO write the second step
 ** TODO fix the second step
+** TODO see if I can use something better than the form_tag in the homepage
 ** TODO extract constant for test team name
+** TODO see how to test the placeholders in the homepage form

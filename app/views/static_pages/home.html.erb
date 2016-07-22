@@ -1,2 +1,8 @@
 <h1>Philou's Planning Poker</h1>
-<p>Soon an app to do enable agile teams to do planning poker estimations remotely</p>
+<p>Soon an app to enable agile teams to do planning poker estimations remotely</p>
+
+<%= form_tag "#", id: "Session" do %>
+  <%= text_field_tag "Team", "", placeholder:"Your team" %>
+  <%= text_field_tag "Name", "", placeholder: "Your name" %>
+  <%= submit_tag "Enter" %>
+<% end %>

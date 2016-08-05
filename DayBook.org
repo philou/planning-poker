@@ -8,11 +8,11 @@
 ** DONE write the second step
 *** DONE install rspec
 *** DONE define the expectations
-** TODO fix the second step
-*** TODO create or find the team
-*** TODO create or find the team member
-*** TODO redirect to the team member view page
-*** TODO create the view for team member with the name and a string explaining the a vote can be started (and tested)
+** DONE fix the second step
+*** DONE create or find the team
+*** DONE create or find the team member
+*** DONE redirect to the team member view page
+*** DONE create the view for team member with the name and a string explaining the a vote can be started (and tested)
 ** TODO validate that there are team and member names in the html form
 ** TODO block unused resource routes
 ** TODO see if I can use something better than the form_tag in the homepage

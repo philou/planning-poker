@@ -2,10 +2,10 @@ Feature: Animator
 
   Scenario Outline: The first to enter a team page becomes the animator
 
-    When <Dude> is the first to enter the team space
-    Then <Dude> should become the animator
+    When <dude> is the first to enter the <team> space
+    Then <dude> should become the animator of the <team> session
 
-  Examples:
-  | Dude |
-  | Joe  |
-  | Kath |
+    Examples:
+    | dude | team    |
+    | Joe  | Daltons |
+    | Amy  | 27s     |

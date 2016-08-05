@@ -9,6 +9,7 @@ class TeamMembersController < ApplicationController
 
   def show
     @team_member = TeamMember.find(params['id'])
+    @team = @team_member.team
   end
 
 end

@@ -7,4 +7,5 @@ When(/^Joe is the first to enter the team space$/) do
     fill_in 'Name', :with => 'Joe'
   end
   click_button 'Enter'
+
 end

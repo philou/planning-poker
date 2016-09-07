@@ -1,25 +1,4 @@
 * As an animator, I'd like to be able to create a team page, in order to vote
-** DONE write the first step
-** DONE fix the first step
-*** DONE create a homepage controller
-**** simply a static page*
-*** DONE create a team member controller
-**** With team and user models ?
-** DONE write the second step
-*** DONE install rspec
-*** DONE define the expectations
-** DONE fix the second step
-*** DONE create or find the team
-*** DONE create or find the team member
-*** DONE redirect to the team member view page
-*** DONE create the view for team member with the name and a string explaining the a vote can be started (and tested)
-** DONE extract constant for test team name
-** DONE validate that there are team and member names in the html form
-*** DONE people name
-*** DONE team name
-** TODO block unused resource routes
-** TODO see if I can use something better than the form_tag in the homepage
-** TODO see if I can use something better than button_tag in the team_member page
-** TODO should I use a predefined regex for people name in step defs ?
-** TODO see how to test the placeholders in the homepage form
-** TODO see how spring for cucumber and rspec works inside a docker container
+** TODO Style with Bootstrap
+** TODO Deploy
+** TODO Tool overall design

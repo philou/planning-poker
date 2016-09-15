@@ -1,4 +1,4 @@
-Then(/^([^ ]+) should become the animator of the ([^ ]+) session$/) do | team_member_name, team_name |
+Then(/^"([^"]*)" should become the animator of the "([^"]*)" session$/) do | team_member_name, team_name |
 
   team = Team.find_by name: team_name
   team_member = TeamMember.find_by name: team_member_name, team: team

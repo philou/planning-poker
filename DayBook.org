@@ -1,17 +1,9 @@
-* As an animator, I'd like to be able to create a team page, in order to vote
-** DONE Style with Bootstrap
-** DONE Deploy
-*** DONE Fix the asset issue on heroku
-**** Somehow, we need to fix the RAILS_SERVE_STATIC_FILES on the heroku server
-**** see https://github.com/heroku/rails_12factor
-**** DONE set the env from docker-compose
-**** DONE remove the config from heroku, check that it is set when deployed,
-***** I did it, but it does not change anything in production
-**** DONE understand the asset pre-compilation, and how the refs are patched before deployment
-**** DONE understand how env variables are deployed through docker to heroku
-***** It seems heroku is not really deploying a container, but a slug built from the container ! https://github.com/heroku/heroku-container-tools/issues/142. That goes against the main point of docker !
-**** DONE I could add the variable to the Dockerfile
-***** same as docker-compose, does not work, the var is not pushed
-**** DONE reproduce the issue locally in production
-**** DONE fix it with an env var on heroku
-** TODO Fix empty name or team name error
+* As a team member, I'd like a nice error message when the names are empty, in order to know what's the issue
+** TODO empty team member
+*** DONE test
+*** TODO implement
+**** DONE do the redirect
+**** TODO add the error message
+**** TODO display the error message from the layout
+**** TODO make the code better
+** TODO empty team

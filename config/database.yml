@@ -9,9 +9,10 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: postgres
+  host: db
   port: 5432
-  host: herokuPostgresql
+  username: postgres
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 development:
   <<: *default
@@ -29,5 +30,4 @@ cucumber:
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-#  database: planning_poker_production
+  database: planning_poker_production

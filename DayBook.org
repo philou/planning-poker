@@ -1,9 +1,8 @@
-* As a team member, I'd like a nice error message when the names are empty, in order to know what's the issue
-** TODO empty team member
-*** DONE test
-*** TODO implement
-**** DONE do the redirect
-**** TODO add the error message
-**** TODO display the error message from the layout
-**** TODO make the code better
-** TODO empty team
+* Deploy to DigitalOcean
+** Make it work locally with a full docker setup
+*** Need to adapt unicorn vs puma
+*** If I have troubles later on, this should be a hint !
+*** DONE Make it start without nginx
+*** TODO Add nginx to the mix
+** Add a CI
+** Continuously deploy to Digital Ocean

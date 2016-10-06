@@ -1,11 +1,3 @@
-web:
+app:
   volumes:
-    - '.:/app/user'
-  environment:
-    RAILS_ENV: "${RAILS_ENV}"
-    DATABASE_URL:
-
-shell:
-  environment:
-    RAILS_ENV: "${RAILS_ENV}"
-    DATABASE_URL:
+    - '.:/var/www/planning-poker'

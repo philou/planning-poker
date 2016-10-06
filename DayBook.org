@@ -1,8 +1,10 @@
 * Deploy to DigitalOcean
-** Make it work locally with a full docker setup
-*** Need to adapt unicorn vs puma
-*** If I have troubles later on, this should be a hint !
+*** /!\ Need to adapt unicorn vs puma
+**** If I have troubles later on, this should be a hint !
+** DONE Make it work locally with a full docker setup
 *** DONE Make it start without nginx
-*** TODO Add nginx to the mix
-** Add a CI
-** Continuously deploy to Digital Ocean
+*** DONE Add nginx to the mix
+** TODO Add a CI
+** TODO Continuously deploy to Digital Ocean
+** TODO upgrade to ruby 2.3
+** TODO remove the version constraint on listen

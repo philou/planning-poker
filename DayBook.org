@@ -1,6 +1,6 @@
 * Deploy to DigitalOcean
-*** /!\ Need to adapt unicorn vs puma
-**** If I have troubles later on, this should be a hint !
+*** /!\ Might need to adapt unicorn vs puma
+*** /!\ Might need to give a real domain name to nginx.conf
 ** DONE Make it work locally with a full docker setup
 *** DONE Make it start without nginx
 *** DONE Add nginx to the mix

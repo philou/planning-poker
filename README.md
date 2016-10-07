@@ -1,5 +1,7 @@
 # Planning-Poker
 
+![CI Build Status Badge](https://circleci.com/gh/philou/planning-poker.png?circle-token=:circle-token)
+
 An app to do enable agile teams to do planning poker estimations remotely
 
 I host an instance on Heroku : https://philous-planning-poker.herokuapp.com/

@@ -4,7 +4,14 @@
 ** DONE Make it work locally with a full docker setup
 *** DONE Make it start without nginx
 *** DONE Add nginx to the mix
-** TODO Add a CI
+** DONE Add a CI
 ** TODO Continuously deploy to Digital Ocean
+*** DONE create all the files
+*** DONE create an account on docker hub
+*** DONE create a box on digital ocean and register the settings
+*** TODO submit and see
 ** TODO upgrade to ruby 2.3
 ** TODO remove the version constraint on listen
+** TODO see if it is still possible to simply deploy to heroku
+** TODO Fix the readme
+** TODO add a task to build a solid rollback

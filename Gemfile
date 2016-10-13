@@ -51,6 +51,9 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   gem 'rspec-rails'
+
+  # Use for docker deployment
+  gem 'sshkit'
 end
 
 group :test do

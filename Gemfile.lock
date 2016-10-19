@@ -130,6 +130,9 @@ GEM
     multi_json (1.12.1)
     multi_test (0.1.2)
     nenv (0.3.0)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.2.0)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -211,6 +214,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sshkit (1.11.3)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -256,6 +262,7 @@ DEPENDENCIES
   sass-rails
   spring
   spring-watcher-listen
+  sshkit
   therubyracer
   turbolinks
   tzinfo-data
@@ -263,4 +270,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.13.2
+   1.13.5

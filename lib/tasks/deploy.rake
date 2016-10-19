@@ -64,7 +64,7 @@ namespace :docker do
   task pull: 'docker:login' do
     on server do
       within deploy_path do
-        %w{dockerexample_web dockerexample_app}.each do |image_name|
+        %w{planningpoker_web planningpoker_app}.each do |image_name|
           execute 'docker', 'pull', "#{ENV['DOCKER_USER']}/#{image_name}:#{deploy_tag}"
         end
 

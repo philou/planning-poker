@@ -15,7 +15,7 @@ app:
   image: pbourgau/planningpoker_app:$DEPLOY_TAG
 
   # sources environment variable configuration for our app
-  # env_file: .env
+  env_file: .env
 
   # rely on the RAILS_ENV value of the host machine
   environment:

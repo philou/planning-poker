@@ -10,6 +10,6 @@
 *** DONE create an account on docker hub
 *** DONE create a box on digital ocean and register the settings
 *** DONE submit and see
-** TODO upgrade to ruby 2.3
+** DONE upgrade to ruby 2.3
 ** TODO remove the version constraint on listen
 ** TODO Fix the readme

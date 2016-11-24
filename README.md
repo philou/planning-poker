@@ -4,7 +4,7 @@
 
 An app to do enable agile teams to do planning poker estimations remotely
 
-I host an instance on Digital Ocean : http://104.131.47.10/
+I host an instance on Digital Ocean : http://philous-planning-poker.bourgau.net/
 
 ## How to hack it
 

@@ -1,15 +1,12 @@
-* Deploy to DigitalOcean
-*** DONE /!\ Might need to adapt unicorn vs puma
-*** /!\ Might need to give a real domain name to nginx.conf
-** DONE Make it work locally with a full docker setup
-*** DONE Make it start without nginx
-*** DONE Add nginx to the mix
-** DONE Add a CI
-** DONE Continuously deploy to Digital Ocean
-*** DONE create all the files
-*** DONE create an account on docker hub
-*** DONE create a box on digital ocean and register the settings
-*** DONE submit and see
-** DONE upgrade to ruby 2.3
-** TODO remove the version constraint on listen
-** TODO Fix the readme
+* TODO General site SEO
+** TODO Title
+*** DONE add a spec for the home page view
+*** DONE add spec rails for views
+*** DONE fix it
+*** DONE add rspec-guard
+*** TODO Do the same thing for the second view
+*** TODO fix it
+** TODO Description
+** TODO Keywords
+** TODO Favicon
+** TODO Layout

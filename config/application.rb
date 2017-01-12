@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module App
+module PhilousPlanningPoker
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -14,4 +14,6 @@ module App
 
     config.generators.test_framework :rspec
   end
+
+  TITLE = "Philou's Planning Poker"
 end

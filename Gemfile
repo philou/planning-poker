@@ -53,6 +53,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   gem 'rspec-rails'
+  gem 'capybara'
 
   # Use for docker deployment
   gem 'sshkit'

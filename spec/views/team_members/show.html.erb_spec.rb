@@ -20,6 +20,12 @@ describe "team_members/show" do
   it "provides an html description" do
     render
 
-    expect(view.content_for(:description)).to eq(CGI.escape_html("#{@member.name}'s view on the #{@team.name} planning poker session"))
+    expect(view.content_for(:description)).to include(@member.name).and include(@team.name)
+  end
+
+  it "provides html keywords" do
+    render
+
+    expect(view.content_for(:keywords)).to include(@member.name).and include(@team.name)
   end
 end

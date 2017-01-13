@@ -3,6 +3,7 @@
   <head>
     <title><%= yield(:title) %> | <%= PhilousPlanningPoker::TITLE %></title>
     <meta name="description" content="<%= yield(:description) %>" />
+    <meta name="keywords" content="<%= PhilousPlanningPoker::KEYWORDS %>, <%= yield(:keywords) %>" />
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>

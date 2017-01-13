@@ -18,4 +18,13 @@ describe "layouts/application" do
     expect(rendered).to have_css 'meta[name="description"][content="Test description"]', visible: false
   end
 
+  it "sets html keywords provided by individual views" do
+    keywords = "Test, Keyword"
+    view.content_for(:keywords) { keywords }
+
+    render
+
+    expect(rendered).to have_css "meta[name=\"keywords\"][content=\"#{PhilousPlanningPoker::KEYWORDS}, #{keywords}\"]", visible: false
+  end
+
 end

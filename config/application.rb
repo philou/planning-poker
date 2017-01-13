@@ -16,4 +16,5 @@ module PhilousPlanningPoker
   end
 
   TITLE = "Philou's Planning Poker"
+  KEYWORDS = "Planning Poker, Software Estimates, Work Estimates, Remote Team, Remote Planning Poker"
 end

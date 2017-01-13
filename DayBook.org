@@ -1,12 +1,15 @@
 * TODO General site SEO
-** TODO Title
+** DONE Title
 *** DONE add a spec for the home page view
 *** DONE add spec rails for views
 *** DONE fix it
 *** DONE add rspec-guard
-*** TODO Do the same thing for the second view
-*** TODO fix it
+*** DONE Do the same thing for the second view
+*** DONE fix it
 ** TODO Description
+*** DONE add tests
+*** DONE add code
+*** TODO add guard-notify
 ** TODO Keywords
 ** TODO Favicon
 ** TODO Layout

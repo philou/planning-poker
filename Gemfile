@@ -46,6 +46,8 @@ group :development do
   gem 'guard'
   gem 'guard-cucumber'
   gem 'guard-rspec', require: false
+
+  gem 'rails_real_favicon'
 end
 
 group :development, :test do

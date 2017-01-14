@@ -27,4 +27,10 @@ describe "layouts/application" do
     expect(rendered).to have_css "meta[name=\"keywords\"][content=\"#{PhilousPlanningPoker::KEYWORDS}, #{keywords}\"]", visible: false
   end
 
+  it "provides a favicon" do
+    render
+
+    expect(rendered).to have_css 'link[rel="icon"][type="image/png"][sizes="16x16"]', visible: false
+  end
+
 end

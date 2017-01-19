@@ -1,4 +1,19 @@
 * TODO late comers become voters
 ** DONE write cucumber scenarios
 ** TODO change something in the model so that we can identify who is the animator (vs voters)
+*** If no one is animator for the team, elect this member
+*** Should be some kind of optimistic lock to avoid race conditions
+*** Could be create as voter, then update animator = 1 where count(animators) == 0
+*** Otherwise, just add an animator id to the team table, locking will be more straightforward
+*** Could I use rails' sql dsl for that ?
+*** Also check if there is something for optimistic locking in rails
+*** Rails has something for optimistic locking, so it might work out of the box
+*** This needs to be tested accross different sessions
+*** TODO add a nullable 'animator_id' field to Team model, default it to null
+**** TODO model
+**** TODO migration
+*** TODO in team member controller, at create, upgrade the team mate to animator if there is no animator in the team
 ** TODO display a different page for voters and animators
+** TODO add a test to fail it with multiple sessions
+** TODO put in place some form of optimistic locking
+** TODO add a button to takeover animatorship

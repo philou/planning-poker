@@ -1,15 +1,4 @@
-* TODO General site SEO
-** DONE Title
-*** DONE add a spec for the home page view
-*** DONE add spec rails for views
-*** DONE fix it
-*** DONE add rspec-guard
-*** DONE Do the same thing for the second view
-*** DONE fix it
-** DONE Description
-*** DONE add tests
-*** DONE add code
-** DONE Keywords
-** TODO add guard-notify https://github.com/guard/guard/wiki/System-notifications
-** TODO Favicon
-** TODO Layout
+* TODO late comers become voters
+** DONE write cucumber scenarios
+** TODO change something in the model so that we can identify who is the animator (vs voters)
+** TODO display a different page for voters and animators

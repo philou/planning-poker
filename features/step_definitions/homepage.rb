@@ -1,4 +1,4 @@
-When(/^"([^"]*)" is the first to enter the "([^"]*)" space$/) do |team_member_name, team_name|
+Given(/^"([^"]*)" already entered the "([^"]*)" space$/) do |team_member_name, team_name|
 
   visit root_path
 
@@ -9,6 +9,14 @@ When(/^"([^"]*)" is the first to enter the "([^"]*)" space$/) do |team_member_na
   click_button 'Enter'
 
 end
+
+When(/^"([^"]*)" is the first to enter the "([^"]*)" space$/) do |team_member_name, team_name|
+  step "\"#{team_member_name}\" already entered the \"#{team_name}\" space"
+end
+When(/^"([^"]*)" enters the "([^"]*)" space$/) do |team_member_name, team_name|
+  step "\"#{team_member_name}\" already entered the \"#{team_name}\" space"
+end
+
 
 Then(/^he should see the error "([^"]*)"$/) do |error_message|
 

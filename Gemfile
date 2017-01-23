@@ -59,6 +59,8 @@ group :development, :test do
 
   # Use for docker deployment
   gem 'sshkit'
+
+  gem 'sqlite3'
 end
 
 group :test do

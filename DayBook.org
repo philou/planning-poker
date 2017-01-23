@@ -9,13 +9,19 @@
 *** Also check if there is something for optimistic locking in rails
 *** Rails has something for optimistic locking, so it might work out of the box
 *** This needs to be tested accross different sessions
-*** TODO add a nullable 'animator_id' field to Team model, default it to null
+*** DONE add a nullable 'animator_id' field to Team model, default it to null
 **** DONE model
 **** DONE migration
-**** TODO commit
-*** TODO in team member controller, at create, upgrade the team mate to animator if there is no animator in the team
+**** DONE commit
+** TODO in team member controller, at create, upgrade the team mate to animator if there is no animator in the team
+*** DONE add tests for existing post
+*** DONE add a transaction or something between tests to delete existing data from the db (why not use sqlite at the same time !)
+*** TODO add a test with a new team and member (needs previous action)
+*** TODO would it be simpler with rspec proxies ?
 ** TODO display a different page for voters and animators
+*** TODO add tests for show
 ** TODO add a test to fail it with multiple sessions
 ** TODO put in place some form of optimistic locking
 ** TODO add a button to takeover animatorship
 ** TODO how to run and access gem server through docker ?
+** TODO DB constraints on team(name), and team_members(name,team)

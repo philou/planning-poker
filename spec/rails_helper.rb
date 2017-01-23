@@ -23,9 +23,15 @@ require 'capybara/rails'
 #
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
+# In order to keep the same RAILS_ENV for rspec and cucumber,
+# patch the connection to use sqlite in memory when running rspec
+ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:')
+ActiveRecord::Schema.verbose = false
+load "#{Rails.root.to_s}/db/schema.rb" # use db agnostic schema by default
+
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
-ActiveRecord::Migration.maintain_test_schema!
+# ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

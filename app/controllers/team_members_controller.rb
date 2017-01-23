@@ -6,6 +6,11 @@ class TeamMembersController < ApplicationController
     team = Team.find_or_create_by(name: params['Team'])
     team_member = TeamMember.find_or_create_by(team: team, name: params['Name'])
 
+    if team.animator.nil?
+      team.animator = team_member
+      team.save
+    end
+
     redirect_to team_member
   end
 

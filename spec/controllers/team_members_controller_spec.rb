@@ -42,6 +42,24 @@ RSpec.describe TeamMembersController do
       expect(response).to redirect_to(team_member_path(joe))
     end
 
+    it "assigns the animator if there was none" do
+      post :create, params: {"Team" => "Daltons", "Name" => "Joe"}
+
+      daltons = Team.find_by(name: "Daltons")
+      expect(daltons.animator.name).to eq("Joe")
+    end
+
+    it "does not change the animator if there is already one" do
+      daltons = Team.create(name: "Daltons")
+      joe = TeamMember.create(name: "Joe", team: daltons)
+      daltons.animator = joe
+      daltons.save
+
+      post :create, params: {"Team" => "Daltons", "Name" => "Avrel"}
+
+      expect(Team.find_by(name: "Daltons").animator).to eq(joe)
+    end
+
   end
 
 end

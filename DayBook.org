@@ -13,13 +13,14 @@
 **** DONE model
 **** DONE migration
 **** DONE commit
-** TODO in team member controller, at create, upgrade the team mate to animator if there is no animator in the team
+** DONE in team member controller, at create, upgrade the team mate to animator if there is no animator in the team
 *** DONE add tests for existing post
 *** DONE add a transaction or something between tests to delete existing data from the db (why not use sqlite at the same time !)
-*** TODO add a test with a new team and member (needs previous action)
-*** TODO would it be simpler with rspec proxies ?
+*** DONE add a test with a new team and member (needs previous action)
 ** TODO display a different page for voters and animators
 *** TODO add tests for show
+** TODO setup FactoryGirl for testing
+** TODO would it be simpler with rspec proxies ?
 ** TODO add a test to fail it with multiple sessions
 ** TODO put in place some form of optimistic locking
 ** TODO add a button to takeover animatorship

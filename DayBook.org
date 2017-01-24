@@ -20,15 +20,24 @@
 ** DONE display a different page for voters and animators
 *** DONE add tests for show
 *** DONE create a new view
-** TODO add a test to fail it with multiple sessions
+** DONE add a test to fail it with multiple sessions
 *** What can happen ?
 **** 2 people get registered as animator
 **** the latest overwrites the first ... is this so much of an issue ?
 **** At worst, both are displayed as animators. that should be fixed
-*** TODO experiment with the console and rails' optimistic locking to make sure no one will break the thing
-*** TODO write a test on models to check that
-*** TODO add the fix to the code
+*** DONE experiment with the console and rails' optimistic locking to make sure no one will break the thing
+*** DONE write a test on models to check that
+*** DONE add the fix to the code
+**** DONE add a migration for lock_version column
+**** DONE move the code to the model
+**** DONE execute the update every time (skip the if) and catch the exception
+** TODO move to hexagonal model ?
+*** Moved the if_needed_pick_animator to Team. Great.
+*** I now have tests in controller which are redundant with the ones I should write in Team_spec.rb
+*** If the Team was well encapsulated, I could be sure that the only way to change it is through this method !
+*** => It would be better to move to hexagonal model !
 ** TODO setup FactoryGirl for testing
+** TODO Have a look at how to emit raw sql in rails (or using this sql ast Sylvain talked about)
 ** TODO Find a way to factorize code between voter / animator specs and views
 ** TODO would it be simpler with rspec proxies ?
 ** TODO add a button to takeover animatorship

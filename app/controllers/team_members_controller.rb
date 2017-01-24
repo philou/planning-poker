@@ -6,9 +6,7 @@ class TeamMembersController < ApplicationController
     team = Team.find_or_create_by(name: params['Team'])
     team_member = TeamMember.find_or_create_by(team: team, name: params['Name'])
 
-    if team.animator.nil?
-      team.update(animator: team_member)
-    end
+    team.if_needed_pick_animator(team_member)
 
     redirect_to team_member
   end

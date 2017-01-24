@@ -1,6 +1,6 @@
 * TODO late comers become voters
 ** DONE write cucumber scenarios
-** TODO change something in the model so that we can identify who is the animator (vs voters)
+** DONE change something in the model so that we can identify who is the animator (vs voters)
 *** If no one is animator for the team, elect this member
 *** Should be some kind of optimistic lock to avoid race conditions
 *** Could be create as voter, then update animator = 1 where count(animators) == 0
@@ -17,12 +17,21 @@
 *** DONE add tests for existing post
 *** DONE add a transaction or something between tests to delete existing data from the db (why not use sqlite at the same time !)
 *** DONE add a test with a new team and member (needs previous action)
-** TODO display a different page for voters and animators
-*** TODO add tests for show
-** TODO setup FactoryGirl for testing
-** TODO would it be simpler with rspec proxies ?
+** DONE display a different page for voters and animators
+*** DONE add tests for show
+*** DONE create a new view
 ** TODO add a test to fail it with multiple sessions
-** TODO put in place some form of optimistic locking
+*** What can happen ?
+**** 2 people get registered as animator
+**** the latest overwrites the first ... is this so much of an issue ?
+**** At worst, both are displayed as animators. that should be fixed
+*** TODO experiment with the console and rails' optimistic locking to make sure no one will break the thing
+*** TODO write a test on models to check that
+*** TODO add the fix to the code
+** TODO setup FactoryGirl for testing
+** TODO Find a way to factorize code between voter / animator specs and views
+** TODO would it be simpler with rspec proxies ?
 ** TODO add a button to takeover animatorship
+** TODO add DB primary key on team(name), and team_members(name,team)
 ** TODO how to run and access gem server through docker ?
-** TODO DB constraints on team(name), and team_members(name,team)
+** TODO Blog post update about how I setup sqlite3 in test

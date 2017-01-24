@@ -1,14 +1,13 @@
 require 'rails_helper'
 
-describe "team_members/show" do
+describe "team_members/voter" do
 
   before :each do
-    @team = Team.create!(name: "Mogwais")
-    @member = TeamMember.create!(name: "Gyzmo", team: @team)
+    @team = Team.create(name: "Mogwais")
+    @member = TeamMember.create(name: "Gyzmo", team: @team)
 
     assign(:team, @team)
     assign(:team_member, @member)
-
   end
 
   it "provides an html title" do
@@ -28,4 +27,11 @@ describe "team_members/show" do
 
     expect(view.content_for(:keywords)).to include(@member.name).and include(@team.name)
   end
+
+  it "states that the user is a voter" do
+    render
+
+    expect(rendered).to include("voter")
+  end
+
 end

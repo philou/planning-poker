@@ -16,6 +16,5 @@ end
 Then(/^"([^"]*)" should become a voter in the "([^"]*)" session$/) do |team_member_name, team_name|
   expect_to_be_on_team_member_page(team_member_name, team_name)
 
-  expect(page).to have_content('You are voter')
-  expect(page).to have_content('Nothing being voted currently')
+  expect(page).to have_content('You are a voter')
 end

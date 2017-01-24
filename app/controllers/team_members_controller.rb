@@ -7,8 +7,7 @@ class TeamMembersController < ApplicationController
     team_member = TeamMember.find_or_create_by(team: team, name: params['Name'])
 
     if team.animator.nil?
-      team.animator = team_member
-      team.save
+      team.update(animator: team_member)
     end
 
     redirect_to team_member
@@ -17,6 +16,12 @@ class TeamMembersController < ApplicationController
   def show
     @team_member = TeamMember.find(params['id'])
     @team = @team_member.team
+
+    if @team_member == @team.animator
+      render "animator"
+    else
+      render "voter"
+    end
   end
 
   private

@@ -62,4 +62,28 @@ RSpec.describe TeamMembersController do
 
   end
 
+  describe "GET show" do
+    render_views
+
+    it "displays the animator view if the team member is the animator" do
+      daltons = Team.create(name: "Daltons")
+      joe = TeamMember.create(name: "Joe", team: daltons)
+      daltons.update(animator: joe)
+
+      get :show, params: { id: joe }
+
+      expect(response.body).to include("animator").and include("Daltons").and include("Joe")
+    end
+
+    it "displays the voter view otherwise" do
+      daltons = Team.create(name: "Daltons")
+      avrel = TeamMember.create(name: "Avrel", team: daltons)
+
+      get :show, params: { id: avrel }
+
+      expect(response.body).to include("voter").and include("Daltons").and include("Avrel")
+    end
+
+  end
+
 end

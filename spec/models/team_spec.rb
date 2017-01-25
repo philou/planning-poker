@@ -41,5 +41,11 @@ describe Team do
     expect(@daltons.animator).not_to be(@avrell)
   end
 
+  it "knows if a member is animator" do
+    @daltons.animator = @joe
+
+    expect(@daltons.animator?(@joe)).to be true
+    expect(@daltons.animator?(@avrell)).to be false
+  end
 
 end

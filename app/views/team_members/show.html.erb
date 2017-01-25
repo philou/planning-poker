@@ -5,7 +5,17 @@
 <!-- Jumbotron will have to go when more behaviour is here -->
 <div class="center jumbotron">
   <h1>Welcome <%= @team_member.name %></h1>
-  <p>You are animator for the <%= @team.name %> team</p>
 
-  <%= button_tag 'Start Vote', class: "btn btn-default"  %>
+  <% if @team.animator?(@team_member) %>
+
+    <p>You are animator for the <%= @team.name %> team</p>
+    <%= button_tag 'Start Vote', class: "btn btn-default"  %>
+
+  <% else %>
+
+    <p>You are a voter for the <%= @team.name %> team</p>
+    <p>Nothing is being voted currently</p>
+
+  <% end %>
+
 </div>

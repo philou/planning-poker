@@ -1,4 +1,4 @@
-* TODO late comers become voters
+* DONE late comers become voters
 ** DONE write cucumber scenarios
 ** DONE change something in the model so that we can identify who is the animator (vs voters)
 *** If no one is animator for the team, elect this member
@@ -31,16 +31,38 @@
 **** DONE add a migration for lock_version column
 **** DONE move the code to the model
 **** DONE execute the update every time (skip the if) and catch the exception
-** TODO move to hexagonal model ?
+** DONE Find a way to factorize code between voter / animator specs and views
+* Next Stories
+** TODO how to run and access gem server through docker ?
+** TODO Blog post update about how I setup sqlite3 in test
+** TODO add a button to takeover animatorship
+* Smells
+** TODO TeamMember is painful to write. What about participant ?
+** TODO Tests are getting verbose
+*** TODO setup FactoryGirl for testing
+*** TODO would it be simpler with rspecproxies ?
+** TODO encapsulating models is difficult, should we move to hexagonal architecture ?
 *** Moved the if_needed_pick_animator to Team. Great.
 *** I now have tests in controller which are redundant with the ones I should write in Team_spec.rb
 *** If the Team was well encapsulated, I could be sure that the only way to change it is through this method !
 *** => It would be better to move to hexagonal model !
-** TODO setup FactoryGirl for testing
-** TODO Have a look at how to emit raw sql in rails (or using this sql ast Sylvain talked about)
-** TODO Find a way to factorize code between voter / animator specs and views
-** TODO would it be simpler with rspec proxies ?
-** TODO add a button to takeover animatorship
+*** il n'y a presque rien
+| team                    | team member |
+|-------------------------+-------------|
+| name                    | name        |
+| members                 | team        |
+| animator                |             |
+| if_needed_pick_animator |             |
+*** https://medium.com/@vsavkin/hexagonal-architecture-for-rails-developers-8b1fee64a613#.c2giyb3mh
+*** TODO move the save out of the if_needed_pick_animator method
+*** TODO go through the team instead of the TeamMember.find_or_create to build the team member<
+*** TODO extract a repository class for the loads
+*** TODO create wrappers around the
 ** TODO add DB primary key on team(name), and team_members(name,team)
-** TODO how to run and access gem server through docker ?
-** TODO Blog post update about how I setup sqlite3 in test
+** TODO The optimistic lock is not great, they could still have race conditions when getting out of the role of animator.
+*** TODO Have a look at how to emit raw sql in rails (or using this sql ast Sylvain talked about)
+** TODO There's an 'if' in the middle of the team_member/show view
+** TODO we could pass in just the team_member to the team_member/show view, and delegate all the rest to the model
+*** team_member.team_name
+*** team_member.animator?
+*** This would make the view depend on less things

@@ -12,4 +12,8 @@ class Team < ApplicationRecord
       reload
     end
   end
+
+  def animator?(team_member)
+    self.animator == team_member
+  end
 end

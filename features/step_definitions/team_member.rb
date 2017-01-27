@@ -18,3 +18,11 @@ Then(/^"([^"]*)" should become a voter in the "([^"]*)" session$/) do |team_memb
 
   expect(page).to have_content('You are a voter')
 end
+
+When(/^"([^"]*)" starts a vote$/) do |team_member_name|
+  team_member = TeamMember.find_by name: team_member_name
+
+  visit team_member_path(team_member)
+
+  click_button('Start Vote')
+end

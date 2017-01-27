@@ -1,46 +1,40 @@
-* DONE late comers become voters
-** DONE write cucumber scenarios
-** DONE change something in the model so that we can identify who is the animator (vs voters)
-*** If no one is animator for the team, elect this member
-*** Should be some kind of optimistic lock to avoid race conditions
-*** Could be create as voter, then update animator = 1 where count(animators) == 0
-*** Otherwise, just add an animator id to the team table, locking will be more straightforward
-*** Could I use rails' sql dsl for that ?
-*** Also check if there is something for optimistic locking in rails
-*** Rails has something for optimistic locking, so it might work out of the box
-*** This needs to be tested accross different sessions
-*** DONE add a nullable 'animator_id' field to Team model, default it to null
-**** DONE model
-**** DONE migration
-**** DONE commit
-** DONE in team member controller, at create, upgrade the team mate to animator if there is no animator in the team
-*** DONE add tests for existing post
-*** DONE add a transaction or something between tests to delete existing data from the db (why not use sqlite at the same time !)
-*** DONE add a test with a new team and member (needs previous action)
-** DONE display a different page for voters and animators
-*** DONE add tests for show
-*** DONE create a new view
-** DONE add a test to fail it with multiple sessions
-*** What can happen ?
-**** 2 people get registered as animator
-**** the latest overwrites the first ... is this so much of an issue ?
-**** At worst, both are displayed as animators. that should be fixed
-*** DONE experiment with the console and rails' optimistic locking to make sure no one will break the thing
-*** DONE write a test on models to check that
-*** DONE add the fix to the code
-**** DONE add a migration for lock_version column
-**** DONE move the code to the model
-**** DONE execute the update every time (skip the if) and catch the exception
-** DONE Find a way to factorize code between voter / animator specs and views
+* TODO Start Vote + Countdown. Aka : distributed countdown
+** Should the voters see the countdown ? Would be nice
+** Careful about international times : could be a second story
+** Just show the countdown in fact, no need for the possibility to vote yet. It's a distributed countdown in fact
+** How long the countdown ? 10s, we'll see later
+** for the animator : when I click start vote, I should see a countdown from 10s to 0s
+** for the voters : when animator starts the vote, I should see a countdown from ~10s to 0s + a mention that a vote is running
+** How to do that
+*** animator : simple, a bit of js
+*** voters
+**** When the animator starts, he should send something to the server
+**** the server will notify voters
+**** the voters must be listening for such a message in order to display the countdown
+**** the animator could display his countdown the same way as any voter (through server back and forth, this would allow the server to fix the end time)
+*** from a DB point of view, we can have fields for current-vote in the Team table. This might be another case for more DDD
+*** testing
+**** js and UI
+**** if we use selenium and a headless browser, we can e2e test the animator alone, and a voter alone by mimicking an animator start vote command
+**** js unit tests
+** TODO Write 2 cucumber tests
+** TODO plug in Selenium to test drive
+** TODO see if headless required for CI, do it, otherwise, postpone for later story
+** TODO the notification from the animator
+** TODO handling the request and sending an event to the participants
+** TODO Subscribe to the event from the client
+** TODO display a countdown in the client
 * Next Stories
-** TODO how to run and access gem server through docker ?
-** TODO Blog post update about how I setup sqlite3 in test
-** TODO add a button to takeover animatorship
 * Smells
+** TODO should the smells be somewhere in the code ? could a static code analysis tool list them for me ? Code Climate
+*** TODO we could use other badges on top of the readme (check rubocop)
+** TODO fix warnings in cucumber
 ** TODO TeamMember is painful to write. What about participant ?
-** TODO Tests are getting verbose
-*** TODO setup FactoryGirl for testing
-*** TODO would it be simpler with rspecproxies ?
+** TODO There's an 'if' in the middle of the team_member/show view
+** TODO we could pass in just the team_member to the team_member/show view, and delegate all the rest to the model
+*** team_member.team_name
+*** team_member.animator?
+*** This would make the view depend on less things
 ** TODO encapsulating models is difficult, should we move to hexagonal architecture ?
 *** Moved the if_needed_pick_animator to Team. Great.
 *** I now have tests in controller which are redundant with the ones I should write in Team_spec.rb
@@ -58,11 +52,12 @@
 *** TODO go through the team instead of the TeamMember.find_or_create to build the team member<
 *** TODO extract a repository class for the loads
 *** TODO create wrappers around the
+** TODO Tests are getting verbose
+*** TODO setup FactoryGirl for testing
+*** TODO would it be simpler with rspecproxies ?
 ** TODO add DB primary key on team(name), and team_members(name,team)
 ** TODO The optimistic lock is not great, they could still have race conditions when getting out of the role of animator.
 *** TODO Have a look at how to emit raw sql in rails (or using this sql ast Sylvain talked about)
-** TODO There's an 'if' in the middle of the team_member/show view
-** TODO we could pass in just the team_member to the team_member/show view, and delegate all the rest to the model
-*** team_member.team_name
-*** team_member.animator?
-*** This would make the view depend on less things
+** TODO no static code analysis or coverage
+*** Add Rubocop and guard-rubocop
+** TODO fix `rake cucumber`

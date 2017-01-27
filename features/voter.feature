@@ -12,3 +12,11 @@ Feature: Voter
     And "William" already entered the "Daltons" space
     When "Avrell" enters the "Daltons" space
     Then "Avrell" should become a voter in the "Daltons" session
+
+  @wip
+  Scenario: A vote was started
+
+    Given "Joe" already entered the "Daltons" space
+    And "William" already entered the "Daltons" space
+    When "Joe" starts a vote
+    Then "William" should see a countdown start

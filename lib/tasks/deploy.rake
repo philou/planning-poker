@@ -17,8 +17,16 @@ deploy_path = ENV['DEPLOY_PATH'] || "/home/#{ENV['SERVER_USER']}"
 server = SSHKit::Host.new hostname: ENV['SERVER_HOST'], port: ENV['SERVER_PORT'], user: ENV['SERVER_USER']
 
 namespace :deploy do
+
+  desc "create the deploy dir"
+  task :create_deploy_dir do
+    on server do
+      execute "mkdir --parent #{deploy_path}"
+    end
+  end
+
   desc 'copy to server files needed to run and manage Docker containers'
-  task :configs do
+  task configs: 'deploy:create_deploy_dir' do
     on server do
       upload! File.expand_path('../../config/containers/docker-compose.production.yml', __dir__), deploy_path
     end
@@ -27,7 +35,7 @@ end
 
 namespace :docker do
   desc 'logs into Docker Hub for pushing and pulling'
-  task :login do
+  task login: 'deploy:create_deploy_dir' do
     on server do
       within deploy_path do
         execute 'docker', 'login', '-e' , ENV['DOCKER_EMAIL'], '-u', ENV['DOCKER_USER'], '-p', "'#{ENV['DOCKER_PASS']}'"

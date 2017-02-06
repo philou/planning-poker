@@ -3,7 +3,21 @@
 FROM ruby:2.4.0-slim
 
 # Install essential Linux packages
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev postgresql-client libsqlite3-dev
+RUN \
+  apt-get update && \
+  apt-get upgrade -y && \
+  apt-get install -y build-essential libpq-dev postgresql-client libsqlite3-dev && \
+  apt-get install -y wget libfreetype6 libfontconfig bzip2
+
+
+# Install phanton js (https://hub.docker.com/r/cmfatih/phantomjs/~/dockerfile/, https://gist.github.com/jakemauer/99227bc5f7c0fef375f2, https://gist.github.com/julionc/7476620)
+ENV PHANTOMJS_VERSION 2.1.1
+RUN \
+  wget -q --no-check-certificate -O /tmp/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 && \
+  tar -xjf /tmp/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 -C /tmp && \
+  rm -f /tmp/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 && \
+  mv /tmp/phantomjs-$PHANTOMJS_VERSION-linux-x86_64/ /usr/local/share/phantomjs && \
+  ln -s /usr/local/share/phantomjs/bin/phantomjs /usr/local/bin/phantomjs
 
 # Define where our application will live inside the image
 ENV RAILS_ROOT /var/www/planning-poker

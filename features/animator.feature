@@ -11,6 +11,7 @@ Feature: Animator
     | Amy  | 27s     |
 
   @wip
+  @javascript
   Scenario: The animator can start a vote
 
     Given "Amy" already entered the "27s" space

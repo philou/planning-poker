@@ -19,7 +19,7 @@
 **** js unit tests
 ** DONE Write 2 cucumber tests
 ** DONE update the gems (and check if rake cucumber stops emitting warnings)
-** TODO fix the CI
+** DONE fix the CI
 *** DONE try to rebuild
 *** DONE Add traces to docker deploy
 *** DONE log in the server and try to run it by hand
@@ -27,11 +27,24 @@
 *** DONE create a new server, can I reset the server from DigitalOcean ?
 **** DONE Reset the server
 **** DONE add the credentials for access
-*** TODO Create the dir or ls on the server
-*** TODO create the dir from the script ?
-** TODO plug in Selenium to test drive
-** TODO see if headless required for CI, do it, otherwise, postpone for later story
+*** DONE Follow my own guide
+*** DONE need to increase the server's memory
+** TODO plug in phantom js to test drive
+*** TODO mark specs as @javascript
+*** TODO set the js driver in capybara to poltergeist (there are web pages explaining the options)
+*** TODO write the test
 ** TODO Subscribe to the event from the client
+*** This link might be helpful : particularly the section on targeted changes https://blog.codeship.com/unobtrusive-javascript-via-ajax-rails/
+*** Another https://coderwall.com/p/kqb3xq/rails-4-how-to-partials-ajax-dead-easy for links it's just partials + the remote:true option
+*** What about ajax at page load ?
+*** This one uses direct jQuery, but seems a bit old (2013) http://stackoverflow.com/questions/6214201/best-practices-for-loading-page-content-via-ajax-request-in-rails3
+*** There is ActionCable + Redis + Devise which allows to send notifications between users https://gist.github.com/excid3/4ca7cbead79f06365424b98fa7f8ecf6
+*** The rails guide on action cable is the thing http://edgeguides.rubyonrails.org/action_cable_overview.html#dependencies
+*** TODO try to scratch out something locally using async
+**** TODO will I need devise ?
+*** TODO try to do something using the postgre adapter on a real prod like env
+**** TODO if that does not work, then postpone the story, migrate to heroku and redis first
+*** TODO do the real subscription
 ** TODO send the command from the animator
 ** TODO handling the request and sending an event to the participants
 ** TODO display a countdown in the client
@@ -47,7 +60,16 @@
 *** team_member.team_name
 *** team_member.animator?
 *** This would make the view depend on less things
-** TODO *OFFLINE* encapsulating models is difficult, should we move to hexagonal architecture ?
+** TODO Tests are getting verbose
+*** TODO setup FactoryGirl for testing
+*** TODO would it be simpler with rspecproxies ?
+** TODO add DB primary key on team(name), and team_members(name,team)
+** TODO The optimistic lock is not great, they could still have race conditions when getting out of the role of animator.
+*** TODO Have a look at how to emit raw sql in rails (or using this sql ast Sylvain talked about)
+** TODO no static code analysis or coverage
+*** Add Rubocop and guard-rubocop
+** TODO fix `rake cucumber`
+** TODO *OFFLINE* *DDD* encapsulating models is difficult, should we move to hexagonal architecture ?
 *** Moved the if_needed_pick_animator to Team. Great.
 *** I now have tests in controller which are redundant with the ones I should write in Team_spec.rb
 *** If the Team was well encapsulated, I could be sure that the only way to change it is through this method !
@@ -64,21 +86,49 @@
 *** TODO go through the team instead of the TeamMember.find_or_create to build the team member<
 *** TODO extract a repository class for the loads
 *** TODO create wrappers around the
-** TODO Tests are getting verbose
-*** TODO setup FactoryGirl for testing
-*** TODO would it be simpler with rspecproxies ?
-** TODO add DB primary key on team(name), and team_members(name,team)
-** TODO The optimistic lock is not great, they could still have race conditions when getting out of the role of animator.
-*** TODO Have a look at how to emit raw sql in rails (or using this sql ast Sylvain talked about)
-** TODO no static code analysis or coverage
-*** Add Rubocop and guard-rubocop
-** TODO fix `rake cucumber`
 * Retrospective
+** 2017/01/27
 | mad                                | sad                      | glad                                |
 |------------------------------------+--------------------------+-------------------------------------|
 | battery down in the evening        | really need a new laptop | progressing, v1 end of feb          |
 | no internet in the train blocks me | my ci is red !           | interest in my docker/ruby articles |
 |                                    |                          | new idea for smells / debt          |
 |                                    |                          | place in the train to use my laptop |
-** battery out : charge at work, buy a mac
-** no internet : keep some straightforward refactorings to do in the train
+*** battery out : charge at work, buy a mac
+*** no internet : keep some straightforward refactorings to do in the train
+** 2017/02/01
+| mad                                    | sad                                  | glad                                     |
+|----------------------------------------+--------------------------------------+------------------------------------------|
+| Docker server is taking me some time ! | Warnings !                           | Deadline (~3months) forces to do choices |
+|                                        | Did not do anything on the app yet ! | Ideas to start the book                  |
+|                                        |                                      |                                          |
+*** What am I getting from docker server ?
+**** + learning troubleshooting
+***** Is that enough to get a job or put it on my CV ?
+***** Would a 20h workshop be more efficient ?
+***** Is it only for the sake of calming my learning angoisse ?
+**** - Lots of headaches that I could have solved directly with heroku for example
+***** Heroku does not provide docker support
+***** I guess I could create my own docker config alongside heroku's to have something similar enough
+***** What about the CI ?
+****** There must be a standard CI for open source projects Travis, circle CI, or Codeship
+*** I need to choose between learning vs doing !
+*** Even learning must be targeted to a single topic
+**** If planning-poker is dedicated to learning, I should focus on a single step at a time
+**** No need to add learning for things I don't need
+***** Docker production (ops ...) Heroku can do
+***** Docker as a dev is a way to go faster, I should keep that !
+***** 1st brush up my rails
+***** 2nd Bootstrap, CSS
+***** 3rd DDD rails
+***** 4th React
+*** I must start to think as an entrepreneur, and not as a developer anymore
+**** programming is fun, but cannot do everything myself !
+**** I should use as many (paying or free) services as possible
+**** could even outsource some programming !
+**** I could plan dedicated learning time and topics learning time in my schedule (ex 2h/week, 10 weeks) 20%
+**** or I could just insert some 20h (~ 2 weeks) things in my priorities, for example, after every 8 weeks (2 months), for 20%
+**** what's for the business vs efficient slack time
+*** I should plan / timebox to 3 months at a time
+**** Can build something in 3 months
+**** fits a 20h learning iteration as well

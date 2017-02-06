@@ -55,6 +55,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    cliver (0.3.2)
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -152,6 +153,10 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     pg (0.19.0)
+    poltergeist (1.13.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -290,6 +295,7 @@ DEPENDENCIES
   jquery-rails
   listen
   pg
+  poltergeist
   puma
   rails (>= 5.0.0.rc1)
   rails_real_favicon
@@ -306,7 +312,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.4.0p0
 
 BUNDLED WITH
-   1.14.2
+   1.14.3

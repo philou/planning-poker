@@ -29,10 +29,10 @@
 **** DONE add the credentials for access
 *** DONE Follow my own guide
 *** DONE need to increase the server's memory
-** TODO plug in phantom js to test drive
-*** TODO mark specs as @javascript
-*** TODO set the js driver in capybara to poltergeist (there are web pages explaining the options)
-*** TODO write the test
+** DONE plug in phantom js to test drive
+*** DONE mark specs as @javascript
+*** DONE set the js driver in capybara to poltergeist (there are web pages explaining the options)
+*** DONE write the test
 ** TODO Subscribe to the event from the client
 *** This link might be helpful : particularly the section on targeted changes https://blog.codeship.com/unobtrusive-javascript-via-ajax-rails/
 *** Another https://coderwall.com/p/kqb3xq/rails-4-how-to-partials-ajax-dead-easy for links it's just partials + the remote:true option

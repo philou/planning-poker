@@ -27,11 +27,17 @@ When(/^"([^"]*)" starts a vote$/) do |team_member_name|
   click_button('Start Vote')
 end
 
-Then(/^"([^"]*)" should see a countdown start$/) do |team_member|
+Then(/^"([^"]*)" should see a countdown start$/) do |team_member_name|
+  team_member = TeamMember.find_by name: team_member_name
+  visit team_member_path(team_member)
+
+  expect(page).to have_selector('#voteCountdown', visible: true)
+
   pending # Write code here that turns the phrase above into concrete actions
 
-  # check that there is a countdown or a progress bar or whatever
-  #   a progress bar with a special ID
+  # check a status of whatever to make sure it is decreasing
+
+  # TODO check in specs
   # check that it goes down
   #   check later, and verify that the position has decreased
   # check that it stops at 0

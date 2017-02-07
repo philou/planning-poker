@@ -30,6 +30,10 @@ db:
   volumes:
     - planning-poker-postgres:/var/lib/postgresql/data
 
+  # expose the port we configured Postgre to bind to
+  ports:
+    - "127.0.0.1:5432:5432"
+
 # service configuration for our web server
 web:
 

@@ -13,18 +13,45 @@ This project uses docker, docker-compose. All you need to do is to install these
 * https://docs.docker.com/engine/installation/
 * https://docs.docker.com/compose/install/
 
+#### Sources
+
 First, clone the repo :
 ```
 git clone https://github.com/philou/planning-poker.git
-```
-
-Run it locally
-```
 cd planning-poker
-docker-compose build
-docker-compose run app bundle exec rake db:create
-docker-compose run app bundle exec rake db:migrate
-docker-compose up
 ```
 
-Check that it's running at http://0.0.0.0:80
+#### Dependencies
+
+They are managed with bundler. Just run the following :
+```
+bundle install
+```
+bundle might complain that some dependencies are missing on your OS, in this case follow its advices and install them.
+
+#### Database
+
+There is a docker compose configuration to start services dependencies. You can either use docker, or start the db yourself. Here is the docker way.
+
+You'll need to have docker and docker compose installed :
+
+* https://docs.docker.com/engine/installation/
+* https://docs.docker.com/compose/install/
+
+Then, run the following to create the database :
+
+```
+docker-compose up
+bundle exec rake db:create
+bundle exec rake db:migrate
+```
+
+#### Local run
+
+The db should be started from previous step. Start the rails server the typical way
+
+```
+bundle exec bin/rails server
+```
+
+Check that it's running at http://localhost:3000

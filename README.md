@@ -1,6 +1,6 @@
 # Planning-Poker
 
-![CI Build Status Badge](https://circleci.com/gh/philou/planning-poker.png?circle-token=:circle-token)
+![CI Build Status Badge](https://api.travis-ci.org/philou/planning-poker.svg?branch=master)
 
 An app to do enable agile teams to do planning poker estimations remotely
 

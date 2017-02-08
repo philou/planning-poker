@@ -25,11 +25,7 @@ default: &default
 
 development:
   <<: *default
-<<<<<<< HEAD
-  host: db
-=======
   host: localhost
->>>>>>> dockerless-dev
   database: planning_poker_development
 
 # Warning: The database defined as "test" will be erased and

@@ -59,9 +59,6 @@ group :development, :test do
   gem 'capybara'
   gem 'poltergeist'
 
-  # Use for docker deployment
-  gem 'sshkit'
-
   gem 'sqlite3'
 end
 

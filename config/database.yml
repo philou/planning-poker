@@ -25,7 +25,11 @@ default: &default
 
 development:
   <<: *default
+<<<<<<< HEAD
   host: db
+=======
+  host: localhost
+>>>>>>> dockerless-dev
   database: planning_poker_development
 
 # Warning: The database defined as "test" will be erased and
@@ -33,6 +37,7 @@ development:
 # Do not set this db to the same as development or production.
 test: &test
   <<: *default
+  host: localhost
   database: planning_poker_test
 
 cucumber:

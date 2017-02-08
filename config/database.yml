@@ -9,13 +9,13 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
-  host: db
   port: 5432
   username: postgres
   password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 development:
   <<: *default
+  host: db
   database: planning_poker_development
 
 # Warning: The database defined as "test" will be erased and
@@ -30,4 +30,5 @@ cucumber:
 
 production:
   <<: *default
+  host: db
   database: planning_poker_production

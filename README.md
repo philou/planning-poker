@@ -4,7 +4,7 @@
 
 An app to do enable agile teams to do planning poker estimations remotely
 
-I host an instance on Digital Ocean : http://philous-planning-poker.bourgau.net/
+An instance is continuously deployed to heroku : https://philous-planning-poker.herokuapp.com/
 
 ## How to hack it
 

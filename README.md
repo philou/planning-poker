@@ -8,11 +8,6 @@ An instance is continuously deployed to heroku : https://philous-planning-poker.
 
 ## How to hack it
 
-This project uses docker, docker-compose. All you need to do is to install these 2 :
-
-* https://docs.docker.com/engine/installation/
-* https://docs.docker.com/compose/install/
-
 #### Sources
 
 First, clone the repo :

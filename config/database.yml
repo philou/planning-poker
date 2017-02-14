@@ -19,13 +19,13 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
+  host: localhost
   port: 5432
   username: postgres
   password: <%= ENV['POSTGRES_PASSWORD'] %>
 
 development:
   <<: *default
-  host: localhost
   database: planning_poker_development
 
 # Warning: The database defined as "test" will be erased and
@@ -33,13 +33,13 @@ development:
 # Do not set this db to the same as development or production.
 test: &test
   <<: *default
-  host: localhost
   database: planning_poker_test
 
 cucumber:
   <<: *test
 
 # On heroku, all this is overriden by ENV["DATABASE_URL"] (https://devcenter.heroku.com/articles/rails-database-connection-behavior#rails-4-1-and-beyond)
+# This is a local setup for a local production run
 production:
   <<: *default
   database: planning_poker_production

@@ -195,6 +195,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+    redis (3.3.3)
     ref (2.0.0)
     rest-client (2.0.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -293,6 +294,7 @@ DEPENDENCIES
   puma
   rails (>= 5.0.0.rc1)
   rails_real_favicon
+  redis (~> 3.0)
   rspec-rails
   sass-rails
   spring

@@ -40,20 +40,74 @@
 *** This one uses direct jQuery, but seems a bit old (2013) http://stackoverflow.com/questions/6214201/best-practices-for-loading-page-content-via-ajax-request-in-rails3
 *** There is ActionCable + Redis + Devise which allows to send notifications between users https://gist.github.com/excid3/4ca7cbead79f06365424b98fa7f8ecf6
 *** The rails guide on action cable is the thing http://edgeguides.rubyonrails.org/action_cable_overview.html#dependencies
-*** TODO try to scratch out something locally using async
-**** TODO will I need devise ?
-*** TODO try to do something using the postgre adapter on a real prod like env
-**** TODO if that does not work, then postpone the story, migrate to heroku and redis first
+*** DONE try to scratch out something locally using async
+**** DONE Create a global broadcast stream
+***** Does not work yet !
+***** DONE use main machine instead of container
+***** DONE keep this in 2 new branches
+***** DONE try ActionCable now
+**** DONE Subscribe to it from the client
+**** DONE Broadcast a message
+**** DONE merge the action-cable-scratch branch (without commit)
+**** DONE Subscribe only after team identification
+**** DONE Define a team specific stream
+**** DONE action for start vote that broadcasts
+**** DONE remove the start method from the channel
+**** will I need devise ? Don't think so
+**** DONE commiter dans une branche en dehors
+*** DONE Setup redis
+**** DONE add something in local prod env
+***** DONE start redis from docker-compose up
+***** DONE try to start the server in prod env
+***** RAILS_ENV=production bundle exec rake db:create
+***** RAILS_ENV=production bundle exec rake db:migrate
+***** RAILS_ENV=production bundle exec rake assets:precompile
+***** RAILS_ENV=production SECRET_KEY_BASE=39159cdda6322550dc58f34e170e2146ec1527f560e36690632ffe5a54595cec091ece710d8271cc1bfb70fcf403098093afcdfa59d1faab3cde641a9443f1c4 RAILS_SERVE_STATIC_FILES=true bundle exec bin/rails server
+***** DONE what about redis_url? when blank, REDIS_URL defaults to redis://localhost:6379
+**** DONE see how it works on heroku, prepare the config
+**** DONE what happens when I push another branch than master and it gets built by travis ? travis does not push, nice travis
 *** TODO do the real subscription
+**** DONE Create a channel
+***** DONE generation is easy
+***** DONE how to test ?
+****** I can call subscribed method directly with given arguments and check the expected channel name ?
+****** Will test through cucumber
+**** TODO subscribe from javascript in team_member view
+***** TODO how to use unobstrusive js ?
+****** TODO add link for great tuto by brandon Hickler (check phone history) in the application.js
+****** TODO try to open a popup at team_member view opening
+***** TODO how to test that ?
+****** DONE install a good js test framework : used teaspoon
+****** DONE make it work
+****** TODO inject a fake channel (minimal for the moment, no stupid mock)
+****** TODO test the js
 ** TODO send the command from the animator
+*** TODO have a Team or TeamVote resource
 ** TODO handling the request and sending an event to the participants
 ** TODO display a countdown in the client
 * Next Stories
+** TODO upgrade postgresql to use the same version as on heroku
+** TODO setup a helper sh file at repo root "./prod_env.sh bundle exec ..."
+*** with this in comment
+**** RAILS_ENV=production bundle exec rake db:create
+**** RAILS_ENV=production bundle exec rake db:migrate
+**** RAILS_ENV=production bundle exec rake assets:precompile
+**** when blank, REDIS_URL defaults to redis://localhost:6379
+*** with this as command
+**** RAILS_ENV=production SECRET_KEY_BASE=39159cdda6322550dc58f34e170e2146ec1527f560e36690632ffe5a54595cec091ece710d8271cc1bfb70fcf403098093afcdfa59d1faab3cde641a9443f1c4 RAILS_SERVE_STATIC_FILES=true bundle exec bin/rails server
+** TODO add a blog post of why I moved back to travis, heroku and dev machine. Where I still use docker
+** TODO blog post about testing and action cable, links to the upcoming commits, that mocking does not work
 * Smells
+** TODO remove .env
+** TODO fix version warnings (or silence them temporarily) when starting the rails env
+*** TODO could have a sed script that shows warnings in light grey
+** TODO fix cucumber warnings in `bundle exec rake`
+*** DONE try to update the gems, did not work
+*** DONE try to uninstall default json, did not work
+*** TODO wait for fix in json gem
 ** TODO should the smells be somewhere in the code ? could a static code analysis tool list them for me ? Code Climate
 *** TODO we could use other badges on top of the readme (check rubocop)
-** TODO fix cucumber warnings in `bundle exec rake`
-*** try to update the gems
+*** use TODO, FIXME and OPTIMIZE comments, and the rake notes task
 ** TODO *OFFLINE* TeamMember is painful to write. What about participant ?
 ** TODO *OFFLINE* There's an 'if' in the middle of the team_member/show view
 ** TODO *OFFLINE* we could pass in just the team_member to the team_member/show view, and delegate all the rest to the model

@@ -49,6 +49,7 @@ group :development do
   gem 'guard'
   gem 'guard-cucumber'
   gem 'guard-rspec', require: false
+  gem 'guard-teaspoon'
 
   gem 'rails_real_favicon'
 end
@@ -60,6 +61,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'poltergeist'
+  gem 'teaspoon-jasmine'
 
   gem 'sqlite3'
 end

@@ -4,5 +4,3 @@ class AddAnimatorRefToTeam < ActiveRecord::Migration[5.0]
     add_foreign_key :teams, :team_members, column: :animator_id
    end
 end
-
-# TODO gemserver through docker

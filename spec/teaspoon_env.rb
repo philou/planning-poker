@@ -34,6 +34,7 @@ Teaspoon.configure do |config|
     # Note: If no version is specified, the latest is assumed.
     #
     # Versions: 1.3.1, 2.0.3, 2.1.3, 2.2.0, 2.2.1, 2.3.4
+    # TODO update jasmine test framework version
     suite.use_framework :jasmine, "2.3.4"
 
     # Specify a file matcher as a regular expression and all matching files will be loaded when the suite is run. These

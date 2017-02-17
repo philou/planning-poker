@@ -1,9 +1,8 @@
 db:
 
-  # use the preferred version of the official Postgres image
-  # see https://hub.docker.com/_/postgres/
   # /!\ DUPLICATED in .travis.yml
-  # (2017/02/17) /!\ Heroku uses 9.5.4
+  # (2017/02/17) Heroku uses 9.5.4
+  # TODO upgrade postgresql to the same as Heroku
   image: postgres:9.4.5
 
   volumes:

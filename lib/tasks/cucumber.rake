@@ -50,6 +50,8 @@ begin
       end
     end
   end
+
+  # FIXME this task systematically fails
   desc 'Alias for cucumber:ok'
   task :cucumber => 'cucumber:ok'
 

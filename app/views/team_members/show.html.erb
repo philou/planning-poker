@@ -6,6 +6,7 @@
 <div class="center jumbotron">
   <h1>Welcome <%= @team_member.name %></h1>
 
+  <% # TODO get rid of this 'if' %>
   <% if @team.animator?(@team_member) %>
 
     <p>You are animator for the <%= @team.name %> team</p>

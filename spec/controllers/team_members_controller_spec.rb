@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# TODO use FactoryGirl to simplify the data setup.
 RSpec.describe TeamMembersController do
 
   describe "POST create" do
@@ -49,6 +50,7 @@ RSpec.describe TeamMembersController do
       expect(daltons.animator.name).to eq("Joe")
     end
 
+    # TODO move to an hexagonal architecture in order to encapsulate team.animator= this would ensure a unique way to update the animator, and we could remove this almost duplicated test
     it "does not change the animator if there is already one" do
       daltons = Team.create(name: "Daltons")
       joe = TeamMember.create(name: "Joe", team: daltons)

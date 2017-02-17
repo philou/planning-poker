@@ -50,7 +50,7 @@ RSpec.describe TeamMembersController do
       expect(daltons.animator.name).to eq("Joe")
     end
 
-    # TODO move to an hexagonal architecture in order to encapsulate team.animator= this would ensure a unique way to update the animator, and we could remove this almost duplicated test
+    # TODO move to an hexagonal architecture in order to encapsulate team.animator= this would ensure a unique way to update the animator, and we could remove this almost duplicated test https://medium.com/@vsavkin/hexagonal-architecture-for-rails-developers-8b1fee64a613#.c2giyb3mh
     it "does not change the animator if there is already one" do
       daltons = Team.create(name: "Daltons")
       joe = TeamMember.create(name: "Joe", team: daltons)

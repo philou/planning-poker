@@ -42,4 +42,10 @@ describe "team_members/show" do
 
     expect(rendered).to include("voter")
   end
+
+  it "provides the team name as body data attributes" do
+    render
+
+    expect(view.content_for(:extra_body_attributes)).to eq("data-team-name=\"#{@team.name}\"")
+  end
 end

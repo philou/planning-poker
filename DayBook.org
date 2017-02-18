@@ -73,73 +73,32 @@
 ****** I can call subscribed method directly with given arguments and check the expected channel name ?
 ****** Will test through cucumber
 **** TODO subscribe from javascript in team_member view
-***** TODO how to use unobstrusive js ?
-****** TODO add link for great tuto by brandon Hickler (check phone history) in the application.js
-****** TODO try to open a popup at team_member view opening
-***** TODO how to test that ?
+***** DONE how to test the js
 ****** DONE install a good js test framework : used teaspoon
 ****** DONE make it work
+***** DONE how to use unobstrusive js ?
+****** DONE add link for great tuto by brandon Hickler (check phone history) in the application.js
+****** DONE try to open a popup at team_member view opening
+***** DONE add controller and action to the layout
+***** DONE add page specific data to the body in the layout
+***** TODO add team name data from the team_members view
+***** TODO understand what to do with the js tooltip
+***** TODO run `rake teaspoon` from `rake`
+***** TODO do the actual subscription
 ****** TODO inject a fake channel (minimal for the moment, no stupid mock)
 ****** TODO test the js
+***** TODO Fix the port conflict with rails server
 ** TODO send the command from the animator
 *** TODO have a Team or TeamVote resource
 ** TODO handling the request and sending an event to the participants
 ** TODO display a countdown in the client
 * Next Stories
-** TODO upgrade postgresql to use the same version as on heroku
-** TODO setup a helper sh file at repo root "./prod_env.sh bundle exec ..."
-*** with this in comment
-**** RAILS_ENV=production bundle exec rake db:create
-**** RAILS_ENV=production bundle exec rake db:migrate
-**** RAILS_ENV=production bundle exec rake assets:precompile
-**** when blank, REDIS_URL defaults to redis://localhost:6379
-*** with this as command
-**** RAILS_ENV=production SECRET_KEY_BASE=39159cdda6322550dc58f34e170e2146ec1527f560e36690632ffe5a54595cec091ece710d8271cc1bfb70fcf403098093afcdfa59d1faab3cde641a9443f1c4 RAILS_SERVE_STATIC_FILES=true bundle exec bin/rails server
-** TODO add a blog post of why I moved back to travis, heroku and dev machine. Where I still use docker
-** TODO blog post about testing and action cable, links to the upcoming commits, that mocking does not work
+** TODO add static code analysis or coverage
+*** try ClimateCode
+*** add a badge to readme
+*** does the #TODO hints get listed ?
+*** Is there any value in Rubocop and guard-rubocop ?
 * Smells
-** TODO remove .env
-** TODO fix version warnings (or silence them temporarily) when starting the rails env
-*** TODO could have a sed script that shows warnings in light grey
-** TODO fix cucumber warnings in `bundle exec rake`
-*** DONE try to update the gems, did not work
-*** DONE try to uninstall default json, did not work
-*** TODO wait for fix in json gem
-** TODO should the smells be somewhere in the code ? could a static code analysis tool list them for me ? Code Climate
-*** TODO we could use other badges on top of the readme (check rubocop)
-*** use TODO, FIXME and OPTIMIZE comments, and the rake notes task
-** TODO *OFFLINE* TeamMember is painful to write. What about participant ?
-** TODO *OFFLINE* There's an 'if' in the middle of the team_member/show view
-** TODO *OFFLINE* we could pass in just the team_member to the team_member/show view, and delegate all the rest to the model
-*** team_member.team_name
-*** team_member.animator?
-*** This would make the view depend on less things
-** TODO Tests are getting verbose
-*** TODO setup FactoryGirl for testing
-*** TODO would it be simpler with rspecproxies ?
-** TODO add DB primary key on team(name), and team_members(name,team)
-** TODO The optimistic lock is not great, they could still have race conditions when getting out of the role of animator.
-*** TODO Have a look at how to emit raw sql in rails (or using this sql ast Sylvain talked about)
-** TODO no static code analysis or coverage
-*** Add Rubocop and guard-rubocop
-** TODO fix `rake cucumber`
-** TODO *OFFLINE* *DDD* encapsulating models is difficult, should we move to hexagonal architecture ?
-*** Moved the if_needed_pick_animator to Team. Great.
-*** I now have tests in controller which are redundant with the ones I should write in Team_spec.rb
-*** If the Team was well encapsulated, I could be sure that the only way to change it is through this method !
-*** => It would be better to move to hexagonal model !
-*** il n'y a presque rien
-| team                    | team member |
-|-------------------------+-------------|
-| name                    | name        |
-| members                 | team        |
-| animator                |             |
-| if_needed_pick_animator |             |
-*** https://medium.com/@vsavkin/hexagonal-architecture-for-rails-developers-8b1fee64a613#.c2giyb3mh
-*** TODO move the save out of the if_needed_pick_animator method
-*** TODO go through the team instead of the TeamMember.find_or_create to build the team member<
-*** TODO extract a repository class for the loads
-*** TODO create wrappers around the
 * Retrospective
 ** 2017/01/27
 | mad                                | sad                      | glad                                |

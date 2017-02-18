@@ -33,4 +33,21 @@ describe "layouts/application" do
     expect(rendered).to have_css 'link[rel="icon"][type="image/png"][sizes="16x16"]', visible: false
   end
 
+  it "assigns the controller and action classes to the body" do
+    allow(view).to receive(:controller_name).and_return("aController")
+    allow(view).to receive(:action_name).and_return("anAction")
+
+    render
+
+    expect(rendered).to have_css 'body[class="aController anAction"]'
+  end
+
+  it "can add extra attributes to the body tag" do
+    view.content_for(:extra_body_attributes) { raw 'data-specific="monkey wrench"' }
+
+    render
+
+    expect(rendered).to have_css 'body[data-specific="monkey wrench"]'
+  end
+
 end

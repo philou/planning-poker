@@ -7,17 +7,17 @@
 <div class="center jumbotron">
   <h1>Welcome <%= @team_member.name %></h1>
 
-  <% # TODO get rid of this 'if' %>
+  <% # TODO get rid of these 2 'if' %>
   <% if @team.animator?(@team_member) %>
-
     <p>You are animator for the <%= @team.name %> team</p>
-    <%= button_tag 'Start Vote', class: "btn btn-default"  %>
-
   <% else %>
-
     <p>You are a voter for the <%= @team.name %> team</p>
-    <p>Nothing is being voted currently</p>
+  <% end %>
 
+  <p id="team-vote-state">Nothing is currently being voted</p>
+
+  <% if @team.animator?(@team_member) %>
+    <%= button_tag 'Start Vote', class: "btn btn-default"  %>
   <% end %>
 
 </div>

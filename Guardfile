@@ -53,7 +53,8 @@ end
 
 guard :teaspoon do
   # Implementation files
-  watch(%r{^app/assets/javascripts/(.+).js}) { |m| "#{m[1]}_spec" }
+  watch(%r{^app/assets/javascripts/(.+).js}) { |m| "#{m[1]}_spec.js" }
+  watch(%r{^app/assets/javascripts/(.+).coffee}) { |m| "#{m[1]}_spec.coffee" }
 
   # Specs / Helpers
   watch(%r{^spec/javascripts/(.*)})

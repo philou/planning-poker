@@ -66,13 +66,13 @@
 ***** DONE what about redis_url? when blank, REDIS_URL defaults to redis://localhost:6379
 **** DONE see how it works on heroku, prepare the config
 **** DONE what happens when I push another branch than master and it gets built by travis ? travis does not push, nice travis
-*** TODO do the real subscription
+*** DONE do the real subscription
 **** DONE Create a channel
 ***** DONE generation is easy
 ***** DONE how to test ?
 ****** I can call subscribed method directly with given arguments and check the expected channel name ?
 ****** Will test through cucumber
-**** TODO subscribe from javascript in team_member view
+**** DONE subscribe from javascript in team_member view
 ***** DONE how to test the js
 ****** DONE install a good js test framework : used teaspoon
 ****** DONE make it work
@@ -81,13 +81,14 @@
 ****** DONE try to open a popup at team_member view opening
 ***** DONE add controller and action to the layout
 ***** DONE add page specific data to the body in the layout
-***** TODO add team name data from the team_members view
-***** TODO understand what to do with the js tooltip
-***** TODO run `rake teaspoon` from `rake`
-***** TODO do the actual subscription
-****** TODO inject a fake channel (minimal for the moment, no stupid mock)
-****** TODO test the js
-***** TODO Fix the port conflict with rails server
+***** DONE add team name data from the team_members view
+***** DONE run `rake teaspoon` from `rake` so that it runs in CI
+***** DONE understand what to do with the js tooltip
+***** DONE do the actual subscription
+****** DONE inject a fake channel (minimal for the moment, no stupid mock)
+****** DONE test the handlecr
+****** DONE display a 'vote started' notice
+****** DONE test that the subscription is made
 ** TODO send the command from the animator
 *** TODO have a Team or TeamVote resource
 ** TODO handling the request and sending an event to the participants

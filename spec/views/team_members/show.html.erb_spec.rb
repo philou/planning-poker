@@ -29,20 +29,6 @@ describe "team_members/show" do
     expect(view.content_for(:keywords)).to include(@team_member.name).and include(@team.name)
   end
 
-  it "states that the user is the animator" do
-    @team.animator = @team_member
-
-    render
-
-    expect(rendered).to include("animator")
-  end
-
-  it "states that the user is a voter" do
-    render
-
-    expect(rendered).to include("voter")
-  end
-
   it "provides the team name as body data attributes" do
     render
 
@@ -53,5 +39,31 @@ describe "team_members/show" do
     render
 
     expect(rendered).to have_css('#team-vote-state')
+  end
+
+  context "when voter" do
+    it "states that the user is a voter" do
+      render
+
+      expect(rendered).to include("voter")
+    end
+  end
+
+  context "when animator" do
+    before :each do
+      @team.animator = @team_member
+    end
+
+    it "states that the user is the animator" do
+      render
+
+      expect(rendered).to include("animator")
+    end
+
+    it "can start the vote" do
+      render
+
+      expect(rendered).to have_button("Start Vote")
+    end
   end
 end

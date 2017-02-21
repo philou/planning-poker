@@ -95,7 +95,11 @@
 *** or is Team~TeamVote ?
 *** or maybe TeamVote is nested inside Team, TeamVote can be a resource, but Team is not accessible from the outside yet -> makes sense
 *** or is using the team channel better ?
-*** TODO check how to do nested resources
+*** DONE check how to do nested resources
+  resources :teams, only: [] do
+    resource :vote, only: :create
+  end
+
 *** TODO create a Vote resource nested in Team
 *** TODO call the vote :create from the StartVote button
 *** TODO handling the request and sending an event to the participants

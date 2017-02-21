@@ -48,4 +48,10 @@ describe "team_members/show" do
 
     expect(view.content_for(:extra_body_attributes)).to eq("data-team-name=\"#{@team.name}\"")
   end
+
+  it "displays the team vote state" do
+    render
+
+    expect(rendered).to have_css('#team-vote-state')
+  end
 end

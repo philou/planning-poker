@@ -33,7 +33,7 @@
 *** DONE mark specs as @javascript
 *** DONE set the js driver in capybara to poltergeist (there are web pages explaining the options)
 *** DONE write the test
-** TODO Subscribe to the event from the client
+** DONE Subscribe to the event from the client
 *** This link might be helpful : particularly the section on targeted changes https://blog.codeship.com/unobtrusive-javascript-via-ajax-rails/
 *** Another https://coderwall.com/p/kqb3xq/rails-4-how-to-partials-ajax-dead-easy for links it's just partials + the remote:true option
 *** What about ajax at page load ?
@@ -89,16 +89,27 @@
 ****** DONE test the handlecr
 ****** DONE display a 'vote started' notice
 ****** DONE test that the subscription is made
+** DONE add a test for caption in the team_members view
 ** TODO send the command from the animator
-*** TODO have a Team or TeamVote resource
-** TODO handling the request and sending an event to the participants
-** TODO display a countdown in the client
+*** have a Team or TeamVote resource
+*** or is Team~TeamVote ?
+*** or maybe TeamVote is nested inside Team, TeamVote can be a resource, but Team is not accessible from the outside yet -> makes sense
+*** or is using the team channel better ?
+*** TODO check how to do nested resources
+*** TODO create a Vote resource nested in Team
+*** TODO call the vote :create from the StartVote button
+*** TODO handling the request and sending an event to the participants
+*** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
+** TODO display a real countdown in the client
 * Next Stories
+** TODO Add a notice that javascript is required
 ** TODO add static code analysis or coverage
 *** try ClimateCode
 *** add a badge to readme
 *** does the #TODO hints get listed ?
 *** Is there any value in Rubocop and guard-rubocop ?
+** TODO move backlog in github ?
+*** is it possible to sync with Trello ?
 * Smells
 * Retrospective
 ** 2017/01/27

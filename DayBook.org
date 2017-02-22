@@ -105,8 +105,13 @@
 *** DONE handling the request and sending an event to the participants
 *** DONE move the code for broadcasting in the TeamChannel
 *** DONE depend on httpclient in test in order to have the http constants
-*** TODO add a test from coffee using re-broadcast
+*** DONE try to write a test for subscription parameters : Did not manage
 *** TODO can we factorize the #team-vote-state ?
+**** almost 3 languages (ruby, coffee, css)
+**** not sure it's possible
+**** not sure the error reporting will be any better
+**** constant in js will give undefined !
+**** could we had something to make sure the #id exists in the code, to make sure it gets caught
 *** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
 ** TODO display a real countdown in the client
 ** TODO Fix a few todos

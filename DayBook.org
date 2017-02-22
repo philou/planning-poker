@@ -100,18 +100,25 @@
     resource :vote, only: :create
   end
 
-*** TODO create a Vote resource nested in Team
-*** TODO call the vote :create from the StartVote button
-*** TODO handling the request and sending an event to the participants
+*** DONE create a Vote resource nested in Team
+*** DONE call the vote :create from the StartVote button
+*** DONE handling the request and sending an event to the participants
+*** DONE move the code for broadcasting in the TeamChannel
+*** TODO depend on httpclient in test in order to have the http constants
+*** TODO add a test from coffee using re-broadcast
+*** TODO can we factorize the #team-vote-state ?
 *** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
 ** TODO display a real countdown in the client
+** TODO Fix a few todos
 * Next Stories
-** TODO Add a notice that javascript is required
 ** TODO add static code analysis or coverage
-*** try ClimateCode
-*** add a badge to readme
-*** does the #TODO hints get listed ?
-*** Is there any value in Rubocop and guard-rubocop ?
+*** DONE try ClimateCode
+*** DONE does the #TODO hints get listed ? YES
+*** TODO plug coverage from travis to code climate
+*** TODO add badges to readme
+*** TODO Install chrome extension to CodeClimate
+*** TODO Is there any value in Rubocop and guard-rubocop ? It's already done in CodeClimate, guard could be cool
+** TODO Add a notice that javascript is required
 ** TODO move backlog in github ?
 *** is it possible to sync with Trello ?
 * Smells

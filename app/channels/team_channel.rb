@@ -1,10 +1,16 @@
-# TODO Write unit test for this when the action cable tests commits are available (https://github.com/rails/rails/pull/23211 and https://github.com/rspec/rspec-rails/issues/1606)
 class TeamChannel < ApplicationCable::Channel
+
   def subscribed
-    stream_from "team_channel_#{params[:team]}"
+    # TODO use stream_to instead
+    stream_from self.class.channel_name(params[:team_name])
   end
 
-  def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
+  def self.broadcast(team, message)
+    ActionCable.server.broadcast(channel_name(team.name), message: message)
   end
+
+  def self.channel_name(team_name)
+    "team_channel_#{team_name}"
+  end
+
 end

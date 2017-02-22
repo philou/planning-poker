@@ -106,12 +106,14 @@
 *** DONE move the code for broadcasting in the TeamChannel
 *** DONE depend on httpclient in test in order to have the http constants
 *** DONE try to write a test for subscription parameters : Did not manage
-*** TODO can we factorize the #team-vote-state ?
+*** DONE can we factorize the #team-vote-state ?
 **** almost 3 languages (ruby, coffee, css)
 **** not sure it's possible
 **** not sure the error reporting will be any better
-**** constant in js will give undefined !
-**** could we had something to make sure the #id exists in the code, to make sure it gets caught
+**** DONE constant in js will give undefined !
+**** DONE how do we define constants in coffee ?
+**** DONE could we had something to make sure the #id exists in the code, to make sure it gets caught : its done by $() in jquery
+*** TODO is there a way to simplify constant declaration and import in coffeescript / javascript ?
 *** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
 ** TODO display a real countdown in the client
 ** TODO Fix a few todos

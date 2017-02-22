@@ -104,7 +104,7 @@
 *** DONE call the vote :create from the StartVote button
 *** DONE handling the request and sending an event to the participants
 *** DONE move the code for broadcasting in the TeamChannel
-*** TODO depend on httpclient in test in order to have the http constants
+*** DONE depend on httpclient in test in order to have the http constants
 *** TODO add a test from coffee using re-broadcast
 *** TODO can we factorize the #team-vote-state ?
 *** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that

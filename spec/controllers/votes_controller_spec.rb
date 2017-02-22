@@ -18,7 +18,6 @@ RSpec.describe VotesController do
   it "should not render anything" do
     post :create, params: { team_id: @daltons.id }
 
-    # TODO use httpclient gem in test to have the NO_CONTENT constant defined
-    expect(response.code).to eq("204")
+    expect(response.code).to eq(HTTP::Status::NO_CONTENT.to_s)
   end
 end

@@ -117,6 +117,7 @@ GEM
       teaspoon (>= 0.8.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    httpclient (2.8.3)
     i18n (0.8.0)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -294,6 +295,7 @@ DEPENDENCIES
   guard-cucumber
   guard-rspec
   guard-teaspoon
+  httpclient
   jbuilder
   jquery-rails
   listen

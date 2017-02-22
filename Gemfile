@@ -64,6 +64,8 @@ group :development, :test do
   gem 'teaspoon-jasmine'
 
   gem 'sqlite3'
+
+  gem 'httpclient'
 end
 
 group :test do

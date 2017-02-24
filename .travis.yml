@@ -2,8 +2,6 @@ language: ruby
 
 services:
   - postgresql
-addons:
-  postgresql: '9.4'
 
 before_script:
   - psql -c 'create database planning_poker_test;' -U postgres
@@ -18,3 +16,8 @@ deploy:
   run: "rake db:migrate"
   api_key:
     secure: WfncEdDiKKs3KDBSgDbYFjNTwL2ht9z5mn5lOxB+mbxuWQeCxQHmuxiCOQ2f4jSHD9S1F1M3ggiefV8OYbz27RCOrFJLYVDLlZbkMD1lqR98vb8EL4qBSR/mvE9a/yn2ZjS/SW2wRMbW1748A1TkFTm2kZs9EIWgBXWPU4SWcDifLz2ERQAKDSUuwdc77sdFB+Ts+Q8NN4aGI1a1X5B9eTtR9dncX3zPLQtOQdvJm/86h3Sk/CBpcAFKjpvU2L52UGuaCmkzEesSAmWcoW9IexMcJgK3mOXPZ9WoXbVyQdkF/xwxKgpldjACJCSys6bCz5Gyj8Ars7xd6O83kMjqczGe99gKKkEbzugOaKwF6UDykcngOC+Qa1xYWryI+x438zFaoVFGRW7vFpuvCrwaU1Z2YGcfyTmgAuGHHC54mhhxyMw74NJM6eDpNjMWj/tpud8VXqiLN03KNnqH355NImXqVydsrlWC/q8HWV4O7QktvLJWMhf9PVrqwcxKaJj8X3hqo0ep05lUysZrD/l1HJrUnkyebd65tRcrRG1MYDaYwoGkCGpk/psRsNccmhkZr38Lr0m/HcRjoMSGEDAAe/aGWIa23jOQjkB1YH55uMPsQUAS+XGfkGii8ULg1tg7g/msSnv1qP1/8Oh0H+Zrj8K0O2rDtJkjJI8fuJwT0Qs=
+
+addons:
+  postgresql: '9.4'
+  code_climate:
+    repo_token: 9c3c9d52ed7edabf1e074b43f690dcba38c5872ad61ff4438fab675b4ca7e559

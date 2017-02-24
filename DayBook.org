@@ -90,7 +90,7 @@
 ****** DONE display a 'vote started' notice
 ****** DONE test that the subscription is made
 ** DONE add a test for caption in the team_members view
-** TODO send the command from the animator
+** DONE send the command from the animator
 *** have a Team or TeamVote resource
 *** or is Team~TeamVote ?
 *** or maybe TeamVote is nested inside Team, TeamVote can be a resource, but Team is not accessible from the outside yet -> makes sense
@@ -113,19 +113,18 @@
 **** DONE constant in js will give undefined !
 **** DONE how do we define constants in coffee ?
 **** DONE could we had something to make sure the #id exists in the code, to make sure it gets caught : its done by $() in jquery
-*** TODO is there a way to simplify constant declaration and import in coffeescript / javascript ?
-*** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
+** TODO Check that notifications works on heroku (domains et bla bla ...)
 ** TODO display a real countdown in the client
+*** TODO check to find existing bootstrap countdowns on the web
+*** TODO adapt the feature tests to check for the correct thing
+*** TODO hide the 'Start Vote' button
+**** Should we send the html from the server through the notification ?
+*** TODO add some tests on the coffee side
+*** TODO start the timer to 30s for example
 ** TODO Fix a few todos
+** TODO is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
+** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
 * Next Stories
-** TODO add static code analysis or coverage
-*** DONE try ClimateCode
-*** DONE does the #TODO hints get listed ? YES
-*** TODO plug coverage from travis to code climate
-*** TODO add badges to readme
-*** TODO Install chrome extension to CodeClimate
-*** TODO Is there any value in Rubocop and guard-rubocop ? It's already done in CodeClimate, guard could be cool
-** TODO Add a notice that javascript is required
 ** TODO move backlog in github ?
 *** is it possible to sync with Trello ?
 * Smells

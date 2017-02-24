@@ -1,6 +1,9 @@
 # Planning-Poker
 
 ![CI Build Status Badge](https://api.travis-ci.org/philou/planning-poker.svg?branch=master)
+[![Code Climate](https://codeclimate.com/github/philou/planning-poker/badges/gpa.svg)](https://codeclimate.com/github/philou/planning-poker)
+[![Test Coverage](https://codeclimate.com/github/philou/planning-poker/badges/coverage.svg)](https://codeclimate.com/github/philou/planning-poker/coverage)
+[![Issue Count](https://codeclimate.com/github/philou/planning-poker/badges/issue_count.svg)](https://codeclimate.com/github/philou/planning-poker)
 
 An app to do enable agile teams to do planning poker estimations remotely
 

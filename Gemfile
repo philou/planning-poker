@@ -2,6 +2,7 @@
 ruby '2.4.0'
 
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.rc1'
@@ -21,7 +22,13 @@ gem 'coffee-rails'
 gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
+# TODO use rails-assets.org instead of jquery-rails to get jquery
 gem 'jquery-rails'
+# Use javascript countdown
+source 'https://rails-assets.org' do
+  gem 'rails-assets-jquery.countdown'
+end
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

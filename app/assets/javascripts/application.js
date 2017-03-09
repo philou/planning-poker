@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.countdown
 
 // I follow this guy's tutorial about how to organize js code assets http://brandonhilkert.com/blog/organizing-javascript-in-rails-application-with-turbolinks/
 //= require init

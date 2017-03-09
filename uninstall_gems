@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+#
+# Originally from https://gist.github.com/IanVaughan/2902499
+#
+# authors: Ian Vaughan
+#          Jacob Zimmerman
+#
+# usage:   uninstall_gems [<version> ...]
+#
+# examples:
+#   Uninstall all gems in all ruby version
+#       uninstall_gems
+#
+#   Uninstall all gems in ruby 2.1.3
+#       uninstall_gems 2.1.3
+#
+#   Uninstall all gems in the current ruby version
+#       uninstall_gems $(rbenv version-name)
+
+
+uninstall() {
+  list=`gem list --no-versions`
+  for gem in $list; do
+    gem uninstall $gem -aIx
+  done
+  gem list
+  gem install bundler
+}
+
+if [ "$@" ]; then
+  RUBIES="$@"
+else
+  #rbenv versions --bare
+  RBENVPATH=`rbenv root`
+  echo $RBENVPATH
+  RUBIES=`ls $RBENVPATH/versions`
+fi
+
+# Don't clobber existing .ruby-version file
+if [ -f ./.ruby-version ]; then
+  RUBY_VERSION="$(cat ./.ruby-version)"
+fi
+
+for ruby in $RUBIES; do
+  echo '---------------------------------------'
+  echo $ruby
+  rbenv local $ruby
+  uninstall
+done
+
+# Restore old .ruby-version file if there was one
+if [ "$RUBY_VERSION" ]; then
+  echo "$RUBY_VERSION" > ./.ruby-version
+else
+  rm ./.ruby-version
+fi

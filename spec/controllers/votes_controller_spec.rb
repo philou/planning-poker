@@ -15,14 +15,6 @@ RSpec.describe VotesController do
     post_create
   end
 
-  it "sends the date in utc" do
-    freeze_time(2017,03,10, 9,45,00, "-01:00")
-
-    expect(ActionCable.server).to broadcast_vote_start(@daltons.name, "2017-03-10 10:45:30")
-
-    post_create
-  end
-
   it "should not render anything" do
     post_create
 

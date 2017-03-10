@@ -5,7 +5,7 @@ class TeamChannel < ApplicationCable::Channel
     stream_from self.class.channel_name(params[:team_name])
   end
 
-  def self.broadcast(team, message)
+  def self.vote_started(team, message)
     ActionCable.server.broadcast(channel_name(team.name), message: message)
   end
 

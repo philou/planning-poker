@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'support/matchers/action_cable_matchers'
 
 RSpec.describe VotesController do
 
@@ -7,12 +8,9 @@ RSpec.describe VotesController do
   end
 
   it "create broadcasts a vote start" do
-    allow(TeamChannel).to receive(:broadcast).and_call_original
+    expect(ActionCable.server).to broadcast_vote_start(@daltons.name, "Vote Started")
 
     post :create, params: { team_id: @daltons.id }
-
-    expect(TeamChannel).to have_received(:broadcast)
-                                   .with(@daltons, "Vote Started")
   end
 
   it "should not render anything" do

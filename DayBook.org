@@ -119,16 +119,24 @@
 **** Found jquery-countdown to help
 **** also found rails-assets.org as a gemsource that can help manage bower components
 **** DONE Install it from there
-*** TODO hack something to make it work
-*** TODO adapt the feature tests to check for the correct thing
-*** TODO hide the 'Start Vote' button
-**** Should we send the html from the server through the notification ?
+*** DONE hack something to make it work
+*** DONE define the steps
+*** TODO send the new vote end timestamp along the message on start vote, use 30s for example
+**** DONE rename the current broadcast
+**** TODO remove the message param
+**** TODO add an extra end vote date param
+*** TODO change the current code to use a div instead of a direct <p>
 *** TODO add some tests on the coffee side
-*** TODO start the timer to 30s for example
+*** TODO when receiving a message, replace the start vote button by the countdown, continue updating the sentence
+*** TODO adapt the feature tests to check for the correct thing
+**** TODO make it fail with bad code
+**** TODO make it pass with good code
+*** Should we send the html from the server through the notification ?
 ** TODO Fix a few todos
 ** TODO is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
 ** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
 * Next Stories
+** TODO Setup guard notify
 ** TODO move backlog in github ?
 *** is it possible to sync with Trello ?
 * Smells
@@ -178,3 +186,8 @@
 *** I should plan / timebox to 3 months at a time
 **** Can build something in 3 months
 **** fits a 20h learning iteration as well
+** 2017/03/09
+| mad                                 | sad                                   | glad                                                  |
+|-------------------------------------+---------------------------------------+-------------------------------------------------------|
+| not too much advancement in 2 weeks | took some time for blog and mac setup | I have mac                                            |
+| tired !                             |                                       | Removed too much docker, things are a lot more simple |

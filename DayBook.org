@@ -121,22 +121,24 @@
 **** DONE Install it from there
 *** DONE hack something to make it work
 *** DONE define the steps
-*** TODO send the new vote end timestamp along the message on start vote, use 30s for example
+*** DONE send the new vote end timestamp along the message on start vote, use 30s for example
 **** DONE rename the current broadcast
-**** TODO remove the message param
-**** TODO add an extra end vote date param
+**** DONE remove the message param
+**** DONE add an extra end vote date param
 *** TODO change the current code to use a div instead of a direct <p>
 *** TODO add some tests on the coffee side
 *** TODO when receiving a message, replace the start vote button by the countdown, continue updating the sentence
 *** TODO adapt the feature tests to check for the correct thing
 **** TODO make it fail with bad code
 **** TODO make it pass with good code
+*** TODO Rename the :message from the notification (display it from html)
 *** Should we send the html from the server through the notification ?
 ** TODO Fix a few todos
 ** TODO is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
 ** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
 * Next Stories
 ** TODO Setup guard notify
+** TODO paren matching in emacs
 ** TODO move backlog in github ?
 *** is it possible to sync with Trello ?
 * Smells

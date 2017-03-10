@@ -1,5 +1,5 @@
-def broadcast_vote_start(team_name, message)
+def broadcast_vote_start(team_name, end_time)
   receive(:broadcast)
-    .with(TeamChannel.channel_name(team_name), message: message)
+    .with(TeamChannel.channel_name(team_name), message: "Vote Started", end_time: end_time)
     .and_call_original
 end

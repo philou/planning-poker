@@ -19,5 +19,5 @@ Feature: Voter
 
     Given "Joe" already entered the "Daltons" space
     And "William" already entered the "Daltons" space
-    When "Joe" starts a vote
+    When "Joe" starts a vote from his browser
     Then "William" should see a countdown start

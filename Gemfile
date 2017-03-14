@@ -8,8 +8,8 @@ source 'https://rails-assets.org'
 gem 'rails', '>= 5.0.0.rc1'
 # Use postgres as the database for Active Record
 gem 'pg'
-# Use Puma as the app server
-gem 'puma'
+# Use Puma as the app server. We want to avoid 3.7.0 because it has a serious bug that breaks cucumber
+gem 'puma', '!= 3.7.0'
 # Bootstrap for style
 gem 'bootstrap-sass'
 # Use SCSS for stylesheets
@@ -27,6 +27,8 @@ gem 'jquery-rails'
 # Use javascript countdown
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery.countdown'
+  gem 'rails-assets-moment'
+  gem 'rails-assets-moment-timezone'
 end
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

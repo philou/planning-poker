@@ -125,17 +125,25 @@
 **** DONE rename the current broadcast
 **** DONE remove the message param
 **** DONE add an extra end vote date param
-*** TODO change the current code to use a div instead of a direct <p>
+*** DONE change the current code to use a div instead of a direct <p>
+*** DONE when receiving a message, replace the start vote button by the countdown, continue updating the sentence
+*** DONE Add feature tests
+**** DONE Try to start the vote in a different session
+***** if this does not work, I'll have to make it save in the db (which is supposed to be another story)
+*** TODO commit the quick fix
+*** TODO style with bootstrap
+*** TODO render the html on server side
+**** have a single div for all this
+**** send the html with a marker for the time remaining (without any style)
+**** start the countdown to update this time count
 *** TODO add some tests on the coffee side
-*** TODO when receiving a message, replace the start vote button by the countdown, continue updating the sentence
-*** TODO adapt the feature tests to check for the correct thing
-**** TODO make it fail with bad code
-**** TODO make it pass with good code
-*** TODO Rename the :message from the notification (display it from html)
+**** check that the counter decreases
+**** check that it stops at 0 (or 1)
 *** Should we send the html from the server through the notification ?
 ** TODO Fix a few todos
 ** TODO is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
 ** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
+** TODO bundle update
 * Next Stories
 ** TODO Setup guard notify
 ** TODO paren matching in emacs
@@ -193,3 +201,6 @@
 |-------------------------------------+---------------------------------------+-------------------------------------------------------|
 | not too much advancement in 2 weeks | took some time for blog and mac setup | I have mac                                            |
 | tired !                             |                                       | Removed too much docker, things are a lot more simple |
+*** I have real difficulties finishing this story ! As if I'm lacking time
+*** Maybe I should cut it off, and move on
+*** It's really difficult to do rails dev without an internet connection. A great part of productivity comes from the community

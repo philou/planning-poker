@@ -15,6 +15,10 @@ require 'capybara/poltergeist'
 # Use poltergeist and PhantomJS to drive javascript tests
 Capybara.javascript_driver = :poltergeist
 
+# Required to test action cable.
+# See http://stackoverflow.com/questions/35897189/capybara-not-working-with-action-cable
+Capybara.server = :puma
+
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how
 # your application behaves in the production environment, where an error page will

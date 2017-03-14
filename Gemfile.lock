@@ -167,7 +167,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     public_suffix (2.0.5)
-    puma (3.7.0)
+    puma (3.8.1)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -186,6 +186,9 @@ GEM
     rails-assets-jquery (3.1.1)
     rails-assets-jquery.countdown (2.2.0)
       rails-assets-jquery (>= 1.7)
+    rails-assets-moment (2.17.1)
+    rails-assets-moment-timezone (0.5.11)
+      rails-assets-moment (>= 2.6.0)
     rails-dom-testing (2.0.2)
       activesupport (>= 4.2.0, < 6.0)
       nokogiri (~> 1.6)
@@ -314,9 +317,11 @@ DEPENDENCIES
   listen
   pg
   poltergeist
-  puma
+  puma (!= 3.7.0)
   rails (>= 5.0.0.rc1)
   rails-assets-jquery.countdown!
+  rails-assets-moment!
+  rails-assets-moment-timezone!
   rails_real_favicon
   redis (~> 3.0)
   rspec-rails
@@ -336,4 +341,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.14.5
+   1.14.6

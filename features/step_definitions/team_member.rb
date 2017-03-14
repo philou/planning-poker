@@ -27,21 +27,17 @@ When(/^"([^"]*)" starts a vote$/) do |team_member_name|
   click_button('Start Vote')
 end
 
+# TODO remove the 'from his browser' from the step def. This is really implementation specific
+# I would rather have steps starting with 'I ...' for things happening in the main test session
+# and steps starting with other names for things happening in other sessions
+When(/^"([^"]*)" starts a vote from his browser$/) do |team_member_name|
+  Capybara.using_session(team_member_name) do
+    step "\"#{team_member_name}\" starts a vote"
+  end
+end
+
 Then(/^"([^"]*)" should see a countdown start$/) do |team_member_name|
-  team_member = TeamMember.find_by name: team_member_name
-  visit team_member_path(team_member)
+  sleep 1
 
-  expect(page).to have_selector('#voteCountdown', visible: true)
-
-  pending # Write code here that turns the phrase above into concrete actions
-
-  # check a status of whatever to make sure it is decreasing
-
-  # TODO check in specs
-  # check that it goes down
-  #   check later, and verify that the position has decreased
-  # check that it stops at 0
-  #   wait enough for it to stick at 0
-  #   we could parametrize the vote duration in order to make the tests faster
-
+  expect(page).to have_content('seconds remaining')
 end

@@ -13,7 +13,6 @@ Feature: Voter
     When "Avrell" enters the "Daltons" space
     Then "Avrell" should become a voter in the "Daltons" session
 
-  @wip
   @javascript
   Scenario: A vote was started
 

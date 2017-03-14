@@ -11,3 +11,8 @@ App.Channels.Team.subscribe = (teamName) ->
   App.cable.subscriptions.create {channel: "TeamChannel", team_name: teamName},
     received: (data) ->
       $(that.TEAM_VOTE_STATE_SELECTOR).text(data['message'])
+      endTime = moment.tz(data['end_time'], "UTC")
+      $("#team-vote-widget")
+        .countdown(endTime.toDate())
+        .on('update.countdown', (event) ->
+                $(this).html(event.strftime('%-T seconds remaining')))

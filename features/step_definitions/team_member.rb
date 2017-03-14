@@ -37,6 +37,7 @@ When(/^"([^"]*)" starts a vote from his browser$/) do |team_member_name|
 end
 
 Then(/^"([^"]*)" should see a countdown start$/) do |team_member_name|
+  # TODO do some polling instead of sleeping for a full second
   sleep 1
 
   expect(page).to have_content('seconds remaining')

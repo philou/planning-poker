@@ -16,8 +16,10 @@
 
   <p id="team-vote-state">Nothing is currently being voted</p>
 
+  <div id="team-vote-widget">
   <% if @team.animator?(@team_member) %>
     <%= button_to 'Start Vote', team_vote_path(@team), class: "btn btn-default"  %>
   <% end %>
+  </div>
 
 </div>

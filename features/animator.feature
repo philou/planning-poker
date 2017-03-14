@@ -10,7 +10,6 @@ Feature: Animator
     | Joe  | Daltons |
     | Amy  | 27s     |
 
-  @wip
   @javascript
   Scenario: The animator can start a vote
 

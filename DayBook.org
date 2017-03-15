@@ -130,7 +130,15 @@
 *** DONE Add feature tests
 **** DONE Try to start the vote in a different session
 ***** if this does not work, I'll have to make it save in the db (which is supposed to be another story)
-*** TODO commit the quick fix
+*** DONE commit the quick fix
+*** DONE fix travis
+**** DONE :KO: try to add the custom puma config
+**** DONE :KO: try to use redis-test to start a redis server
+**** DONE :KO: try to add the redis service in travis
+**** DONE :KO: get logs from phantomjs
+**** DONE :OK: update the phantomjs version
+**** DONE :CANCELED: reproduce the travis build in my own container or vm https://docs.travis-ci.com/user/common-build-problems/#Troubleshooting-Locally-in-a-Docker-Image
+**** DONE :CANCELED: ask the travis guys
 *** TODO style with bootstrap
 *** TODO render the html on server side
 **** have a single div for all this
@@ -141,14 +149,27 @@
 **** check that it stops at 0 (or 1)
 *** Should we send the html from the server through the notification ?
 ** TODO Fix a few todos
+** TODO bundle update
 ** TODO is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
 ** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
-** TODO bundle update
 * Next Stories
 ** TODO Setup guard notify
 ** TODO paren matching in emacs
 ** TODO move backlog in github ?
 *** is it possible to sync with Trello ?
+** TODO Make sure all versions are the same : locally, travis & heroku
+** TODO Improve CI debugging
+*** TODO activate poltergeist/phantomjs logging to a log file
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, debug: true,
+                                         js_errors: true,
+                                         phantomjs_options: ['--debug=true'])
+end
+http://stackoverflow.com/questions/35844186/how-to-properly-debug-with-capybara-poltergeist
+https://github.com/teampoltergeist/poltergeist
+*** TODO have a place where to save screenshots, pages etc ... with poltergeist
+*** TODO upload logs, screenshots, and other artifacts from travis to s3 https://docs.travis-ci.com/user/uploading-artifacts/
+*** TODO know who to setup a local travis https://docs.travis-ci.com/user/common-build-problems/#Troubleshooting-Locally-in-a-Docker-Image
 * Smells
 * Retrospective
 ** 2017/01/27

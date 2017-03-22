@@ -49,3 +49,16 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
+#team-vote-countdown {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* The widget only appears on vote notifications */
+    display:none;
+}
+
+#team-vote-clock {
+    margin-bottom: 0;
+}

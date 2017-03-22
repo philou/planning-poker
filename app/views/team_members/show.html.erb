@@ -16,10 +16,17 @@
 
   <p id="team-vote-state">Nothing is currently being voted</p>
 
-  <div id="team-vote-widget">
-  <% if @team.animator?(@team_member) %>
-    <%= button_to 'Start Vote', team_vote_path(@team), class: "btn btn-default"  %>
-  <% end %>
+  <div id="team-vote-countdown" class="panel panel-default">
+    <div class="panel-body">
+      <div id="team-vote-clock" class="lead">
+      </div>
+    </div>
   </div>
+
+  <% if @team.animator?(@team_member) %>
+  <%= button_to team_vote_path(@team), class: "btn btn-primary", id: "team-vote-start" do %>
+    <i class="glyphicon glyphicon-play"></i> Start Vote
+  <% end %>
+  <% end %>
 
 </div>

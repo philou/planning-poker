@@ -6,7 +6,9 @@ class TeamChannel < ApplicationCable::Channel
   end
 
   def self.vote_started(team, end_time)
-    ActionCable.server.broadcast(channel_name(team.name), message: "Vote Started", end_time: end_time.utc.strftime("%Y-%m-%d %H:%M:%S"))
+    ActionCable.server.broadcast(channel_name(team.name),
+                                 html: ApplicationController.render( partial: 'votes/started'),
+                                 end_time: end_time.utc.strftime("%Y-%m-%d %H:%M:%S"))
   end
 
   def self.channel_name(team_name)

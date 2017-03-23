@@ -8,7 +8,7 @@ describe "Channels/Team", ->
     channel = App.Channels.Team.subscribe('Fantastic 4')
 
     message = "Vote Started"
-    channel.received({message: message})
+    channel.received({html: message})
 
     expect($(act.TEAM_VOTE_STATE_SELECTOR)).toContainText(message)
 

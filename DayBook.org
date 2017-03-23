@@ -139,15 +139,20 @@
 **** DONE :OK: update the phantomjs version
 **** DONE :CANCELED: reproduce the travis build in my own container or vm https://docs.travis-ci.com/user/common-build-problems/#Troubleshooting-Locally-in-a-Docker-Image
 **** DONE :CANCELED: ask the travis guys
-*** TODO style with bootstrap
+*** DONE style with bootstrap
 *** TODO render the html on server side
 **** have a single div for all this
 **** send the html with a marker for the time remaining (without any style)
 **** start the countdown to update this time count
+**** DONE Update the whole html from within the client channel subscription
+**** DONE Render some html partial from within a server Channel
+**** DONE create other partial for default vote state
+**** DONE Fix any failing tests
+*** TODO Fix the css error in browser console
 *** TODO add some tests on the coffee side
 **** check that the counter decreases
 **** check that it stops at 0 (or 1)
-*** Should we send the html from the server through the notification ?
+**** TODO pluralize the 'n seconds' in the countdown with %!S
 ** TODO Fix a few todos
 ** TODO bundle update
 ** TODO is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)

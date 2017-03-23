@@ -1,0 +1,7 @@
+<p>Nothing is currently being voted</p>
+
+<% if @team.animator?(@team_member) %>
+  <%= button_to team_vote_path(@team), class: "btn btn-primary", id: "team-vote-start" do %>
+    <i class="glyphicon glyphicon-play"></i> Start Vote
+  <% end %>
+<% end %>

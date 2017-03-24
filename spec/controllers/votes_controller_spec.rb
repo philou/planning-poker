@@ -10,7 +10,7 @@ RSpec.describe VotesController do
   it "create broadcasts a vote start to end in 30s" do
     freeze_time(2017,03,10, 9,45,00, "+00:00")
 
-    expect(ActionCable.server).to broadcast_vote_start(@daltons.name, "2017-03-10 09:45:30")
+    expect(ActionCable.server).to broadcast_vote_start(@daltons.name, "2017-03-10 09:45:30Z")
 
     post_create
   end

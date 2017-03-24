@@ -17,4 +17,4 @@ App.Channels.Team.subscribe = (teamName) ->
       $("#team-vote-clock")
         .countdown(endTime.toDate())
         .on('update.countdown', (event) ->
-                $(this).html(event.strftime('%-T seconds remaining')))
+                $(this).html(event.strftime('%-T second%!S')))

@@ -149,21 +149,20 @@
 **** DONE create other partial for default vote state
 **** DONE Fix any failing tests
 *** DONE Fix the css error in browser console
-*** TODO add some tests on the coffee side
+*** DONE add some tests on the coffee side
 **** DONE check that the started partial is sent through the channel
 **** DONE check that the started partial contains the #clock
 **** DONE check that the channel subscription starts the countdown at the given time (UTC)
 **** DONE check that the counter decreases
 **** DONE check that it stops at 0 (or 1)
-**** TODO move the 'remaining' out of the js
-**** TODO pluralize the 'n seconds' in the countdown with %!S
-**** TODO add 'Z' to the sent date
-** TODO smell ? sleep in features ? could we speed that up ?
-** TODO Fix a few todos
-** TODO bundle update
+**** DONE move the 'remaining' out of the js
+**** DONE pluralize the 'n seconds' in the countdown with %!S
+**** DONE add 'Z' to the sent date
 ** TODO is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
 ** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
 ** TODO should the vote notif event just trigger a full reload on client side ?
+** TODO Fix a few todos
+** TODO bundle update
 * Next Stories
 ** TODO Setup guard notify
 ** TODO paren matching in emacs

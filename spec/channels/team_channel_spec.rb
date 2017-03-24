@@ -12,7 +12,7 @@ describe TeamChannel do
   end
 
   it "broadcasts with the utc date" do
-    expect(ActionCable.server).to broadcast_vote_start("Daltons", "2010-12-23 09:37:52")
+    expect(ActionCable.server).to broadcast_vote_start("Daltons", "2010-12-23 09:37:52Z")
 
     daltons = Team.create(name: "Daltons")
 

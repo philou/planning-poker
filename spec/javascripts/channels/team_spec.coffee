@@ -22,7 +22,7 @@ describe "Channels/Team", ->
 
   describe "Vote countdown on notifications", ->
     currentTime = "2017-03-23 10:00:00"
-    endVoteTime = "2017-03-23 10:00:30"
+    endVoteTime = "2017-03-23 10:00:30Z"
 
     beforeEach ->
       jasmine.clock().install()
@@ -42,21 +42,21 @@ describe "Channels/Team", ->
     it "Starts", ->
       voteStarts()
 
-      expect($("#team-vote-clock")).toContainText("30 seconds remaining")
+      expect($("#team-vote-clock")).toContainText("30 seconds")
 
     it "Takes timezones into effect", ->
       setTimezone("Europe/Paris")
 
       voteStarts()
 
-      expect($("#team-vote-clock")).toContainText("3630 seconds remaining")
+      expect($("#team-vote-clock")).toContainText("3630 seconds")
 
     it "Decreases", ->
       voteStarts()
 
       jasmine.clock().tick(1000)
 
-      expect($("#team-vote-clock")).toContainText("29 seconds remaining")
+      expect($("#team-vote-clock")).toContainText("29 seconds")
 
     it "Stops at 1", ->
       voteStarts()
@@ -64,4 +64,4 @@ describe "Channels/Team", ->
 
       jasmine.clock().tick(1000)
 
-      expect($("#team-vote-clock")).toContainText("1 seconds remaining")
+      expect($("#team-vote-clock")).toContainText("1 second")

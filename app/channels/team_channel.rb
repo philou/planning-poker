@@ -6,6 +6,7 @@ class TeamChannel < ApplicationCable::Channel
   end
 
   def self.vote_started(team, end_time)
+    # TODO could we send a full page refresh instead ?
     ActionCable.server.broadcast(channel_name(team.name),
                                  html: ApplicationController.render( partial: 'votes/started'),
                                  end_time: end_time.utc.strftime("%Y-%m-%d %H:%M:%SZ"))

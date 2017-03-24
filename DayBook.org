@@ -159,29 +159,8 @@
 **** DONE pluralize the 'n seconds' in the countdown with %!S
 **** DONE add 'Z' to the sent date
 ** DONE is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
-** TODO Fix a few todos
 ** TODO bundle update
-** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
-** TODO should the vote notif event just trigger a full reload on client side ?
 * Next Stories
-** TODO Setup guard notify
-** TODO paren matching in emacs
-** TODO move backlog in github ?
-*** is it possible to sync with Trello ?
-** TODO Make sure all versions are the same : locally, travis & heroku
-** TODO Improve CI debugging
-*** TODO activate poltergeist/phantomjs logging to a log file
-Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, debug: true,
-                                         js_errors: true,
-                                         phantomjs_options: ['--debug=true'])
-end
-http://stackoverflow.com/questions/35844186/how-to-properly-debug-with-capybara-poltergeist
-https://github.com/teampoltergeist/poltergeist
-*** TODO have a place where to save screenshots, pages etc ... with poltergeist
-*** TODO upload logs, screenshots, and other artifacts from travis to s3 https://docs.travis-ci.com/user/uploading-artifacts/
-*** TODO know who to setup a local travis https://docs.travis-ci.com/user/common-build-problems/#Troubleshooting-Locally-in-a-Docker-Image
-** TODO Blog : set timezone in jasmine with clock + moment.tz().toDate
 * Smells
 * Retrospective
 ** 2017/01/27

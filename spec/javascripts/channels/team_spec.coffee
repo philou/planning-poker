@@ -5,19 +5,19 @@
 
 describe "Channels/Team", ->
 
-  act = App.Channels.Team
+  team = App.Channels.Team
   channel = App.Channels.Team.subscribe('Fantastic 4')
 
   beforeEach ->
-    $(act.TEAM_VOTE_STATE_SELECTOR).remove()
-    $("body").append('<p id="' + act.TEAM_VOTE_STATE_ID + '">placeholder</p>')
+    $(team.VOTE_STATE_SELECTOR).remove()
+    $("body").append('<p id="' + team.VOTE_STATE_ID + '">placeholder</p>')
 
   it "Updates the team vote status when receiving a notification", ->
     message = "Vote Started"
 
     channel.received({html: message})
 
-    expect($(act.TEAM_VOTE_STATE_SELECTOR)).toContainText(message)
+    expect(team.$voteState()).toContainText(message)
 
 
   describe "Vote countdown on notifications", ->
@@ -32,7 +32,7 @@ describe "Channels/Team", ->
       jasmine.clock().mockDate(moment.tz(currentTime, timezone).toDate())
 
     voteStarts = ->
-      channel.received({html: "<div id=\"team-vote-clock\"></div>", end_time: endVoteTime})
+      channel.received({html: '<div id="' + team.VOTE_CLOCK_ID + '"></div>', end_time: endVoteTime})
       jasmine.clock().tick(800)
 
     afterEach ->
@@ -42,21 +42,21 @@ describe "Channels/Team", ->
     it "Starts", ->
       voteStarts()
 
-      expect($("#team-vote-clock")).toContainText("30 seconds")
+      expect(team.$voteClock()).toContainText("30 seconds")
 
     it "Takes timezones into effect", ->
       setTimezone("Europe/Paris")
 
       voteStarts()
 
-      expect($("#team-vote-clock")).toContainText("3630 seconds")
+      expect(team.$voteClock()).toContainText("3630 seconds")
 
     it "Decreases", ->
       voteStarts()
 
       jasmine.clock().tick(1000)
 
-      expect($("#team-vote-clock")).toContainText("29 seconds")
+      expect(team.$voteClock()).toContainText("29 seconds")
 
     it "Stops at 1", ->
       voteStarts()
@@ -64,4 +64,4 @@ describe "Channels/Team", ->
 
       jasmine.clock().tick(1000)
 
-      expect($("#team-vote-clock")).toContainText("1 second")
+      expect(team.$voteClock()).toContainText("1 second")

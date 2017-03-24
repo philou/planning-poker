@@ -114,7 +114,7 @@
 **** DONE how do we define constants in coffee ?
 **** DONE could we had something to make sure the #id exists in the code, to make sure it gets caught : its done by $() in jquery
 ** DONE Check that notifications works on heroku (domains et bla bla ...)
-** TODO display a real countdown in the client
+** DONE display a real countdown in the client
 *** DONE check to find existing bootstrap countdowns on the web
 **** Found jquery-countdown to help
 **** also found rails-assets.org as a gemsource that can help manage bower components
@@ -158,11 +158,11 @@
 **** DONE move the 'remaining' out of the js
 **** DONE pluralize the 'n seconds' in the countdown with %!S
 **** DONE add 'Z' to the sent date
-** TODO is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
-** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
-** TODO should the vote notif event just trigger a full reload on client side ?
+** DONE is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
 ** TODO Fix a few todos
 ** TODO bundle update
+** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
+** TODO should the vote notif event just trigger a full reload on client side ?
 * Next Stories
 ** TODO Setup guard notify
 ** TODO paren matching in emacs

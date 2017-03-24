@@ -1,20 +1,22 @@
 window.App.Channels ||= {}
-window.App.Channels.Team ||= {}
+window.App.Channels.Team = Team = {}
 
-App.Channels.Team.TEAM_VOTE_STATE_ID = "team-vote-state"
+Team.VOTE_STATE_ID = "team-vote-state"
+Team.$voteState = ->
+  $('#'+Team.VOTE_STATE_ID)
 
-App.Channels.Team.TEAM_VOTE_STATE_SELECTOR = '#' + App.Channels.Team.TEAM_VOTE_STATE_ID
+Team.VOTE_CLOCK_ID = "team-vote-clock"
+Team.$voteClock = ->
+  $('#'+Team.VOTE_CLOCK_ID)
 
-App.Channels.Team.subscribe = (teamName) ->
-  that = this
-
+Team.subscribe = (teamName) ->
   App.cable.subscriptions.create {channel: "TeamChannel", team_name: teamName},
     received: (data) ->
 
-      $(that.TEAM_VOTE_STATE_SELECTOR).html(data['html'])
+      Team.$voteState().html(data['html'])
 
       endTime = moment.tz(data['end_time'], "UTC")
-      $("#team-vote-clock")
+      Team.$voteClock()
         .countdown(endTime.toDate())
         .on('update.countdown', (event) ->
                 $(this).html(event.strftime('%-T second%!S')))

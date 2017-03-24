@@ -140,7 +140,7 @@
 **** DONE :CANCELED: reproduce the travis build in my own container or vm https://docs.travis-ci.com/user/common-build-problems/#Troubleshooting-Locally-in-a-Docker-Image
 **** DONE :CANCELED: ask the travis guys
 *** DONE style with bootstrap
-*** TODO render the html on server side
+*** DONE render the html on server side
 **** have a single div for all this
 **** send the html with a marker for the time remaining (without any style)
 **** start the countdown to update this time count
@@ -148,15 +148,22 @@
 **** DONE Render some html partial from within a server Channel
 **** DONE create other partial for default vote state
 **** DONE Fix any failing tests
-*** TODO Fix the css error in browser console
+*** DONE Fix the css error in browser console
 *** TODO add some tests on the coffee side
-**** check that the counter decreases
-**** check that it stops at 0 (or 1)
+**** DONE check that the started partial is sent through the channel
+**** DONE check that the started partial contains the #clock
+**** DONE check that the channel subscription starts the countdown at the given time (UTC)
+**** DONE check that the counter decreases
+**** DONE check that it stops at 0 (or 1)
+**** TODO move the 'remaining' out of the js
 **** TODO pluralize the 'n seconds' in the countdown with %!S
+**** TODO add 'Z' to the sent date
+** TODO smell ? sleep in features ? could we speed that up ?
 ** TODO Fix a few todos
 ** TODO bundle update
 ** TODO is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
 ** TODO should TeamMembers be nested as Members in the team ? could add a TODO for that
+** TODO should the vote notif event just trigger a full reload on client side ?
 * Next Stories
 ** TODO Setup guard notify
 ** TODO paren matching in emacs
@@ -175,6 +182,7 @@ https://github.com/teampoltergeist/poltergeist
 *** TODO have a place where to save screenshots, pages etc ... with poltergeist
 *** TODO upload logs, screenshots, and other artifacts from travis to s3 https://docs.travis-ci.com/user/uploading-artifacts/
 *** TODO know who to setup a local travis https://docs.travis-ci.com/user/common-build-problems/#Troubleshooting-Locally-in-a-Docker-Image
+** TODO Blog : set timezone in jasmine with clock + moment.tz().toDate
 * Smells
 * Retrospective
 ** 2017/01/27

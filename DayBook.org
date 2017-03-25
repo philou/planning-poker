@@ -160,6 +160,7 @@
 **** DONE add 'Z' to the sent date
 ** DONE is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
 ** TODO bundle update
+* TODO Finish retro
 * Next Stories
 * Smells
 * Retrospective
@@ -216,3 +217,16 @@
 *** I have real difficulties finishing this story ! As if I'm lacking time
 *** Maybe I should cut it off, and move on
 *** It's really difficult to do rails dev without an internet connection. A great part of productivity comes from the community
+** 2017/03/23
+| mad | sad                                                | glad                     |
+|-----+----------------------------------------------------+--------------------------|
+|     | not very fast ...                                  | finished this story !    |
+|     | offline still not very effective                   | I have ideas for my book |
+|     | Lot's of improvement to do                         |                          |
+|     | I don't think I can finish for end of March        |                          |
+|     | Not sure I'll remember much of what I learned here |                          |
+*** I should never mix doing and learning !
+*** TODO create 2 columns in my trello board : doing & learning
+*** TODO only pure learning activities in learning : katas, moocs, exercices, 20h stuff, always isolated from complex context
+*** have a description at the top of the column to keep this here
+*** Or : do punk learning

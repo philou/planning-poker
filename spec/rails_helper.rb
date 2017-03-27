@@ -23,11 +23,13 @@ require 'capybara/rails'
 #
 # Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
-# In order to keep the same RAILS_ENV for rspec and cucumber,
-# patch the connection to use sqlite in memory when running rspec
+# In order to keep the same RAILS_ENV for rspec and cucumber, and to make rspec
+# faster, patch the connection to use sqlite in memory when running rspec
 ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:')
 ActiveRecord::Schema.verbose = false
-load "#{Rails.root.to_s}/db/schema.rb" # use db agnostic schema by default
+# load db agnostic schema by default. Needed to remove the ", id: :serial" from
+# the table definitions to make it load on sqlite
+eval(`cat #{Rails.root.to_s}/db/schema.rb | sed 's/,[^:]*: :serial\//g'`)
 
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.

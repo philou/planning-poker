@@ -15,19 +15,19 @@ ActiveRecord::Schema.define(version: 20170124080251) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "team_members", force: :cascade do |t|
-    t.text     "name"
-    t.integer  "team_id"
+  create_table "team_members", id: :serial, force: :cascade do |t|
+    t.text "name"
+    t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "teams", force: :cascade do |t|
-    t.text     "name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "animator_id"
-    t.integer  "lock_version"
+  create_table "teams", id: :serial, force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "animator_id"
+    t.integer "lock_version"
   end
 
   add_foreign_key "teams", "team_members", column: "animator_id"

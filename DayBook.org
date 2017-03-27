@@ -160,6 +160,12 @@
 **** DONE add 'Z' to the sent date
 ** DONE is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
 ** TODO bundle update
+*** DONE update the deps
+*** DONE Fix deprecations
+*** TODO fix the unique constraint
+*** TODO find a way to spot this earlier ?
+**** Create a new rake task that does db:drop, db:create, db:migrate on all envs and then only the default task
+**** Does a similar task already exist ?
 * TODO Finish retro
 * Next Stories
 * Smells

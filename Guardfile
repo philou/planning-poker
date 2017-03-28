@@ -40,22 +40,37 @@ guard "cucumber", cucumber_options do
   end
 end
 
-guard :rspec, cmd: 'bundle exec rspec', all_on_start: true do
-  watch('spec/spec_helper.rb')                        { "spec" }
-  watch('config/routes.rb')                           { "spec/routing" }
-  watch('app/controllers/application_controller.rb')  { "spec/controllers" }
-  watch(%r{^spec/.+_spec\.rb$})
-  watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
-  watch(%r{^app/(.*)(\.erb|\.haml|\.slim)$})          { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
-  watch(%r{^lib/(.+)\.rb$})                           { |m| "spec/lib/#{m[1]}_spec.rb" }
-  watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
-end
+# This group allows to skip running linters when unit tests fail
+group :red_green_refactor, halt_on_fail: true do
 
-guard :teaspoon do
-  # Implementation files
-  watch(%r{^app/assets/javascripts/(.+).js}) { |m| "#{m[1]}_spec.js" }
-  watch(%r{^app/assets/javascripts/(.+).coffee}) { |m| "#{m[1]}_spec.coffee" }
+  guard :rspec, cmd: 'bundle exec rspec', all_on_start: true do
+    watch('spec/spec_helper.rb')                        { "spec" }
+    watch('config/routes.rb')                           { "spec/routing" }
+    watch('app/controllers/application_controller.rb')  { "spec/controllers" }
+    watch(%r{^spec/.+_spec\.rb$})
+    watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
+    watch(%r{^app/(.*)(\.erb|\.haml|\.slim)$})          { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
+    watch(%r{^lib/(.+)\.rb$})                           { |m| "spec/lib/#{m[1]}_spec.rb" }
+    watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
+  end
 
-  # Specs / Helpers
-  watch(%r{^spec/javascripts/(.*)})
+  guard :teaspoon do
+    # Implementation files
+    watch(%r{^app/assets/javascripts/(.+).js}) { |m| "#{m[1]}_spec.js" }
+    watch(%r{^app/assets/javascripts/(.+).coffee}) { |m| "#{m[1]}_spec.coffee" }
+
+    # Specs / Helpers
+    watch(%r{^spec/javascripts/(.*)})
+  end
+
+  guard :rubocop, all_on_start: false, cli: ['--format', 'clang', '--rails'] do
+    watch(%r{.+\.rb$})
+    watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+  end
+
+  # Lint CoffeeScript files on change
+  guard :coffeelint, paths: %w(app spec)do
+    watch %r{^app/assets/javascripts/.*\.coffee$}
+    watch %r{^spec/javascripts/.*\.coffee$}
+  end
 end

@@ -59,6 +59,8 @@ group :development do
   gem 'guard-cucumber'
   gem 'guard-rspec', require: false
   gem 'guard-teaspoon'
+  gem 'guard-rubocop'
+  gem 'guard-coffeelint'
 
   gem 'rails_real_favicon'
 end

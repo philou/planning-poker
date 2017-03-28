@@ -40,11 +40,6 @@ ratings:
   - "**.php"
   - "**.py"
 exclude_paths:
-- config/
-- db/
-- features/
-- script/
-- spec/
-- test/
 - vendor/
 - DayBook.org
+- lib/tasks/cucumber.rake

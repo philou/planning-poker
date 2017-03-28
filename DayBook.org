@@ -1,172 +1,3 @@
-* TODO Start Vote + Countdown. Aka : distributed countdown
-** Should the voters see the countdown ? Would be nice
-** Careful about international times : could be a second story
-** Just show the countdown in fact, no need for the possibility to vote yet. It's a distributed countdown in fact
-** How long the countdown ? 10s, we'll see later
-** for the animator : when I click start vote, I should see a countdown from 10s to 0s
-** for the voters : when animator starts the vote, I should see a countdown from ~10s to 0s + a mention that a vote is running
-** How to do that
-*** animator : simple, a bit of js
-*** voters
-**** When the animator starts, he should send something to the server
-**** the server will notify voters
-**** the voters must be listening for such a message in order to display the countdown
-**** the animator could display his countdown the same way as any voter (through server back and forth, this would allow the server to fix the end time)
-*** from a DB point of view, we can have fields for current-vote in the Team table. This might be another case for more DDD
-*** testing
-**** js and UI
-**** if we use selenium and a headless browser, we can e2e test the animator alone, and a voter alone by mimicking an animator start vote command
-**** js unit tests
-** DONE Write 2 cucumber tests
-** DONE update the gems (and check if rake cucumber stops emitting warnings)
-** DONE fix the CI
-*** DONE try to rebuild
-*** DONE Add traces to docker deploy
-*** DONE log in the server and try to run it by hand
-*** Server is KO, ran out or space and cannot recover ...
-*** DONE create a new server, can I reset the server from DigitalOcean ?
-**** DONE Reset the server
-**** DONE add the credentials for access
-*** DONE Follow my own guide
-*** DONE need to increase the server's memory
-** DONE plug in phantom js to test drive
-*** DONE mark specs as @javascript
-*** DONE set the js driver in capybara to poltergeist (there are web pages explaining the options)
-*** DONE write the test
-** DONE Subscribe to the event from the client
-*** This link might be helpful : particularly the section on targeted changes https://blog.codeship.com/unobtrusive-javascript-via-ajax-rails/
-*** Another https://coderwall.com/p/kqb3xq/rails-4-how-to-partials-ajax-dead-easy for links it's just partials + the remote:true option
-*** What about ajax at page load ?
-*** This one uses direct jQuery, but seems a bit old (2013) http://stackoverflow.com/questions/6214201/best-practices-for-loading-page-content-via-ajax-request-in-rails3
-*** There is ActionCable + Redis + Devise which allows to send notifications between users https://gist.github.com/excid3/4ca7cbead79f06365424b98fa7f8ecf6
-*** The rails guide on action cable is the thing http://edgeguides.rubyonrails.org/action_cable_overview.html#dependencies
-*** DONE try to scratch out something locally using async
-**** DONE Create a global broadcast stream
-***** Does not work yet !
-***** DONE use main machine instead of container
-***** DONE keep this in 2 new branches
-***** DONE try ActionCable now
-**** DONE Subscribe to it from the client
-**** DONE Broadcast a message
-**** DONE merge the action-cable-scratch branch (without commit)
-**** DONE Subscribe only after team identification
-**** DONE Define a team specific stream
-**** DONE action for start vote that broadcasts
-**** DONE remove the start method from the channel
-**** will I need devise ? Don't think so
-**** DONE commiter dans une branche en dehors
-*** DONE Setup redis
-**** DONE add something in local prod env
-***** DONE start redis from docker-compose up
-***** DONE try to start the server in prod env
-***** RAILS_ENV=production bundle exec rake db:create
-***** RAILS_ENV=production bundle exec rake db:migrate
-***** RAILS_ENV=production bundle exec rake assets:precompile
-***** RAILS_ENV=production SECRET_KEY_BASE=39159cdda6322550dc58f34e170e2146ec1527f560e36690632ffe5a54595cec091ece710d8271cc1bfb70fcf403098093afcdfa59d1faab3cde641a9443f1c4 RAILS_SERVE_STATIC_FILES=true bundle exec bin/rails server
-***** DONE what about redis_url? when blank, REDIS_URL defaults to redis://localhost:6379
-**** DONE see how it works on heroku, prepare the config
-**** DONE what happens when I push another branch than master and it gets built by travis ? travis does not push, nice travis
-*** DONE do the real subscription
-**** DONE Create a channel
-***** DONE generation is easy
-***** DONE how to test ?
-****** I can call subscribed method directly with given arguments and check the expected channel name ?
-****** Will test through cucumber
-**** DONE subscribe from javascript in team_member view
-***** DONE how to test the js
-****** DONE install a good js test framework : used teaspoon
-****** DONE make it work
-***** DONE how to use unobstrusive js ?
-****** DONE add link for great tuto by brandon Hickler (check phone history) in the application.js
-****** DONE try to open a popup at team_member view opening
-***** DONE add controller and action to the layout
-***** DONE add page specific data to the body in the layout
-***** DONE add team name data from the team_members view
-***** DONE run `rake teaspoon` from `rake` so that it runs in CI
-***** DONE understand what to do with the js tooltip
-***** DONE do the actual subscription
-****** DONE inject a fake channel (minimal for the moment, no stupid mock)
-****** DONE test the handlecr
-****** DONE display a 'vote started' notice
-****** DONE test that the subscription is made
-** DONE add a test for caption in the team_members view
-** DONE send the command from the animator
-*** have a Team or TeamVote resource
-*** or is Team~TeamVote ?
-*** or maybe TeamVote is nested inside Team, TeamVote can be a resource, but Team is not accessible from the outside yet -> makes sense
-*** or is using the team channel better ?
-*** DONE check how to do nested resources
-  resources :teams, only: [] do
-    resource :vote, only: :create
-  end
-
-*** DONE create a Vote resource nested in Team
-*** DONE call the vote :create from the StartVote button
-*** DONE handling the request and sending an event to the participants
-*** DONE move the code for broadcasting in the TeamChannel
-*** DONE depend on httpclient in test in order to have the http constants
-*** DONE try to write a test for subscription parameters : Did not manage
-*** DONE can we factorize the #team-vote-state ?
-**** almost 3 languages (ruby, coffee, css)
-**** not sure it's possible
-**** not sure the error reporting will be any better
-**** DONE constant in js will give undefined !
-**** DONE how do we define constants in coffee ?
-**** DONE could we had something to make sure the #id exists in the code, to make sure it gets caught : its done by $() in jquery
-** DONE Check that notifications works on heroku (domains et bla bla ...)
-** DONE display a real countdown in the client
-*** DONE check to find existing bootstrap countdowns on the web
-**** Found jquery-countdown to help
-**** also found rails-assets.org as a gemsource that can help manage bower components
-**** DONE Install it from there
-*** DONE hack something to make it work
-*** DONE define the steps
-*** DONE send the new vote end timestamp along the message on start vote, use 30s for example
-**** DONE rename the current broadcast
-**** DONE remove the message param
-**** DONE add an extra end vote date param
-*** DONE change the current code to use a div instead of a direct <p>
-*** DONE when receiving a message, replace the start vote button by the countdown, continue updating the sentence
-*** DONE Add feature tests
-**** DONE Try to start the vote in a different session
-***** if this does not work, I'll have to make it save in the db (which is supposed to be another story)
-*** DONE commit the quick fix
-*** DONE fix travis
-**** DONE :KO: try to add the custom puma config
-**** DONE :KO: try to use redis-test to start a redis server
-**** DONE :KO: try to add the redis service in travis
-**** DONE :KO: get logs from phantomjs
-**** DONE :OK: update the phantomjs version
-**** DONE :CANCELED: reproduce the travis build in my own container or vm https://docs.travis-ci.com/user/common-build-problems/#Troubleshooting-Locally-in-a-Docker-Image
-**** DONE :CANCELED: ask the travis guys
-*** DONE style with bootstrap
-*** DONE render the html on server side
-**** have a single div for all this
-**** send the html with a marker for the time remaining (without any style)
-**** start the countdown to update this time count
-**** DONE Update the whole html from within the client channel subscription
-**** DONE Render some html partial from within a server Channel
-**** DONE create other partial for default vote state
-**** DONE Fix any failing tests
-*** DONE Fix the css error in browser console
-*** DONE add some tests on the coffee side
-**** DONE check that the started partial is sent through the channel
-**** DONE check that the started partial contains the #clock
-**** DONE check that the channel subscription starts the countdown at the given time (UTC)
-**** DONE check that the counter decreases
-**** DONE check that it stops at 0 (or 1)
-**** DONE move the 'remaining' out of the js
-**** DONE pluralize the 'n seconds' in the countdown with %!S
-**** DONE add 'Z' to the sent date
-** DONE is there a way to simplify constant declaration and import in coffeescript / javascript ? (team.coffee)
-** TODO bundle update
-*** DONE update the deps
-*** DONE Fix deprecations
-*** TODO fix the unique constraint
-*** TODO find a way to spot this earlier ?
-**** Create a new rake task that does db:drop, db:create, db:migrate on all envs and then only the default task
-**** Does a similar task already exist ?
-* TODO Finish retro
 * Next Stories
 * Smells
 * Retrospective
@@ -224,15 +55,16 @@
 *** Maybe I should cut it off, and move on
 *** It's really difficult to do rails dev without an internet connection. A great part of productivity comes from the community
 ** 2017/03/23
-| mad | sad                                                | glad                     |
-|-----+----------------------------------------------------+--------------------------|
-|     | not very fast ...                                  | finished this story !    |
-|     | offline still not very effective                   | I have ideas for my book |
-|     | Lot's of improvement to do                         |                          |
-|     | I don't think I can finish for end of March        |                          |
-|     | Not sure I'll remember much of what I learned here |                          |
+| mad                                              | sad                                                | glad                                        |
+|--------------------------------------------------+----------------------------------------------------+---------------------------------------------|
+| I find more and more that a large part of devs : | not very fast ...                                  | finished this story !                       |
+| - have big egos and want to show off             | offline still not very effective                   | I have ideas for my book                    |
+| - don't take care of themselves                  | Lot's of improvement to do                         | I have an idea for the vision of my company |
+| Emacs bindings are shitty, esp in .org mode      | I don't think I can finish for end of March        |                                             |
+|                                                  | Not sure I'll remember much of what I learned here |                                             |
 *** I should never mix doing and learning !
-*** TODO create 2 columns in my trello board : doing & learning
-*** TODO only pure learning activities in learning : katas, moocs, exercices, 20h stuff, always isolated from complex context
+*** DONE create 2 columns in my trello board : doing & learning
+*** DONE only pure learning activities in learning : katas, moocs, exercices, 20h stuff, always isolated from complex context
 *** have a description at the top of the column to keep this here
-*** Or : do punk learning
+*** Or : do punk learning when doing
+*** DONE Change my description as "aspiring egoless programmer" or "aspiring serene dev" or just "serene developer"

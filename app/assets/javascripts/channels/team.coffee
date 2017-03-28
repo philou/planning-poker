@@ -19,4 +19,4 @@ Team.subscribe = (teamName) ->
       Team.$voteClock()
         .countdown(endTime.toDate())
         .on('update.countdown', (event) ->
-                $(this).html(event.strftime('%-T second%!S')))
+          $(this).html(event.strftime('%-T second%!S')))

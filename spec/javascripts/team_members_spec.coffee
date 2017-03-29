@@ -19,7 +19,7 @@ describe "Team Members", ->
     expect(App.Channels.Team.subscribe).toHaveBeenCalledWith("Daltons")
 
 
-  it "doesn't subscribe to the team channel when not in team_members show view", ->
+  it "doesn't subscribe to team channel outside team_members show view", ->
     App.TeamMembers.onLoad()
 
     expect(App.Channels.Team.subscribe).not.toHaveBeenCalled()

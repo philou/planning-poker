@@ -36,7 +36,7 @@ When(/^"([^"]*)" starts a vote from his browser$/) do |team_member_name|
   end
 end
 
-Then(/^"([^"]*)" should see a countdown start$/) do |team_member_name|
+Then(/^"([^"]*)" should see a countdown start$/) do |_team_member_name|
   # TODO do some polling instead of sleeping for a full second
   sleep 1
 

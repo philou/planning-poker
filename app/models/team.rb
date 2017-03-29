@@ -9,7 +9,7 @@ class Team < ApplicationRecord
         self.update(animator: team_member)
       end
 
-    rescue ActiveRecord::StaleObjectError => e
+    rescue ActiveRecord::StaleObjectError
       reload
     end
   end

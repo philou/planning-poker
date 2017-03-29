@@ -20,12 +20,12 @@ class TeamMembersController < ApplicationController
   private
 
   def check_name_and_team_name
-    {  'Team' => "Please specify a non blank team name to enter the vote",
-       'Name' => "Please specify a non blank name to enter the vote" }.each do |param, error_message|
+    { 'Team' => "Please specify a non blank team name to enter the vote",
+      'Name' => "Please specify a non blank name to enter the vote" }.each do |param, error_message|
       if params[param].empty?
         flash[:danger] = error_message
-        redirect_to root_path
-        return
+        return redirect_to root_path
+
       end
     end
   end

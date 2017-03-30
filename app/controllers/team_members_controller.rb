@@ -12,9 +12,7 @@ class TeamMembersController < ApplicationController
   end
 
   def show
-    # TODO only pass the team_member to the view, and delegate to the model (.team_name .animator?)
-    @team_member = TeamMember.find(params['id'])
-    @team = @team_member.team
+    @contributor = TeamMember.find(params['id'])
   end
 
   private

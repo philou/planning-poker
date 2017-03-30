@@ -1,17 +1,17 @@
-<% provide(:title, @team.name) %>
-<% provide(:description, "#{@team_member.name}\'s view on the #{@team.name} planning poker session") %>
-<% provide(:keywords, "Team #{@team.name}, Team Member #{@team_member.name}") %>
-<% provide(:extra_body_attributes, raw("data-team-name=\"#{@team.name}\"")) %>
+<% provide(:title, @contributor.team_name) %>
+<% provide(:description, "#{@contributor.name}\'s view on the #{@contributor.team_name} planning poker session") %>
+<% provide(:keywords, "Team #{@contributor.team_name}, Team Member #{@contributor.name}") %>
+<% provide(:extra_body_attributes, raw("data-team-name=\"#{@contributor.team_name}\"")) %>
 
 <!-- Jumbotron will have to go when more behaviour is here -->
 <div class="center jumbotron">
-  <h1>Welcome <%= @team_member.name %></h1>
+  <h1>Welcome <%= @contributor.name %></h1>
 
   <% # TODO get rid of these 2 'if' %>
-  <% if @team.animator?(@team_member) %>
-    <p>You are animator for the <%= @team.name %> team</p>
+  <% if @contributor.animator? %>
+    <p>You are animator for the <%= @contributor.team_name %> team</p>
   <% else %>
-    <p>You are a voter for the <%= @team.name %> team</p>
+    <p>You are a voter for the <%= @contributor.team_name %> team</p>
   <% end %>
 
   <div id="team-vote-state">

@@ -4,10 +4,9 @@ describe "team_members/show" do
 
   before :each do
     @team = Team.create(name: "Mogwais")
-    @team_member = TeamMember.create(name: "Gyzmo", team: @team)
+    @contributor = TeamMember.create(name: "Gyzmo", team: @team)
 
-    assign(:team, @team)
-    assign(:team_member, @team_member)
+    assign(:contributor, @contributor)
 
   end
 
@@ -20,13 +19,13 @@ describe "team_members/show" do
   it "provides an html description" do
     render
 
-    expect(view.content_for(:description)).to include(@team_member.name).and include(@team.name)
+    expect(view.content_for(:description)).to include(@contributor.name).and include(@team.name)
   end
 
   it "provides html keywords" do
     render
 
-    expect(view.content_for(:keywords)).to include(@team_member.name).and include(@team.name)
+    expect(view.content_for(:keywords)).to include(@contributor.name).and include(@team.name)
   end
 
   it "provides the team name as body data attributes" do
@@ -51,7 +50,7 @@ describe "team_members/show" do
 
   context "when animator" do
     before :each do
-      @team.animator = @team_member
+      @team.animator = @contributor
     end
 
     it "states that the user is the animator" do

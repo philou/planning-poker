@@ -1,4 +1,4 @@
-//= require support/jasmine-jquery-2.0.0
+#= require support/jasmine-jquery-2.0.0
 
 # TODO find a way to test that we are subscribing with the correct arguments.
 #   Maybe later commits for tests on ActionCable will help I tried with server

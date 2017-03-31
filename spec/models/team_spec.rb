@@ -4,12 +4,12 @@ describe Team do
 
   before :each do
     @daltons = Team.create(name: "Daltons")
-    @joe = @daltons.team_members.create(name: "Joe")
-    @avrell = @daltons.team_members.create(name: "Avrell")
+    @joe = @daltons.contributors.create(name: "Joe")
+    @avrell = @daltons.contributors.create(name: "Avrell")
   end
 
   it "has members" do
-    expect(Team.find_by(name: "Daltons").team_members.size).to eq(2)
+    expect(Team.find_by(name: "Daltons").contributors.size).to eq(2)
   end
 
   it "can have an animator" do

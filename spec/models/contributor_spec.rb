@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-describe TeamMember do
+describe Contributor do
 
   before :each do
     @daltons = Team.create(name: "Daltons")
-    @joe = @daltons.team_members.create(name: "Joe")
-    @avrell = @daltons.team_members.create(name: "Avrell")
-    @john_doe = TeamMember.new(name: "John Doe")
+    @joe = @daltons.contributors.create(name: "Joe")
+    @avrell = @daltons.contributors.create(name: "Avrell")
+    @john_doe = Contributor.new(name: "John Doe")
   end
 
   it "cannot be animator without a team" do

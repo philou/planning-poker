@@ -1,18 +1,18 @@
-class TeamMembersController < ApplicationController
+class ContributorsController < ApplicationController
 
   before_action :check_name_and_team_name, only: :create
 
   def create
     team = Team.find_or_create_by(name: params['Team'])
-    team_member = TeamMember.find_or_create_by(team: team, name: params['Name'])
+    contributor = Contributor.find_or_create_by(team: team, name: params['Name'])
 
-    team.if_needed_pick_animator(team_member)
+    team.if_needed_pick_animator(contributor)
 
-    redirect_to team_member
+    redirect_to contributor
   end
 
   def show
-    @contributor = TeamMember.find(params['id'])
+    @contributor = Contributor.find(params['id'])
   end
 
   private

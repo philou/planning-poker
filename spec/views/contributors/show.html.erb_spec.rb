@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe "team_members/show" do
+describe "contributors/show" do
 
   before :each do
     @team = Team.create(name: "Mogwais")
-    @contributor = TeamMember.create(name: "Gyzmo", team: @team)
+    @contributor = Contributor.create(name: "Gyzmo", team: @team)
 
     assign(:contributor, @contributor)
 

@@ -1,6 +1,6 @@
 <% provide(:title, @contributor.team_name) %>
 <% provide(:description, "#{@contributor.name}\'s view on the #{@contributor.team_name} planning poker session") %>
-<% provide(:keywords, "Team #{@contributor.team_name}, Team Member #{@contributor.name}") %>
+<% provide(:keywords, "Team #{@contributor.team_name}, Contributor #{@contributor.name}") %>
 <% provide(:extra_body_attributes, raw("data-team-name=\"#{@contributor.team_name}\"")) %>
 
 <!-- Jumbotron will have to go when more behaviour is here -->

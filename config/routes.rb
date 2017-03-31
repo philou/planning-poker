@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
-  resources :team_members, only: [:create, :show]
+  resources :contributors, only: [:create, :show]
 
   resources :teams, only: [] do
     resource :vote, only: :create

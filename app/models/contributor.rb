@@ -1,7 +1,6 @@
 # TODO rename TeamMember to Contributor as it is very long to write
 #    - create a migration to rename the table
 class Contributor < ApplicationRecord
-  self.table_name = 'team_members'
 
   belongs_to :team
 

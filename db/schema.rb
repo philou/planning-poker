@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124080251) do
+ActiveRecord::Schema.define(version: 20170331045225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "team_members", id: :serial, force: :cascade do |t|
+  create_table "contributors", id: :serial, force: :cascade do |t|
     t.text "name"
     t.integer "team_id"
     t.datetime "created_at", null: false
@@ -30,5 +30,5 @@ ActiveRecord::Schema.define(version: 20170124080251) do
     t.integer "lock_version"
   end
 
-  add_foreign_key "teams", "team_members", column: "animator_id"
+  add_foreign_key "teams", "contributors", column: "animator_id"
 end

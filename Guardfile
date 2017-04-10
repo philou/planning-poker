@@ -15,6 +15,8 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
+interactor :simple
+
 cucumber_options = {
   # Below are examples overriding defaults
 

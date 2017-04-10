@@ -73,3 +73,6 @@ build-iPhoneSimulator/
 *~
 *#
 .#*
+
+# Intellij
+.idea

@@ -1,5 +1,5 @@
 # Ruby version, repeated in Dockerfile
-ruby '2.4.0'
+ruby '2.3.3'
 
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
@@ -63,6 +63,9 @@ group :development do
   gem 'guard-coffeelint'
 
   gem 'rails_real_favicon'
+
+  gem 'ruby-debug-ide'
+  gem 'debase'
 end
 
 group :development, :test do

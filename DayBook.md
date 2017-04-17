@@ -1,2 +1,80 @@
-## Next Stories
-## Smells
+# Vote
+
+* ~~Decide how to vote~~
+    * display a set of buttons with the different votes
+    * disable them once one is clicked
+    * at the end of the countdown, display the average (just for testing, does not have to be nicely styled
+* ~~Overall design~~
+    * Enhance the vote_started view
+    * disable the buttons once one is clicked
+    * send the vote when clicked
+        * could send to every team member, for him to store its vote, but would make the design highly mutable
+    * broadcast the vote when the time is over (from the server)
+        * need a backgroung task
+        * need a ref to the vote : currently, the team could do, but makes it highly mutable
+    * or we could create a vote table
+        * team would have many votes
+        * but only one current vote
+            * ? use time, latest id, or a special column
+            * using latest would make the design more append only
+        * every vote would have contributions
+        * every contribution would have
+            * a team member
+            * and a vote (because with time, it's not always the current)
+* ~~Create sub tasks about how I am going to do it~~
+* Write a test
+    Solo vote
+
+    Given I am in team X
+    And the vote is started
+    When I vote 5
+    And I wait till the end of vote
+    Then I should see that we agreed on 5
+    
+    Team vote
+    
+    Given I amd in team X
+    And John is in team X
+    And the vote started
+    When I vote 5
+    And John votes 3
+    And we wait till the end of vote
+    Then I should see that we agreed on 4
+    
+    Should find a way to abstract the animator part away
+* create a vote table and model
+    * team would have many votes
+    * but only one current vote (the latest)
+* refactor the current vote views to link to this model
+* Enhance the vote_started view
+* disable the buttons once one is clicked
+* send the vote when clicked
+* Create the contribution table and model
+    * a team member
+    * and a vote (because with time, it's not always the current)
+* When the vote is started, start a background task on the server to end the vote
+* broadcast the average when the vote is ended
+* ? change the url as vote goes through steps (to make it rational how to start a new vote)
+
+# Display vote results
+
+* Decide how we want to display the results
+    * An histogram with the number of each votes (?,0,0.5,1 ... 40)
+    * Let's not display anything else (median, average ...)
+    * We'll only have 0 to display, is this the best first step ?
+    * If we did the other one where we actually vote, we could display a quick and dirty average
+* Write a test
+* Create sub tasks about how we are going to do it
+
+[ ] TODO switch to the other story
+
+# Next Stories
+
+* Display extra info about the vote results like
+        * The median
+        * The average
+        * The standard deviation
+* What about responsive design and display on phones (useful in meeting rooms) ?
+* Garbage collect old elections and votes
+
+# Smells

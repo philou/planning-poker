@@ -19,7 +19,7 @@ Then(/^"([^"]*)" should become a voter in the "([^"]*)" session$/) do |contribut
   expect(page).to have_content('You are a voter')
 end
 
-When(/^"([^"]*)" starts a vote$/) do |contributor_name|
+def start_vote_as(contributor_name)
   contributor = Contributor.find_by name: contributor_name
 
   visit contributor_path(contributor)
@@ -27,18 +27,28 @@ When(/^"([^"]*)" starts a vote$/) do |contributor_name|
   click_button('Start Vote')
 end
 
-# TODO remove the 'from his browser' from the step def. This is really implementation specific
-# I would rather have steps starting with 'I ...' for things happening in the main test session
-# and steps starting with other names for things happening in other sessions
-When(/^"([^"]*)" starts a vote from his browser$/) do |contributor_name|
-  Capybara.using_session(contributor_name) do
-    step "\"#{contributor_name}\" starts a vote"
-  end
-end
+When(/^"([^"]*)" starts a vote$/) { |contributor_name| start_vote_as(contributor_name) }
+Given(/^"([^"]*)" started a vote$/) { |contributor_name| start_vote_as(contributor_name) }
 
 Then(/^"([^"]*)" should see a countdown start$/) do |_contributor_name|
   # TODO do some polling instead of sleeping for a full second
   sleep 1
 
   expect(page).to have_content('seconds remaining')
+end
+
+
+# TODO remove the 'from his browser' from the step def. This is really implementation specific
+# I would rather have steps starting with 'I ...' for things happening in the main test session
+# and steps starting with other names for things happening in other sessions
+
+When(/^"([^"]*)" starts a vote from his browser$/) do |contributor_name|
+  Capybara.using_session(contributor_name) do
+    start_vote_as(contributor_name)
+  end
+end
+Given(/^"([^"]*)" started a vote from his browser$/) do |contributor_name|
+  Capybara.using_session(contributor_name) do
+    start_vote_as(contributor_name)
+  end
 end

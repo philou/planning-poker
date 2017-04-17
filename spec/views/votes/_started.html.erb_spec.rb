@@ -8,4 +8,12 @@ describe "votes/_started" do
     expect(rendered).to have_css('#team-vote-clock')
   end
 
+  PhilousPlanningPoker::FIBOS.each do |estimate|
+    it "renders a button to vote #{estimate}" do
+      render
+
+      expect(rendered).to have_button(estimate)
+    end
+  end
+
 end

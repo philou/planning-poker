@@ -30,6 +30,14 @@ end
 When(/^"([^"]*)" starts a vote$/) { |contributor_name| start_vote_as(contributor_name) }
 Given(/^"([^"]*)" started a vote$/) { |contributor_name| start_vote_as(contributor_name) }
 
+def vote(value)
+  click_button(value)
+end
+
+When(/^"([^"]*)" votes (\d+)$/) do |contributor_name, value|
+  vote(value)
+end
+
 Then(/^"([^"]*)" should see a countdown start$/) do |_contributor_name|
   # TODO do some polling instead of sleeping for a full second
   sleep 1
@@ -50,5 +58,10 @@ end
 Given(/^"([^"]*)" started a vote from his browser$/) do |contributor_name|
   Capybara.using_session(contributor_name) do
     start_vote_as(contributor_name)
+  end
+end
+When(/^"([^"]*)" votes (\d+) from his browser$/) do |contributor_name, value|
+  Capybara.using_session(contributor_name) do
+    vote(value)
   end
 end

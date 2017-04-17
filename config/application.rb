@@ -26,4 +26,5 @@ module PhilousPlanningPoker
 
   TITLE = "Philou's Planning Poker"
   KEYWORDS = "Planning Poker, Software Estimates, Work Estimates, Remote Team, Remote Planning Poker"
+  FIBOS = %w{? 0.5 1 2 3 5 8 13 20 40}
 end

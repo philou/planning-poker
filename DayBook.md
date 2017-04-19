@@ -41,18 +41,6 @@
 * broadcast the average when the vote is ended
 * ? change the url as vote goes through steps (to make it rational how to start a new vote)
 
-# Display vote results
-
-* Decide how we want to display the results
-    * An histogram with the number of each votes (?,0,0.5,1 ... 40)
-    * Let's not display anything else (median, average ...)
-    * We'll only have 0 to display, is this the best first step ?
-    * If we did the other one where we actually vote, we could display a quick and dirty average
-* Write a test
-* Create sub tasks about how we are going to do it
-
-[ ] TODO switch to the other story
-
 # Next Stories
 
 * Display extra info about the vote results like

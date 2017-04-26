@@ -1,5 +1,7 @@
 # Vote
 
+## Specs
+
 * ~~Decide how to vote~~
     * display a set of buttons with the different votes
     * disable them once one is clicked
@@ -22,12 +24,14 @@
             * a team member
             * and a vote (because with time, it's not always the current)
 * ~~Create sub tasks about how I am going to do it~~
+
+## TODO
 * ~~Write a test~~
-* Enhance the vote_started view
+* ~~Enhance the vote_started view~~
     * ~~add a test~~
     * ~~add the buttons~~
     * ~~factorize the votes from the tests and the code~~
-    * style the buttons
+    * ~~style the buttons~~
 * disable the buttons once one is clicked
 * create a vote table and model
     * team would have many votes

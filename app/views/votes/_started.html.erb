@@ -2,8 +2,10 @@
 <div id="team-vote-countdown" class="panel panel-default">
    <div class="panel-body">
      <div class="lead"><span id="team-vote-clock"></span> remaining</div>
-     <% PhilousPlanningPoker::FIBOS.each do |estimate| %>
-       <%= button_to estimate, "#" %>
-     <% end %>
+     <div class="btn-group">
+       <% PhilousPlanningPoker::FIBOS.each do |estimate| %>
+         <%= button_tag estimate, class: "btn btn-primary" %>
+       <% end %>
+     </div>
   </div>
 </div>

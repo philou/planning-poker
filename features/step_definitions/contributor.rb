@@ -34,7 +34,7 @@ def vote(value)
   click_button(value)
 end
 
-When(/^"([^"]*)" votes (\d+)$/) do |contributor_name, value|
+When(/^"([^"]*)" votes (\d+)$/) do |_contributor_name, value|
   vote(value)
 end
 

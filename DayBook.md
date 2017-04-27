@@ -1,10 +1,10 @@
 # Arrive late in a vote
 
 ## TODO
-* Write a test
+* ~~Write a test~~
 * create a vote table and model
-    * with an end times
-    * team would have many votes
+    * ~~with an end times~~
+    * ~~team would have many votes~~
     * but only one current vote (the latest)
 * refactor the current vote views to link to this model
 * simply refresh the view when receiving a notification

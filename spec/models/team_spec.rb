@@ -48,4 +48,10 @@ describe Team do
     expect(@daltons.animator?(@avrell)).to be false
   end
 
+  it "has some votes" do
+    @daltons.votes.create(ending: DateTime.current)
+
+    expect(@daltons.votes.size).to eq(1)
+  end
+
 end

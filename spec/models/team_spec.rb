@@ -48,10 +48,36 @@ describe Team do
     expect(@daltons.animator?(@avrell)).to be false
   end
 
-  it "has some votes" do
-    @daltons.votes.create(ending: DateTime.current)
+  context "votes" do
 
-    expect(@daltons.votes.size).to eq(1)
+    it "has some votes" do
+      @daltons.votes.create(ending: DateTime.current)
+
+      expect(@daltons.votes.size).to eq(1)
+    end
+
+    it "can have a current vote" do
+      vote = @daltons.votes.create(ending: DateTime.current + 60)
+
+      expect(@daltons.current_vote).to eq(vote)
+    end
+
+    it "does not have a current vote without votes" do
+      expect(@daltons.current_vote).to be_nil
+    end
+
+    it "does not have a current vote in the past" do
+      @daltons.votes.create(ending: DateTime.current - 3600)
+
+      expect(@daltons.current_vote).to be_nil
+    end
+
+    it "picks the ongoing current vote from many votes" do
+      @daltons.votes.create(ending: DateTime.current - 3600)
+      vote = @daltons.votes.create(ending: DateTime.current + 60)
+
+      expect(@daltons.current_vote).to eq(vote)
+    end
+
   end
-
 end

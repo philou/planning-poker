@@ -1,6 +1,7 @@
 class Team < ApplicationRecord
   has_many :contributors
   belongs_to :animator, class_name: "Contributor", optional: true
+
   has_many :votes
 
   def if_needed_pick_animator(contributor)
@@ -18,4 +19,11 @@ class Team < ApplicationRecord
   def animator?(contributor)
     self.animator == contributor
   end
+
+  def current_vote
+    now = DateTime.current
+    votes.select { |vote| now < vote.ending }.first
+  end
+
+
 end

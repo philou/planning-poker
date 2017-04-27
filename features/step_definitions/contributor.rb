@@ -38,7 +38,7 @@ When(/^"([^"]*)" votes (\d+)$/) do |_contributor_name, value|
   vote(value)
 end
 
-Then(/^"([^"]*)" should see a countdown start$/) do |_contributor_name|
+Then(/^"([^"]*)" should see a vote countdown/) do |_contributor_name|
   # TODO do some polling instead of sleeping for a full second
   sleep 1
 

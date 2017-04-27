@@ -1,3 +1,14 @@
+# Arrive late in a vote
+
+## TODO
+* Write a test
+* create a vote table and model
+    * with an end times
+    * team would have many votes
+    * but only one current vote (the latest)
+* refactor the current vote views to link to this model
+* simply refresh the view when receiving a notification
+
 # Vote
 
 ## Specs
@@ -32,11 +43,12 @@
     * ~~add the buttons~~
     * ~~factorize the votes from the tests and the code~~
     * ~~style the buttons~~
+* [WAITING] for the late comer feature
 * disable the buttons once one is clicked
-* create a vote table and model
-    * team would have many votes
-    * but only one current vote (the latest)
-* refactor the current vote views to link to this model
+    * need to subscribe after the new view is loaded !
+    * write a test
+    * make it pass
+    * add jasmine-jquery to test disabling
 * send the vote when clicked
 * Create the contribution table and model
     * a team member
@@ -53,5 +65,6 @@
         * The standard deviation
 * What about responsive design and display on phones (useful in meeting rooms) ?
 * Garbage collect old elections and votes
+* Run jasmine tests from RubyMine
 
 # Smells

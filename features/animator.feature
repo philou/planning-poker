@@ -15,4 +15,4 @@ Feature: Animator
 
     Given "Amy" already entered the "27s" space
     When "Amy" starts a vote
-    Then "Amy" should see a countdown start
+    Then "Amy" should see a vote countdown

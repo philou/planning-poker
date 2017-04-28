@@ -81,7 +81,9 @@ describe Team do
       @daltons.start_vote(ending)
 
       saved_team = Team.find_by(name: "Daltons")
-      expect(saved_team.current_vote.ending).to eq(ending)
+
+      # DB precision on CI might change the ending time a bit, that's why we need to test within a range
+      expect(saved_team.current_vote.ending).to be_within(1.second).of(ending)
     end
 
     it "forbids starting 2 votes at the same time" do

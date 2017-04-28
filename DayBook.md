@@ -15,6 +15,10 @@
 * ~~how does add_reference work in migrations~~
 * ~~Convert from Time to DateTime in the ruby code~~
 * ~~start a vote when receiving it~~
+* fix the error on Travis
+    Could be something related to column precision
+    Difficult to test locally
+    There is no need for a prcecise number ... I could change the assertion ?
 * refactor the contributors view to show the started vote is there is one
 * simply refresh the view when receiving a notification
 * clean up all the notification code
@@ -65,6 +69,7 @@
     * and a vote (because with time, it's not always the current)
 * When the vote is started, start a background task on the server to end the vote
 * broadcast the average when the vote is ended
+* close the vote when the countdown ends
 * ? change the url as vote goes through steps (to make it rational how to start a new vote)
 
 # Next Stories

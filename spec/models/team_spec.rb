@@ -18,6 +18,12 @@ describe Team do
     expect(Team.find_by(name: "Daltons").animator).to eq(@joe)
   end
 
+  it "requires the animator to also be a team member" do
+    @daltons.update(animator: Contributor.new(name: "Jim"))
+
+    expect(@daltons).to be_invalid
+  end
+
   it "picks the animator when needed" do
     @daltons.if_needed_pick_animator(@joe)
 
@@ -54,29 +60,6 @@ describe Team do
       @daltons.votes.create(ending: DateTime.current)
 
       expect(@daltons.votes.size).to eq(1)
-    end
-
-    it "can have a current vote" do
-      vote = @daltons.votes.create(ending: DateTime.current + 60)
-
-      expect(@daltons.current_vote).to eq(vote)
-    end
-
-    it "does not have a current vote without votes" do
-      expect(@daltons.current_vote).to be_nil
-    end
-
-    it "does not have a current vote in the past" do
-      @daltons.votes.create(ending: DateTime.current - 3600)
-
-      expect(@daltons.current_vote).to be_nil
-    end
-
-    it "picks the ongoing current vote from many votes" do
-      @daltons.votes.create(ending: DateTime.current - 3600)
-      vote = @daltons.votes.create(ending: DateTime.current + 60)
-
-      expect(@daltons.current_vote).to eq(vote)
     end
 
   end

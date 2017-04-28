@@ -8,12 +8,14 @@
     * but only one current vote (the latest)
         * ~~test that it gets the latest~~
         * ~~test that Vote has an ending~~
-        * make sure that 2 current votes are never created at the same time
+        * ~~make sure that 2 current votes are never created at the same time~~
             * is there a way to check that using some sort of sql ?
             * or we can simply add a 'current vote' to the team model, and use the optimistic lock !
               We'd later add 2 methods like start vote and end vote ...
+* how does add_reference work in migrations
 * refactor the current vote views to link to this model
 * simply refresh the view when receiving a notification
+* clean up all the notification code
 
 # Vote
 

@@ -1,6 +1,7 @@
 class Team < ApplicationRecord
   has_many :contributors
   belongs_to :animator, class_name: "Contributor", optional: true
+  validate :animator_must_be_contributor
 
   has_many :votes
 
@@ -20,10 +21,11 @@ class Team < ApplicationRecord
     self.animator == contributor
   end
 
-  def current_vote
-    now = DateTime.current
-    votes.select { |vote| now < vote.ending }.first
+  private
+
+  def animator_must_be_contributor
+    if !animator.nil? and !contributors.include?(animator)
+      errors.add(:animator, "must be a contributor")
+    end
   end
-
-
 end

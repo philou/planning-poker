@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427043737) do
+ActiveRecord::Schema.define(version: 20170427070931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170427043737) do
     t.datetime "updated_at", null: false
     t.integer "animator_id"
     t.integer "lock_version"
+    t.integer "current_vote_id"
   end
 
   create_table "votes", force: :cascade do |t|
@@ -40,5 +41,6 @@ ActiveRecord::Schema.define(version: 20170427043737) do
   end
 
   add_foreign_key "teams", "contributors", column: "animator_id"
+  add_foreign_key "teams", "votes", column: "current_vote_id"
   add_foreign_key "votes", "teams"
 end

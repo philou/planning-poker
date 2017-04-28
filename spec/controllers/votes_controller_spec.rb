@@ -5,11 +5,18 @@ RSpec.describe VotesController do
 
   before :each do
     @daltons = Team.create(name: "Daltons")
+
+    @now = DateTime.new(2017, 03, 10, 9, 45, 00, "+00:00")
+    freeze_time_at(@now)
+  end
+
+  it "should start a vote on the team" do
+    post_create
+
+    expect(Team.find_by(name: "Daltons").current_vote.ending).to eq(@now + VotesController::VOTE_DURATION)
   end
 
   it "create broadcasts a vote start to end in 30s" do
-    freeze_time(2017,03,10, 9,45,00, "+00:00")
-
     expect(ActionCable.server).to broadcast_vote_start(@daltons.name, "2017-03-10 09:45:30Z")
 
     post_create
@@ -21,8 +28,8 @@ RSpec.describe VotesController do
     expect(response.code).to eq(HTTP::Status::NO_CONTENT.to_s)
   end
 
-  def freeze_time(*time_args)
-    allow(DateTime).to receive(:now).and_return(DateTime.new(*time_args))
+  def freeze_time_at(date_time)
+    allow(DateTime).to receive(:now).and_return(date_time)
   end
 
   def post_create

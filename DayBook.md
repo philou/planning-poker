@@ -13,10 +13,10 @@
             * or we can simply add a 'current vote' to the team model, and use the optimistic lock !
               We'd later add 2 methods like start vote and end vote ...
 * ~~how does add_reference work in migrations~~
-* Convert from Time to DateTime in the ruby code
-* start a vote when receiving it
-* simply refresh the view when receiving a notification
+* ~~Convert from Time to DateTime in the ruby code~~
+* ~~start a vote when receiving it~~
 * refactor the contributors view to show the started vote is there is one
+* simply refresh the view when receiving a notification
 * clean up all the notification code
 
 # Vote

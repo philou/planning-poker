@@ -22,7 +22,7 @@ RSpec.describe VotesController do
   end
 
   def freeze_time(*time_args)
-    allow(Time).to receive(:now).and_return(Time.new(*time_args))
+    allow(DateTime).to receive(:now).and_return(DateTime.new(*time_args))
   end
 
   def post_create

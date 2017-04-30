@@ -7,6 +7,10 @@ class Team < ApplicationRecord
   belongs_to :current_vote, class_name: "Vote", optional: true
   validate :current_vote_must_be_a_vote
 
+  def animator?(contributor)
+    self.animator == contributor
+  end
+
   def if_needed_pick_animator(contributor)
     # TODO The optimistic lock is not great, they could still have race conditions when getting out of the role of animator, maybe emitting raw sql would be better (arel is an sql ast builder)
     begin
@@ -19,8 +23,8 @@ class Team < ApplicationRecord
     end
   end
 
-  def animator?(contributor)
-    self.animator == contributor
+  def currently_voting?
+    !self.current_vote.nil?
   end
 
   def start_vote(ending)

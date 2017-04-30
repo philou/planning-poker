@@ -25,4 +25,19 @@ describe Contributor do
     expect(@joe.team_name).to be @daltons.name
   end
 
+  it "is currently voting if it's team is" do
+    @daltons.start_vote(DateTime.now + 1.hour)
+
+    expect(@joe).to be_currently_voting
+  end
+
+  it "is not currently voting if it's team is not" do
+    expect(@joe).to_not be_currently_voting
+  end
+
+  it "is not in current vote withoug a team" do
+    expect(@john_doe).to_not be_currently_voting
+  end
+
+
 end

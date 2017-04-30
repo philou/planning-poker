@@ -15,7 +15,11 @@
   <% end %>
 
   <div id="team-vote-state">
-    <%= render 'votes/not_started' %>
+    <% if @contributor.currently_voting? %>
+      <%= render 'votes/started' %>
+    <% else %>
+      <%= render 'votes/not_started' %>
+    <% end %>
   </div>
 
 </div>

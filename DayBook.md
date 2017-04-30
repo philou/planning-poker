@@ -1,6 +1,6 @@
 # Arrive late in a vote
 
-## TODO
+## to do
 * ~~Write a test~~
 * create a vote table and model
     * ~~with an end times~~
@@ -15,11 +15,13 @@
 * ~~how does add_reference work in migrations~~
 * ~~Convert from Time to DateTime in the ruby code~~
 * ~~start a vote when receiving it~~
-* fix the error on Travis
+* ~~fix the error on Travis~~
     Could be something related to column precision
     Difficult to test locally
-    There is no need for a prcecise number ... I could change the assertion ?
+    There is no need for a precise number ... I could change the assertion ?
 * refactor the contributors view to show the started vote is there is one
+    * ~~refactor contributor.team.current_vote.nil?~~
+    * starts the clock at page load
 * simply refresh the view when receiving a notification
 * clean up all the notification code
 
@@ -50,7 +52,7 @@
             * and a vote (because with time, it's not always the current)
 * ~~Create sub tasks about how I am going to do it~~
 
-## TODO
+## to do
 * ~~Write a test~~
 * ~~Enhance the vote_started view~~
     * ~~add a test~~

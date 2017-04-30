@@ -40,6 +40,14 @@ describe "contributors/show" do
     expect(rendered).to have_css('#team-vote-state')
   end
 
+  it "displays the current vote if there is one" do
+    @team.start_vote(DateTime.now + 1.hour)
+
+    render
+
+    expect(rendered).to have_css("#team-vote-clock")
+  end
+
   context "when voter" do
     it "states that the user is a voter" do
       render
@@ -65,4 +73,5 @@ describe "contributors/show" do
       expect(rendered).to have_button("Start Vote")
     end
   end
+
 end

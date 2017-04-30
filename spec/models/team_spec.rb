@@ -68,6 +68,7 @@ describe Team do
     it "does not have any votes by default" do
       expect(@daltons.votes).to be_empty
       expect(@daltons.current_vote).to be_nil
+      expect(@daltons).to_not be_currently_voting
     end
 
     it "needs current_vote to be part of votes to be valid" do
@@ -84,6 +85,12 @@ describe Team do
 
       # DB precision on CI might change the ending time a bit, that's why we need to test within a range
       expect(saved_team.current_vote.ending).to be_within(1.second).of(ending)
+    end
+
+    it "is currently voting once a vote is started" do
+      @daltons.start_vote(DateTime.now + 1.hour)
+
+      expect(@daltons).to be_currently_voting
     end
 
     it "forbids starting 2 votes at the same time" do

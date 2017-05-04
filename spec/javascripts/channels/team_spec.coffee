@@ -11,6 +11,7 @@
 describe "Channels/Team", ->
 
   team = App.Channels.Team
+  vote = window.App.Vote
   channel = App.Channels.Team.subscribe('Fantastic 4')
 
   beforeEach ->
@@ -31,44 +32,16 @@ describe "Channels/Team", ->
 
     beforeEach ->
       jasmine.clock().install()
-      setTimezone("UTC")
-
-    setTimezone = (timezone) ->
-      jasmine.clock().mockDate(moment.tz(currentTime, timezone).toDate())
-
-    voteStarts = ->
-      channel.received({
-        html: '<div id="' + team.VOTE_CLOCK_ID + '"></div>',
-        end_time: endVoteTime})
-      jasmine.clock().tick(800)
+      jasmine.clock().mockDate(moment.tz(currentTime, "UTC").toDate())
 
     afterEach ->
       jasmine.clock().uninstall()
 
-
     it "Starts", ->
-      voteStarts()
+      channel.received({
+        html: '<div id="' + vote.VOTE_CLOCK_ID + '"></div>',
+        end_time: endVoteTime})
 
-      expect(team.$voteClock()).toContainText("30 seconds")
+      jasmine.clock().tick(800)
 
-    it "Takes timezones into effect", ->
-      setTimezone("Europe/Paris")
-
-      voteStarts()
-
-      expect(team.$voteClock()).toContainText("3630 seconds")
-
-    it "Decreases", ->
-      voteStarts()
-
-      jasmine.clock().tick(1000)
-
-      expect(team.$voteClock()).toContainText("29 seconds")
-
-    it "Stops at 1", ->
-      voteStarts()
-      jasmine.clock().tick(29000)
-
-      jasmine.clock().tick(1000)
-
-      expect(team.$voteClock()).toContainText("1 second")
+      expect(vote.$voteClock()).toContainText("30 seconds")

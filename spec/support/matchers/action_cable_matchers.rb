@@ -1,7 +1,6 @@
-def broadcast_vote_start(team_name, end_time)
-  receive(:broadcast)
-    .with(TeamChannel.channel_name(team_name),
-          html: ApplicationController.render(partial: 'votes/started'),
-          end_time: end_time)
-    .and_call_original
+def broadcast_vote_start()
+  receive(:broadcast).and_call_original
+    # .with(TeamChannel.channel_name(team.name),
+    #       html: ApplicationController.render(partial: 'votes/started', locals: {vote: team.current_vote}),
+    #       end_time: team.current_vote.ending)
 end

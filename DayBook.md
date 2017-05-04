@@ -22,6 +22,9 @@
 * refactor the contributors view to show the started vote is there is one
     * ~~refactor contributor.team.current_vote.nil?~~
     * starts the clock at page load
+        * send the endTime string through html data
+        * extract Team.coffee start_countdown(endTimeStr)
+        * call it on load
 * simply refresh the view when receiving a notification
 * clean up all the notification code
 

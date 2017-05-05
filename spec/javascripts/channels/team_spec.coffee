@@ -34,4 +34,4 @@ describe "Channels/Team", ->
         'id="' + vote.VOTE_CLOCK_ID + '" ' +
         'data-vote-ending="2017-03-23T10:00:30Z"></div>'})
 
-    expect(vote.startCountdown).toHaveBeenCalled()
+    expect(vote.startCountdown).toHaveBeenCalledWith(vote.$voteClock())

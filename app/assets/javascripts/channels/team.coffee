@@ -12,4 +12,4 @@ Team.subscribe = (teamName) ->
 
       Team.$voteState().html(data['html'])
 
-      window.App.Vote.startCountdown()
+      App.Vote.startCountdown(App.Vote.$voteClock())

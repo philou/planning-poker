@@ -12,43 +12,53 @@ describe "Vote", ->
     setTimezone("UTC")
 
     vote.$voteClock().remove()
-    $("body").append('<div id="' + vote.VOTE_CLOCK_ID + '" data-vote-ending="'+ endVoteTime+'"></div>')
+    $("body").append('<div ' +
+        'id="' + vote.VOTE_CLOCK_ID + '" ' +
+        'data-vote-ending="'+ endVoteTime+'"></div>')
 
 
   setTimezone = (timezone) ->
     jasmine.clock().mockDate(moment.tz(currentTime, timezone).toDate())
 
   voteStarts = ->
-    vote.startCountdown()
+    vote.startCountdown(vote.$voteClock())
     jasmine.clock().tick(800)
 
   afterEach ->
     jasmine.clock().uninstall()
 
 
-  it "Starts", ->
+  it "can start a countdown", ->
     voteStarts()
 
     expect(vote.$voteClock()).toContainText("30 seconds")
 
-  it "Takes timezones into effect", ->
+  it "'s countdown takes timezones into effect", ->
     setTimezone("Europe/Paris")
 
     voteStarts()
 
     expect(vote.$voteClock()).toContainText("3630 seconds")
 
-  it "Decreases", ->
+  it "'s countdown decreases", ->
     voteStarts()
 
     jasmine.clock().tick(1000)
 
     expect(vote.$voteClock()).toContainText("29 seconds")
 
-  it "Stops at 1", ->
+  it "'s countdown stops at 1", ->
     voteStarts()
     jasmine.clock().tick(29000)
 
     jasmine.clock().tick(1000)
 
     expect(vote.$voteClock()).toContainText("1 second")
+
+  it "starts a countdown on page load", ->
+    spyOn(vote, 'startCountdown').and.callThrough()
+
+    vote.onLoad()
+
+    expect(vote.startCountdown).toHaveBeenCalledWith(vote.$voteClock())
+

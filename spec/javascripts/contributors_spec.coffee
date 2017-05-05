@@ -27,16 +27,3 @@ describe "Contributors", ->
     contributors.onLoad()
 
     expect(team.subscribe).not.toHaveBeenCalled()
-
-  it "starts a countdown if there is one", ->
-    spyOn(vote, 'startCountdown').and.callThrough()
-
-    $("body")
-      .append('<div ' +
-        'id="' + vote.VOTE_CLOCK_ID + '" '+
-        'data-vote-ending="2017-03-23T10:00:30Z"></div>')
-
-    contributors.onLoad()
-
-    expect(vote.startCountdown).toHaveBeenCalled()
-

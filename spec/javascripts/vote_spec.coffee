@@ -1,19 +1,11 @@
 #= require support/jasmine-jquery-2.0.0
 
-# TODO find a way to test that we are subscribing with the correct arguments.
-#   Maybe later commits for tests on ActionCable will help I tried with server
-#   re-broadcasting and put the result in branch action-cable-test. The test
-#   failed in the browser (message did not seem to get back) and incorrectly
-#   passed in the console (it seemed to skip the asynchronous part of the
-#   test), but gave a web socket error : Error during WebSocket handshake:
-#   protocol mismatch: actioncable-v1-json,actioncable-unsupported !=
-
 describe "Vote", ->
 
   vote = window.App.Vote
 
   currentTime = "2017-03-23 10:00:00"
-  endVoteTime = moment.tz("2017-03-23 10:00:30Z", "UTC")
+  endVoteTime = "2017-03-23 10:00:30Z"
 
   beforeEach ->
     jasmine.clock().install()

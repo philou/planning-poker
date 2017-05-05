@@ -28,9 +28,12 @@
             * ~~move tests for countdown there~~
             * ~~simplify check that the countdown appears on notif~~
         * call it on load
+        * refactor the code to always use the date from the clock html data
+        * move the countdown create code from contributors.coffee to vote.coffee
 * simply refresh the view when receiving a notification
 * clean up all the notification code
 * clean up the code in action_cable_matchers
+* render the number of remaining seconds from the ruby view as well
 
 # Vote
 

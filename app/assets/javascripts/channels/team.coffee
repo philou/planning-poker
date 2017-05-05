@@ -12,7 +12,6 @@ Team.subscribe = (teamName) ->
 
       Team.$voteState().html(data['html'])
 
-      endTime = moment.tz(data['end_time'], "UTC")
-      window.App.Vote.startCountdown(endTime)
+      window.App.Vote.startCountdown(data['end_time'])
 
 

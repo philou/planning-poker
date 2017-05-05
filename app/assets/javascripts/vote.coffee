@@ -7,6 +7,6 @@ Vote.$voteClock = ->
 
 Vote.startCountdown = (endTime) ->
   Vote.$voteClock()
-    .countdown(endTime.toDate())
+    .countdown(moment.tz(endTime, "UTC").toDate())
     .on('update.countdown', (event) ->
       $(this).html(event.strftime('%-T second%!S')))

@@ -19,7 +19,7 @@
     Could be something related to column precision
     Difficult to test locally
     There is no need for a precise number ... I could change the assertion ?
-* refactor the contributors view to show the started vote is there is one
+* ~~refactor the contributors view to show the started vote is there is one~~
     * ~~refactor contributor.team.current_vote.nil?~~
     * starts the clock at page load
         * ~~send the endTime string through html data~~
@@ -31,11 +31,13 @@
         * ~~pass the feature test~~
         * ~~fix the date warning in the features execution~~
         * ~~refactor the code to always use the date from the clock html data~~
-        * move the countdown create code from contributors.coffee to vote.coffee
-* simply refresh the view when receiving a notification
+        * ~~move the countdown create code from contributors.coffee to vote.coffee~~
+* ~~simply refresh the view when receiving a notification~~
+    * ~~look how to refresh a page from js~~
 * clean up all the notification code
 * clean up the code in action_cable_matchers
 * render the number of remaining seconds from the ruby view as well
+* check TODOS
 
 # Vote
 

@@ -10,28 +10,11 @@
 
 describe "Channels/Team", ->
 
-  team = App.Channels.Team
-  vote = window.App.Vote
   channel = App.Channels.Team.subscribe('Fantastic 4')
 
-  beforeEach ->
-    $(team.VOTE_STATE_SELECTOR).remove()
-    $("body").append('<p id="' + team.VOTE_STATE_ID + '">placeholder</p>')
+  it "reloads the page when receiving a notification", ->
+    spyOn(location, 'reload')
 
-  it "Updates the team vote status when receiving a notification", ->
-    message = "Vote Started"
+    channel.received({})
 
-    channel.received({html: message})
-
-    expect(team.$voteState()).toContainText(message)
-
-
-  it "starts the countdown on notifications", ->
-    spyOn(vote, 'startCountdown').and.callThrough()
-
-    channel.received({
-      html: '<div ' +
-        'id="' + vote.VOTE_CLOCK_ID + '" ' +
-        'data-vote-ending="2017-03-23T10:00:30Z"></div>'})
-
-    expect(vote.startCountdown).toHaveBeenCalledWith(vote.$voteClock())
+    expect(location.reload).toHaveBeenCalledWith(true)

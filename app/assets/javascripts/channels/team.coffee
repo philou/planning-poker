@@ -9,7 +9,4 @@ Team.$voteState = ->
 Team.subscribe = (teamName) ->
   App.cable.subscriptions.create {channel: "TeamChannel", team_name: teamName},
     received: (data) ->
-
-      Team.$voteState().html(data['html'])
-
-      App.Vote.startCountdown(App.Vote.$voteClock())
+      location.reload(true)

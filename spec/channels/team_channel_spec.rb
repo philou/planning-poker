@@ -4,7 +4,7 @@ require 'support/matchers/action_cable_matchers'
 describe TeamChannel do
 
   it "broadcasts on specific teams" do
-    expect(ActionCable.server).to broadcast_vote_start()
+    expect(ActionCable.server).to broadcast_vote_start("Daltons")
 
     daltons = Team.create(name: "Daltons")
 
@@ -13,7 +13,7 @@ describe TeamChannel do
   end
 
   it "broadcasts with the utc date" do
-    expect(ActionCable.server).to broadcast_vote_start()
+    expect(ActionCable.server).to broadcast_vote_start("Daltons")
 
     daltons = Team.create(name: "Daltons")
 

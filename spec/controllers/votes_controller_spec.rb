@@ -17,7 +17,7 @@ RSpec.describe VotesController do
   end
 
   it "create broadcasts a vote start to end in 30s" do
-    expect(ActionCable.server).to broadcast_vote_start()
+    expect(ActionCable.server).to broadcast_vote_start("Daltons")
 
     post_create
   end

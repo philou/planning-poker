@@ -8,7 +8,7 @@ Feature: Vote
     When "Joe" starts a vote from his browser
     Then "William" should see a vote countdown
 
-  @wip
+  @javascript
   Scenario: Enter the vote after it is started
 
     Given "Joe" already entered the "Daltons" space

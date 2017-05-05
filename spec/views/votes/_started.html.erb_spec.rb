@@ -6,7 +6,7 @@ describe "votes/_started" do
     @team = Team.create(name: "Daltons")
     @contributor = @team.contributors.create(name: "Joe")
 
-    @ending = DateTime.parse("2027-05-01 08:02:34Z")
+    @ending = DateTime.parse("2027-05-01T08:02:34Z")
     @team.start_vote(@ending)
   end
 
@@ -19,7 +19,7 @@ describe "votes/_started" do
   it "send the vote end time through html data" do
     render_partial
 
-    expect(rendered).to have_xpath("//span[@data-vote-ending='2027-05-01 08:02:34 UTC']")
+    expect(rendered).to have_xpath("//span[@data-vote-ending='2027-05-01T08:02:34Z']")
   end
 
   PhilousPlanningPoker::FIBOS.each do |estimate|

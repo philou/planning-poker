@@ -27,7 +27,9 @@
             * ~~create vote package~~
             * ~~move tests for countdown there~~
             * ~~simplify check that the countdown appears on notif~~
-        * call it on load
+        * ~~call it on load~~
+        * pass the feature test
+        * fix the date warning in the features execution
         * refactor the code to always use the date from the clock html data
         * move the countdown create code from contributors.coffee to vote.coffee
 * simply refresh the view when receiving a notification

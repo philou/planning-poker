@@ -27,8 +27,8 @@ describe "Channels/Team", ->
 
 
   describe "Vote countdown on notifications", ->
-    currentTime = "2017-03-23 10:00:00"
-    endVoteTime = "2017-03-23 10:00:30Z"
+    currentTime = "2017-03-23T10:00:00"
+    endVoteTime = "2017-03-23T10:00:30Z"
 
     beforeEach ->
       jasmine.clock().install()

@@ -1,7 +1,7 @@
 <p>Vote Started !</p>
 <div id="team-vote-countdown" class="panel panel-default">
    <div class="panel-body">
-     <div class="lead"><span id="team-vote-clock" data-vote-ending="<%= vote.ending %>"></span> remaining</div>
+     <div class="lead"><span id="team-vote-clock" data-vote-ending="<%= vote.ending.iso8601 %>"></span> remaining</div>
      <div class="btn-group">
        <% PhilousPlanningPoker::FIBOS.each do |estimate| %>
          <%= button_tag estimate, class: "btn btn-primary" %>

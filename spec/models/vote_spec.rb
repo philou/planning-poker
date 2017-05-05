@@ -14,4 +14,11 @@ describe Vote do
   it "must have a team" do
     expect(Vote.new(ending: DateTime.current)).to be_invalid
   end
+
+  it "prints the number of seconds remaining" do
+    Timecop.freeze(DateTime.current)
+
+    expect(Vote.new(ending: DateTime.current + 1.second).seconds_to_end).to eq 1
+    expect(Vote.new(ending: DateTime.current + 3.second).seconds_to_end).to eq 3
+  end
 end

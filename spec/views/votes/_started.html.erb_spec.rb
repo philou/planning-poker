@@ -22,6 +22,22 @@ describe "votes/_started" do
     expect(rendered).to have_xpath("//span[@data-vote-ending='2027-05-01T08:02:34Z']")
   end
 
+  it "renders the remaining seconds" do
+    Timecop.freeze(@ending - 3.seconds)
+
+    render_partial
+
+    expect(rendered).to match("3 seconds\\b")
+  end
+
+  it "pluralizes the remaining seconds" do
+    Timecop.freeze(@ending - 1.seconds)
+
+    render_partial
+
+    expect(rendered).to match("1 second\\b")
+  end
+
   PhilousPlanningPoker::FIBOS.each do |estimate|
     it "renders a button to vote #{estimate}" do
       render_partial

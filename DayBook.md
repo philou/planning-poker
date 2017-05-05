@@ -36,7 +36,7 @@
     * ~~look how to refresh a page from js~~
 * ~~clean up all the notification code~~
 * ~~clean up the code in action_cable_matchers~~
-* render the number of remaining seconds from the ruby view as well
+* ~~render the number of remaining seconds from the ruby view as well~~
 * should I move the channel notif to the record ?
 * check TODOS
 * check how to define kind of classes / modules with coffee script

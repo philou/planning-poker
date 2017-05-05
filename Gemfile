@@ -80,6 +80,8 @@ group :development, :test do
   gem 'sqlite3'
 
   gem 'httpclient'
+
+  gem 'timecop'
 end
 
 group :test do

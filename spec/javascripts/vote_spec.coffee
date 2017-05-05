@@ -12,14 +12,14 @@ describe "Vote", ->
     setTimezone("UTC")
 
     vote.$voteClock().remove()
-    $("body").append('<div id="' + vote.VOTE_CLOCK_ID + '"></div>')
+    $("body").append('<div id="' + vote.VOTE_CLOCK_ID + '" data-vote-ending="'+ endVoteTime+'"></div>')
 
 
   setTimezone = (timezone) ->
     jasmine.clock().mockDate(moment.tz(currentTime, timezone).toDate())
 
   voteStarts = ->
-    vote.startCountdown(endVoteTime)
+    vote.startCountdown()
     jasmine.clock().tick(800)
 
   afterEach ->

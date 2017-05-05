@@ -28,25 +28,15 @@ describe "Contributors", ->
 
     expect(team.subscribe).not.toHaveBeenCalled()
 
-  describe "Vote countdown on notifications", ->
-    currentTime = "2017-03-23T10:00:00"
-    endVoteTime = "2017-03-23T10:00:30Z"
+  it "starts a countdown if there is one", ->
+    spyOn(vote, 'startCountdown').and.callThrough()
 
-    beforeEach ->
-      jasmine.clock().install()
-      jasmine.clock().mockDate(moment.tz(currentTime, "UTC").toDate())
+    $("body")
+      .append('<div ' +
+        'id="' + vote.VOTE_CLOCK_ID + '" '+
+        'data-vote-ending="2017-03-23T10:00:30Z"></div>')
 
-    afterEach ->
-      jasmine.clock().uninstall()
+    contributors.onLoad()
 
-    it "starts a countdown when there is one", ->
-      $("body")
-        .append('<div ' +
-          'id="' + vote.VOTE_CLOCK_ID + '" '+
-          'data-vote-ending="' + endVoteTime + '"></div>')
-
-      contributors.onLoad()
-
-      jasmine.clock().tick(800)
-      expect(vote.$voteClock()).toContainText("30 seconds")
+    expect(vote.startCountdown).toHaveBeenCalled()
 

@@ -26,22 +26,12 @@ describe "Channels/Team", ->
     expect(team.$voteState()).toContainText(message)
 
 
-  describe "Vote countdown on notifications", ->
-    currentTime = "2017-03-23T10:00:00"
-    endVoteTime = "2017-03-23T10:00:30Z"
+  it "starts the countdown on notifications", ->
+    spyOn(vote, 'startCountdown').and.callThrough()
 
-    beforeEach ->
-      jasmine.clock().install()
-      jasmine.clock().mockDate(moment.tz(currentTime, "UTC").toDate())
+    channel.received({
+      html: '<div ' +
+        'id="' + vote.VOTE_CLOCK_ID + '" ' +
+        'data-vote-ending="2017-03-23T10:00:30Z"></div>'})
 
-    afterEach ->
-      jasmine.clock().uninstall()
-
-    it "Starts", ->
-      channel.received({
-        html: '<div id="' + vote.VOTE_CLOCK_ID + '"></div>',
-        end_time: endVoteTime})
-
-      jasmine.clock().tick(800)
-
-      expect(vote.$voteClock()).toContainText("30 seconds")
+    expect(vote.startCountdown).toHaveBeenCalled()

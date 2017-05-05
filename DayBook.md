@@ -28,9 +28,9 @@
             * ~~move tests for countdown there~~
             * ~~simplify check that the countdown appears on notif~~
         * ~~call it on load~~
-        * pass the feature test
-        * fix the date warning in the features execution
-        * refactor the code to always use the date from the clock html data
+        * ~~pass the feature test~~
+        * ~~fix the date warning in the features execution~~
+        * ~~refactor the code to always use the date from the clock html data~~
         * move the countdown create code from contributors.coffee to vote.coffee
 * simply refresh the view when receiving a notification
 * clean up all the notification code
@@ -71,6 +71,8 @@
     * ~~add the buttons~~
     * ~~factorize the votes from the tests and the code~~
     * ~~style the buttons~~
+* setup guard notify for mac
+* update database cleaner (and others) to get rid of the deprecation warning in test logs
 * [WAITING] for the late comer feature
 * disable the buttons once one is clicked
     * need to subscribe after the new view is loaded !

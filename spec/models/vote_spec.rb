@@ -20,5 +20,6 @@ describe Vote do
 
     expect(Vote.new(ending: DateTime.current + 1.second).seconds_to_end).to eq 1
     expect(Vote.new(ending: DateTime.current + 3.second).seconds_to_end).to eq 3
+    expect(Vote.new(ending: DateTime.current - 1.second).seconds_to_end).to eq 0
   end
 end

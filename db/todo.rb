@@ -1,2 +1,2 @@
 # TODO add a primary key on teams(name)
-# TODO add a primary key on team_members(name, team)
+# TODO add a primary key on contributors(name, team)

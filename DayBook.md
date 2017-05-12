@@ -1,48 +1,3 @@
-# Arrive late in a vote
-
-## to do
-* ~~Write a test~~
-* create a vote table and model
-    * ~~with an end times~~
-    * ~~team would have many votes~~
-    * ~~but only one current vote (the latest)~~
-        * ~~test that it gets the latest~~
-        * ~~test that Vote has an ending~~
-        * ~~make sure that 2 current votes are never created at the same time~~
-            * is there a way to check that using some sort of sql ?
-            * or we can simply add a 'current vote' to the team model, and use the optimistic lock !
-              We'd later add 2 methods like start vote and end vote ...
-* ~~how does add_reference work in migrations~~
-* ~~Convert from Time to DateTime in the ruby code~~
-* ~~start a vote when receiving it~~
-* ~~fix the error on Travis~~
-    Could be something related to column precision
-    Difficult to test locally
-    There is no need for a precise number ... I could change the assertion ?
-* ~~refactor the contributors view to show the started vote is there is one~~
-    * ~~refactor contributor.team.current_vote.nil?~~
-    * starts the clock at page load
-        * ~~send the endTime string through html data~~
-        * ~~extract Team.coffee start_countdown(endTimeStr)~~
-            * ~~create vote package~~
-            * ~~move tests for countdown there~~
-            * ~~simplify check that the countdown appears on notif~~
-        * ~~call it on load~~
-        * ~~pass the feature test~~
-        * ~~fix the date warning in the features execution~~
-        * ~~refactor the code to always use the date from the clock html data~~
-        * ~~move the countdown create code from contributors.coffee to vote.coffee~~
-* ~~simply refresh the view when receiving a notification~~
-    * ~~look how to refresh a page from js~~
-* ~~clean up all the notification code~~
-* ~~clean up the code in action_cable_matchers~~
-* ~~render the number of remaining seconds from the ruby view as well~~
-* ~~turbolinks ?~~
-* display 0 when the countdown is already ended
-* ~~should I move the channel notif to the record ? NO~~
-* check TODOS
-* check how to define kind of classes / modules with coffee script
-
 # Vote
 
 ## Specs
@@ -77,21 +32,26 @@
     * ~~add the buttons~~
     * ~~factorize the votes from the tests and the code~~
     * ~~style the buttons~~
+* ~~for the late comer feature~~
 * setup guard notify for mac
 * update database cleaner (and others) to get rid of the deprecation warning in test logs
-* [WAITING] for the late comer feature
-* disable the buttons once one is clicked
-    * need to subscribe after the new view is loaded !
-    * write a test
-    * make it pass
-    * add jasmine-jquery to test disabling
+* fix dependencies version related TODOS
 * send the vote when clicked
+    * is it good to nest too resources too deeply ?
+    * create a contribution controller nested within teams/vote/
+        * otherwise, we could put it inside contributors
 * Create the contribution table and model
     * a team member
     * and a vote (because with time, it's not always the current)
 * When the vote is started, start a background task on the server to end the vote
 * broadcast the average when the vote is ended
 * close the vote when the countdown ends
+* disable the buttons once one is clicked
+    * is turbolinks simpler ?
+    * need to subscribe after the new view is loaded !
+    * write a test
+    * make it pass
+    * add jasmine-jquery to test disabling
 * ? change the url as vote goes through steps (to make it rational how to start a new vote)
 
 # Next Stories

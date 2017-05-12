@@ -1,20 +1,18 @@
-window.App.Vote ||= {}
-Vote = window.App.Vote
+class window.App.Vote
+  @VOTE_CLOCK_ID: "team-vote-clock"
+  @$voteClock: ->
+    $('#' + @VOTE_CLOCK_ID)
 
-Vote.VOTE_CLOCK_ID = "team-vote-clock"
-Vote.$voteClock = ->
-  $('#'+Vote.VOTE_CLOCK_ID)
-
-Vote.startCountdown = (voteClock) ->
-  endTime = moment.tz(voteClock.data("vote-ending"), "UTC")
-  voteClock
-    .countdown(endTime.toDate())
-    .on('update.countdown', (event) ->
-      $(this).html(event.strftime('%-T second%!S')))
+  @startCountdown: (voteClock) ->
+    endTime = moment.tz(voteClock.data("vote-ending"), "UTC")
+    voteClock
+      .countdown(endTime.toDate())
+      .on('update.countdown', (event) ->
+        $(this).html(event.strftime('%-T second%!S')))
 
 
-App.Vote.onLoad = ->
-  App.Vote.startCountdown(App.Vote.$voteClock())
+  @onLoad: ->
+    this.startCountdown(@$voteClock())
 
 $(document).on "turbolinks:load", ->
   App.Vote.onLoad()

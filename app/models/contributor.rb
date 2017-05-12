@@ -1,6 +1,7 @@
 class Contributor < ApplicationRecord
 
   belongs_to :team
+  has_many :estimations
 
   def team_name
     team && team.name

@@ -33,15 +33,15 @@
     * ~~factorize the votes from the tests and the code~~
     * ~~style the buttons~~
 * ~~for the late comer feature~~
-* setup guard notify for mac
+* ~~setup guard notify for mac~~
 * ~~update database cleaner (and others) to get rid of the deprecation warning in test logs~~
 * send the vote when clicked
     * is it good to nest too resources too deeply ?
     * create a contribution controller nested within teams/vote/
         * otherwise, we could put it inside contributors
-* Create the contribution table and model
-    * a team member
-    * and a vote (because with time, it's not always the current)
+* ~~Create the contribution table and model~~
+    * ~~a contributor~~
+    * ~~and a vote (because with time, it's not always the current)~~
 * When the vote is started, start a background task on the server to end the vote
 * broadcast the average when the vote is ended
 * close the vote when the countdown ends

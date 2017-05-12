@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427070931) do
+ActiveRecord::Schema.define(version: 20170512070029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20170427070931) do
     t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "estimations", force: :cascade do |t|
+    t.bigint "contributor_id"
+    t.bigint "vote_id"
+    t.integer "story_points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contributor_id"], name: "index_estimations_on_contributor_id"
+    t.index ["vote_id"], name: "index_estimations_on_vote_id"
   end
 
   create_table "teams", id: :serial, force: :cascade do |t|
@@ -40,6 +50,8 @@ ActiveRecord::Schema.define(version: 20170427070931) do
     t.index ["team_id"], name: "index_votes_on_team_id"
   end
 
+  add_foreign_key "estimations", "contributors"
+  add_foreign_key "estimations", "votes"
   add_foreign_key "teams", "contributors", column: "animator_id"
   add_foreign_key "teams", "votes", column: "current_vote_id"
   add_foreign_key "votes", "teams"

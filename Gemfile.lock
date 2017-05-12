@@ -293,6 +293,7 @@ GEM
       railties (>= 3.2.5, < 6)
     teaspoon-jasmine (2.3.4)
       teaspoon (>= 1.0.0)
+    terminal-notifier-guard (1.7.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -361,6 +362,7 @@ DEPENDENCIES
   spring-watcher-listen
   sqlite3
   teaspoon-jasmine
+  terminal-notifier-guard
   therubyracer
   timecop
   turbolinks

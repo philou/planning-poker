@@ -61,6 +61,7 @@ group :development do
   gem 'guard-teaspoon'
   gem 'guard-rubocop'
   gem 'guard-coffeelint'
+  gem 'terminal-notifier-guard'
 
   gem 'rails_real_favicon'
 

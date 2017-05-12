@@ -87,7 +87,7 @@ GEM
       nokogiri (~> 1.5)
       railties (>= 3, < 5.1)
     cucumber-wire (0.0.1)
-    database_cleaner (1.5.3)
+    database_cleaner (1.6.1)
     debase (0.2.1)
       debase-ruby_core_source
     debase-ruby_core_source (0.9.9)

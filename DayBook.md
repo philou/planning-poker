@@ -34,8 +34,7 @@
     * ~~style the buttons~~
 * ~~for the late comer feature~~
 * setup guard notify for mac
-* update database cleaner (and others) to get rid of the deprecation warning in test logs
-* fix dependencies version related TODOS
+* ~~update database cleaner (and others) to get rid of the deprecation warning in test logs~~
 * send the vote when clicked
     * is it good to nest too resources too deeply ?
     * create a contribution controller nested within teams/vote/
@@ -53,6 +52,7 @@
     * make it pass
     * add jasmine-jquery to test disabling
 * ? change the url as vote goes through steps (to make it rational how to start a new vote)
+* fix dependencies version related TODOS
 
 # Next Stories
 

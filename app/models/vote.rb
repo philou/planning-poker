@@ -1,5 +1,6 @@
 class Vote < ApplicationRecord
   belongs_to :team
+  has_many :estimations
   validates :ending, presence: true
 
   def seconds_to_end

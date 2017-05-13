@@ -4,6 +4,8 @@ class VotesController < ApplicationController
 
   def create
     team = Team.find(params[:team_id])
+
+    # TODO move all this in the Team class
     ending = DateTime.current + VOTE_DURATION
     team.start_vote(ending)
     TeamChannel.vote_started(team)

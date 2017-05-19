@@ -1,6 +1,7 @@
 require 'rails_helper'
 require 'support/matchers/action_cable_matchers'
 
+
 RSpec.describe VotesController do
 
   before :each do
@@ -13,7 +14,7 @@ RSpec.describe VotesController do
   it "should start a vote on the team" do
     post_create
 
-    expect(Team.find_by(name: "Daltons").current_vote.ending).to eq(@now + VotesController::VOTE_DURATION)
+    expect(Team.find_by(name: "Daltons").current_vote.ending).to eq(expected_vote_end_time)
   end
 
   it "schedules a background task to end the job in 30s" do
@@ -21,11 +22,13 @@ RSpec.describe VotesController do
 
     post_create
 
-    expect(VoteJob).to(have_been_enqueued.with(@daltons))
+    expect(VoteJob).to(have_been_enqueued
+                           .at(expected_vote_end_time)
+                           .with(@daltons))
   end
 
-  it "broadcasts a vote start to end in 30s" do
-    expect(ActionCable.server).to broadcast_vote_start("Daltons")
+  it "broadcasts a vote update" do
+    expect(ActionCable.server).to broadcast_vote_update("Daltons")
 
     post_create
   end
@@ -34,6 +37,10 @@ RSpec.describe VotesController do
     post_create
 
     expect(response.code).to eq(HTTP::Status::NO_CONTENT.to_s)
+  end
+
+  def expected_vote_end_time
+    @now + VotesController::VOTE_DURATION
   end
 
   def freeze_time_at(date_time)

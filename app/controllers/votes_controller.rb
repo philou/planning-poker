@@ -9,7 +9,7 @@ class VotesController < ApplicationController
     ending = DateTime.current + VOTE_DURATION
     team.start_vote(ending)
     VoteJob.set(wait_until: ending).perform_later(team)
-    TeamChannel.vote_started(team)
+    TeamChannel.vote_updated(team)
   end
 
 end

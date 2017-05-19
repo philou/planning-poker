@@ -35,21 +35,28 @@
 * ~~for the late comer feature~~
 * ~~setup guard notify for mac~~
 * ~~update database cleaner (and others) to get rid of the deprecation warning in test logs~~
-* send the vote when clicked
+* ~~send the vote when clicked~~
     * is it good to nest too resources too deeply ?
     * create a contribution controller nested within teams/vote/
         * otherwise, we could put it inside contributors
     * ~~send the action to the estimtation controller~~
     * ~~specify story points~~
     * ~~style the buttons inline~~
-    * test the buttons
+    * ~~test the buttons~~
 * ~~Create the contribution table and model~~
     * ~~a contributor~~
     * ~~and a vote (because with time, it's not always the current)~~
 * When the vote is started, start a background task on the server to end the vote
+    * ~~hack something and see if it works with the default thread based scheduler~~
+    * ~~code something good enough and test it~~
+    * install the delayed_job gem and adpaters
+    * use it locally, can we put it in our docker config ?
+    * make it work in travis
+    * activate the worker on heroku
+* implement the missing steps (wait for vote could maybe end the background task or something)
 * broadcast the average when the vote is ended
 * close the vote when the countdown ends
-* disable the buttons once one is clicked
+* ? disable the buttons once one is clicked
     * the form is automatically disabled on submit !
     * just need to disable the buttons when a vote has already been given
 * ? change the url as vote goes through steps (to make it rational how to start a new vote)

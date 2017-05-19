@@ -16,7 +16,15 @@ RSpec.describe VotesController do
     expect(Team.find_by(name: "Daltons").current_vote.ending).to eq(@now + VotesController::VOTE_DURATION)
   end
 
-  it "create broadcasts a vote start to end in 30s" do
+  it "schedules a background task to end the job in 30s" do
+    ActiveJob::Base.queue_adapter = :test
+
+    post_create
+
+    expect(VoteJob).to(have_been_enqueued.with(@daltons))
+  end
+
+  it "broadcasts a vote start to end in 30s" do
     expect(ActionCable.server).to broadcast_vote_start("Daltons")
 
     post_create

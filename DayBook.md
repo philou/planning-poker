@@ -39,6 +39,10 @@
     * is it good to nest too resources too deeply ?
     * create a contribution controller nested within teams/vote/
         * otherwise, we could put it inside contributors
+    * ~~send the action to the estimtation controller~~
+    * ~~specify story points~~
+    * ~~style the buttons inline~~
+    * test the buttons
 * ~~Create the contribution table and model~~
     * ~~a contributor~~
     * ~~and a vote (because with time, it's not always the current)~~
@@ -46,11 +50,8 @@
 * broadcast the average when the vote is ended
 * close the vote when the countdown ends
 * disable the buttons once one is clicked
-    * is turbolinks simpler ?
-    * need to subscribe after the new view is loaded !
-    * write a test
-    * make it pass
-    * add jasmine-jquery to test disabling
+    * the form is automatically disabled on submit !
+    * just need to disable the buttons when a vote has already been given
 * ? change the url as vote goes through steps (to make it rational how to start a new vote)
 * fix dependencies version related TODOS
 

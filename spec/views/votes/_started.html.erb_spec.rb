@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 describe "votes/_started" do
 
   before :each do
@@ -42,11 +43,17 @@ describe "votes/_started" do
     it "renders a button to vote #{estimate}" do
       render_partial
 
-      expect(rendered).to have_button(estimate)
+      expect(rendered).to have_xpath(vote_form_xpath)
+      expect(rendered).to have_xpath(vote_form_xpath + "//input[@type='submit'][@name='story_points'][@value='#{estimate}']")
     end
   end
 
+  def vote_form_xpath
+    "//form[@action='#{contributor_estimations_path(@contributor)}']"
+  end
+
   def render_partial
+    assign(:contributor, @contributor)
     render partial: "votes/started", locals: {vote: @team.current_vote}
   end
 

@@ -4,10 +4,17 @@
      <div class="lead">
        <span id="team-vote-clock" data-vote-ending="<%= vote.ending.iso8601 %>"><%= pluralize(vote.seconds_to_end, "second") %></span> remaining
      </div>
-     <div class="btn-group">
-       <% PhilousPlanningPoker::FIBOS.each do |estimate| %>
-         <%= button_tag estimate, class: "btn btn-primary" %>
-       <% end %>
-     </div>
+     <%= form_tag contributor_estimations_path(@contributor), id: "Session", class: "form-inline" do %>
+
+       <div class="btn-group">
+         <% PhilousPlanningPoker::FIBOS.each do |estimate| %>
+
+           <%= submit_tag estimate, class: "btn btn-primary", name: "story_points" %>
+
+         <% end %>
+       </div>
+
+     <% end %>
+
   </div>
 </div>

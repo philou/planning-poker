@@ -59,7 +59,9 @@
     * clean up the remaining jobs after each scenario (http://stackoverflow.com/questions/9683050/destroying-all-delayed-job-in-rails)
     * decided to leave clutter in the default threaded queue
 * broadcast the average when the vote is ended
-* close the vote when the countdown ends
+    * compute the average
+    * display a different view when the vote has ended (close the vote when the countdown ends)
+    * keep the 'start vote' button to start a new vote
 * ? disable the buttons once one is clicked
     * the form is automatically disabled on submit !
     * just need to disable the buttons when a vote has already been given

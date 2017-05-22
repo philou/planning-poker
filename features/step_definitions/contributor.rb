@@ -65,3 +65,17 @@ When(/^"([^"]*)" votes (\d+) from his browser$/) do |contributor_name, value|
     vote(value)
   end
 end
+
+And(/^"([^"]*)" waits for the end of the vote$/) do |contributor_name|
+  # We perform the task as if we had reached the end of the vote. This will
+  # leave clutter in the queue, but there is no simple way to clean this up
+  # from active job (not sure if that is a problem in tests)
+  # we could fix this by using a real queue (resque for ex) but this
+  # needs to be paid for in heroku
+  contributor = Contributor.find_by name: contributor_name
+  VoteJob.perform_now(contributor.team)
+end
+
+Then(/^"([^"]*)" should see a vote result of (\d+)$/) do |_contributor_name, estimation|
+  expect(page).to have_content("Average estimate : #{estimation}")
+end

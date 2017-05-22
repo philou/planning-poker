@@ -23,8 +23,8 @@ Feature: Vote
     Given "Amy" already entered the "27s" space
     And "Amy" started a vote
     When "Amy" votes 5
-#    And "Amy" waits for the end of the vote
-#    Then "Amy" should see a vote result of 5
+    And "Amy" waits for the end of the vote
+    #Then "Amy" should see a vote result of 5
 
   @wip
   @javascript
@@ -35,5 +35,5 @@ Feature: Vote
     And "Joe" started a vote from his browser
     When "Joe" votes 5 from his browser
     When "William" votes 3
-#    And "William" waits for the end of the vote
-#    Then "William" should see a vote result of 4
+    And "William" waits for the end of the vote
+    #Then "William" should see a vote result of 4

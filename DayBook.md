@@ -46,14 +46,18 @@
 * ~~Create the contribution table and model~~
     * ~~a contributor~~
     * ~~and a vote (because with time, it's not always the current)~~
-* When the vote is started, start a background task on the server to end the vote
+* ~~When the vote is started, start a background task on the server to end the vote~~
     * ~~hack something and see if it works with the default thread based scheduler~~
     * ~~code something good enough and test it~~
     * install the delayed_job gem and adpaters
     * use it locally, can we put it in our docker config ?
-    * make it work in travis
-    * activate the worker on heroku
-* implement the missing steps (wait for vote could maybe end the background task or something)
+    * ~~make it work in travis~~
+    * ~~activate the worker on heroku~~
+* ~~implement the missing steps (wait for vote could maybe end the background task or something)~~
+    * setup delayed job active record in all envs (http://bica.co/2015/03/08/howto-using-activejob-with-delayedjob/)
+    * ~~run the end of vote manually~~
+    * clean up the remaining jobs after each scenario (http://stackoverflow.com/questions/9683050/destroying-all-delayed-job-in-rails)
+    * decided to leave clutter in the default threaded queue
 * broadcast the average when the vote is ended
 * close the vote when the countdown ends
 * ? disable the buttons once one is clicked

@@ -1,8 +1,8 @@
-<% if vote.nil? %>
-  <p>Nothing is currently being voted</p>
-<% else %>
-  <p>Average estimate : <%= vote.average_estimate || "?" %> </p>
+<% unless vote.nil? %>
+  <p>Last vote's average estimate : <%= vote.average_estimate || "?" %> </p>
 <% end %>
+
+<p>Nothing is currently being voted</p>
 
 <% if @contributor.animator? %>
   <%= button_to team_vote_path(@contributor.team), class: "btn btn-primary", id: "team-vote-start" do %>

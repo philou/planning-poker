@@ -62,10 +62,10 @@
     * ~~compute the average~~
     * ~~display a different view when the vote has ended (close the vote when the countdown ends)~~
     * ~~keep the 'start vote' button to start a new vote~~
-* Pass the feature tests
+* ~~Pass the feature tests~~
 * refactorings
     * rename started / not_started into voting / not_voting
-    * extract some currently_voting? code from Contributor to team
+    * ~~extract some currently_voting? code from Contributor to team~~
     * always state that nothing is currently being voted in partial
     * change the wording to 'last average estimate'
 * ? disable the buttons once one is clicked

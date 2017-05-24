@@ -25,7 +25,7 @@ describe "votes/_not_started" do
   it "does not display any average estimate" do
     render_partial
 
-    expect(rendered).not_to include("Average estimate")
+    expect(rendered).not_to include("average estimate")
   end
 
   describe "When a vote has ended" do
@@ -40,13 +40,13 @@ describe "votes/_not_started" do
 
       render_partial
 
-      expect(rendered).to include("Average estimate : 5")
+      expect(rendered).to include("average estimate : 5")
     end
 
     it "displays a question mark if no estimations were given" do
       render_partial
 
-      expect(rendered).to include("Average estimate : ?")
+      expect(rendered).to include("average estimate : ?")
     end
   end
 

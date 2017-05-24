@@ -78,5 +78,5 @@ And(/^"([^"]*)" waits for the end of the vote$/) do |contributor_name|
 end
 
 Then(/^"([^"]*)" should see a vote result of (\d+)$/) do |_contributor_name, estimation|
-  expect(page).to have_content("Average estimate : #{estimation}")
+  expect(page).to have_content("average estimate : #{estimation}")
 end

@@ -24,7 +24,7 @@ class Team < ApplicationRecord
   end
 
   def currently_voting?
-    !self.current_vote.nil?
+    !current_vote.nil? && current_vote.running?
   end
 
   def start_vote(ending)

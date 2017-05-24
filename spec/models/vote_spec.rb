@@ -23,6 +23,11 @@ describe Vote do
     expect(Vote.new(ending: DateTime.current - 1.second).seconds_to_end).to eq 0
   end
 
+  it "is running if it has not yet ended" do
+    expect(Vote.new(ending:DateTime.current + 1.hour)).to be_running
+    expect(Vote.new(ending:DateTime.current - 1.hour)).not_to be_running
+  end
+
   describe "average estimate" do
 
     before :each do

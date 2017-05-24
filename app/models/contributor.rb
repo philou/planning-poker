@@ -12,7 +12,7 @@ class Contributor < ApplicationRecord
   end
 
   def currently_voting?
-    !team.nil? && !team.current_vote.nil? && team.current_vote.running?
+    !team.nil? && team.currently_voting?
   end
 
 end

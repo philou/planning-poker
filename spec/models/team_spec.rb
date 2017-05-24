@@ -93,6 +93,12 @@ describe Team do
       expect(@daltons).to be_currently_voting
     end
 
+    it "is not currently voting after the vote ended" do
+      @daltons.start_vote(DateTime.now - 1.hour)
+
+      expect(@daltons).not_to be_currently_voting
+    end
+
     it "forbids starting 2 votes at the same time" do
       concurrent = Team.find_by(name: "Daltons")
 

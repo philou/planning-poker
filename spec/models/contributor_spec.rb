@@ -35,6 +35,12 @@ describe Contributor do
     expect(@joe).to_not be_currently_voting
   end
 
+  it "is not currently voting if the vote has ended" do
+    @daltons.start_vote(DateTime.now - 1.hour)
+
+    expect(@joe).not_to be_currently_voting
+  end
+
   it "is not in current vote withoug a team" do
     expect(@john_doe).to_not be_currently_voting
   end

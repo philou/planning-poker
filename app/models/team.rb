@@ -31,6 +31,7 @@ class Team < ApplicationRecord
     vote = self.votes.create(ending: ending)
     self.current_vote = vote
     self.save
+    vote
   end
 
   private

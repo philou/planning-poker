@@ -5,6 +5,8 @@ require 'support/matchers/action_cable_matchers'
 RSpec.describe VotesController do
 
   before :each do
+    ActiveJob::Base.queue_adapter = :test
+
     @daltons = Team.create(name: "Daltons")
 
     @now = DateTime.new(2017, 03, 10, 9, 45, 00, "+00:00")
@@ -18,8 +20,6 @@ RSpec.describe VotesController do
   end
 
   it "schedules a background task to end the job in 30s" do
-    ActiveJob::Base.queue_adapter = :test
-
     post_create
 
     expect(VoteJob).to(have_been_enqueued

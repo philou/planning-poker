@@ -8,6 +8,10 @@ class Vote < ApplicationRecord
     [seconds, 0].max
   end
 
+  def running?
+    DateTime.current < self.ending
+  end
+
   def average_estimate
     story_points = estimations.group_by(&:contributor)
                               .values.map {|estims| estims.max_by(&:created_at) }

@@ -5,7 +5,7 @@ describe "votes/_started" do
 
   before :each do
     @team = Team.create(name: "Daltons")
-    @contributor = @team.contributors.create(name: "Joe")
+    @joe = @team.contributors.create(name: "Joe")
 
     @ending = DateTime.parse("2027-05-01T08:02:34Z")
     @team.start_vote(@ending)
@@ -49,11 +49,11 @@ describe "votes/_started" do
   end
 
   def vote_form_xpath
-    "//form[@action='#{contributor_estimations_path(@contributor)}']"
+    "//form[@action='#{contributor_estimations_path(@joe)}']"
   end
 
   def render_partial
-    assign(:contributor, @contributor)
+    assign(:contributor, @joe)
     render partial: "votes/started", locals: {vote: @team.current_vote}
   end
 

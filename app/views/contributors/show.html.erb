@@ -18,7 +18,7 @@
     <% if @contributor.currently_voting? %>
       <%= render partial: 'votes/started', locals: {vote: @contributor.team.current_vote} %>
     <% else %>
-      <%= render 'votes/not_started' %>
+      <%= render partial: 'votes/not_started', locals: {vote: @contributor.team.current_vote} %>
     <% end %>
   </div>
 

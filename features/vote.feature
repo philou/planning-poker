@@ -16,7 +16,6 @@ Feature: Vote
     When "William" enters the "Daltons" space
     Then "William" should see a vote countdown
 
-  @wip
   @javascript
   Scenario: A vote of one
 
@@ -24,9 +23,8 @@ Feature: Vote
     And "Amy" started a vote
     When "Amy" votes 5
     And "Amy" waits for the end of the vote
-    #Then "Amy" should see a vote result of 5
+    Then "Amy" should see a vote result of 5
 
-  @wip
   @javascript
   Scenario: A vote of many
 
@@ -36,4 +34,4 @@ Feature: Vote
     When "Joe" votes 5 from his browser
     When "William" votes 3
     And "William" waits for the end of the vote
-    #Then "William" should see a vote result of 4
+    Then "William" should see a vote result of 4

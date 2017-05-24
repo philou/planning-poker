@@ -73,6 +73,7 @@ And(/^"([^"]*)" waits for the end of the vote$/) do |contributor_name|
   # we could fix this by using a real queue (resque for ex) but this
   # needs to be paid for in heroku
   contributor = Contributor.find_by name: contributor_name
+  contributor.team.current_vote.update_attributes(ending: DateTime.current)
   VoteJob.perform_now(contributor.team)
 end
 

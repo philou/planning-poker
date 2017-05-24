@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 
-describe "votes/_started" do
+describe "votes/_running" do
 
   before :each do
     @team = Team.create(name: "Daltons")
@@ -54,7 +54,7 @@ describe "votes/_started" do
 
   def render_partial
     assign(:contributor, @joe)
-    render partial: "votes/started", locals: {vote: @team.current_vote}
+    render partial: "votes/running", locals: {vote: @team.current_vote}
   end
 
 end

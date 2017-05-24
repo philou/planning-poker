@@ -66,8 +66,8 @@
 * refactorings
     * rename started / not_started into voting / not_voting
     * ~~extract some currently_voting? code from Contributor to team~~
-    * always state that nothing is currently being voted in partial
-    * change the wording to 'last average estimate'
+    * ~~always state that nothing is currently being voted in partial~~
+    * ~~change the wording to 'last average estimate'~~
 * ? disable the buttons once one is clicked
     * the form is automatically disabled on submit !
     * just need to disable the buttons when a vote has already been given

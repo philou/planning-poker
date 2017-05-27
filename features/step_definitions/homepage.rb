@@ -1,5 +1,4 @@
-Given(/^"([^"]*)" already entered the "([^"]*)" space$/) do |contributor_name, team_name|
-
+def enter_team_space(contributor_name, team_name)
   visit root_path
 
   within("#Session") do
@@ -7,19 +6,21 @@ Given(/^"([^"]*)" already entered the "([^"]*)" space$/) do |contributor_name, t
     fill_in 'Name', :with => contributor_name
   end
   click_button 'Enter'
+end
 
+Given(/^"([^"]*)" already entered the "([^"]*)" space$/) do |contributor_name, team_name|
+  enter_team_space(contributor_name, team_name)
 end
 
 When(/^"([^"]*)" is the first to enter the "([^"]*)" space$/) do |contributor_name, team_name|
-  step "\"#{contributor_name}\" already entered the \"#{team_name}\" space"
+  enter_team_space(contributor_name, team_name)
 end
 When(/^"([^"]*)" enters the "([^"]*)" space$/) do |contributor_name, team_name|
-  step "\"#{contributor_name}\" already entered the \"#{team_name}\" space"
+  enter_team_space(contributor_name, team_name)
 end
 
 
 Then(/^he should see the error "([^"]*)"$/) do |error_message|
-
   expect(page).to have_current_path(root_path)
 
   within("div.alert") do

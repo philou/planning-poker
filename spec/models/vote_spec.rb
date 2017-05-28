@@ -24,43 +24,75 @@ describe Vote do
   end
 
   it "is running if it has not yet ended" do
-    expect(Vote.new(ending:DateTime.current + 1.hour)).to be_running
-    expect(Vote.new(ending:DateTime.current - 1.hour)).not_to be_running
+    expect(Vote.new(ending: DateTime.current + 1.hour)).to be_running
+    expect(Vote.new(ending: DateTime.current - 1.hour)).not_to be_running
   end
 
-  describe "average estimate" do
+  describe "vote" do
 
     before :each do
       @vote = Vote.new(team: @daltons, ending: DateTime.current + 1.hour)
+
       @joe = @daltons.contributors.create(name: "Joe")
+      @awrel = @daltons.contributors.create(name: "Awrel")
+      @howard = @daltons.contributors.create(name: "Howard")
+    end
+
+    describe "average estimate" do
+
+      it "is nil until there are any votes" do
+        expect(@vote.average_estimate).to be_nil
+      end
+
+      it "is X when the only given estimation is X" do
+        @joe.estimations.create(vote: @vote, story_points: 5)
+
+        expect(@vote.average_estimate).to eq 5
+      end
+
+      it "is the average of estimations" do
+        @joe.estimations.create(vote: @vote, story_points: 5)
+        @awrel.estimations.create(vote: @vote, story_points: 3)
+
+        expect(@vote.average_estimate).to eq 4
+      end
+
+      it "ignore old estimates" do
+        @joe.estimations.create(vote: @vote, story_points: 5)
+        @joe.estimations.create(vote: @vote, story_points: 3)
+
+        expect(@vote.average_estimate).to eq 3
+      end
 
     end
 
-    it "is X when the only given estimation is X" do
-      @joe.estimations.create(vote: @vote, story_points: 5)
+    describe "estimates histograms" do
 
-      expect(@vote.average_estimate).to eq 5
+      it "is an empty map without votes" do
+        expect(@vote.estimates_histogram).to eq({})
+      end
+
+      it "is a singleton map for a single vote" do
+        @joe.estimations.create(vote: @vote, story_points: 5)
+
+        expect(@vote.estimates_histogram).to eq({5 => 1})
+      end
+
+      it "ignores old estimates" do
+        @joe.estimations.create(vote: @vote, story_points: 5)
+        @joe.estimations.create(vote: @vote, story_points: 3)
+
+        expect(@vote.estimates_histogram).to eq({3 => 1})
+      end
+
+      it "agglomerates estimations" do
+        @joe.estimations.create(vote: @vote, story_points: 5)
+        @awrel.estimations.create(vote: @vote, story_points: 3)
+        @howard.estimations.create(vote: @vote, story_points: 3)
+
+        expect(@vote.estimates_histogram).to eq({3 => 2, 5 => 1})
+      end
+
     end
-
-    it "is the average of estimations" do
-      awrel = @daltons.contributors.create(name: "Awrel")
-
-      @joe.estimations.create(vote: @vote, story_points: 5)
-      awrel.estimations.create(vote: @vote, story_points: 3)
-
-      expect(@vote.average_estimate).to eq 4
-    end
-
-    it "is nil until there are any votes" do
-      expect(@vote.average_estimate).to be_nil
-    end
-
-    it "only each contributors last vote should be taken into account" do
-      @joe.estimations.create(vote: @vote, story_points: 5)
-      @joe.estimations.create(vote: @vote, story_points: 3)
-
-      expect(@vote.average_estimate).to eq 3
-    end
-
   end
 end

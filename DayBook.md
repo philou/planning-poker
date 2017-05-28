@@ -12,13 +12,16 @@
 * Add scenarios
     * ~~write the scenario outline~~
     * implement the steps (maybe not the last one depending on progress bars)
-* Remove 'soon' from the landing page
 * Compute the histograms from the vote model
+    * ~~test and code~~
+    * ~~refactor the tests to put things in common between average estimates and histograms~~
 * Display progress bars
+  <table><tr><td><span>0</span></td><td><progress value="0" max="2"></progress></td></tr>
 * style the progress bars
     * make them vertical
     * make sure they display at the same scale
     * add the names of the voters
+* Remove 'soon' from the landing page
 * update dependencies
 * fix dependencies version related TODOS
 

@@ -13,13 +13,26 @@ class Vote < ApplicationRecord
   end
 
   def average_estimate
-    story_points = estimations.group_by(&:contributor)
-                              .values.map {|estims| estims.max_by(&:created_at) }
-                              .map(&:story_points)
     average(story_points)
   end
 
+
+  def estimates_histogram
+    res = Hash.new {0}
+    story_points.each do |points|
+      res[points] += 1
+    end
+    res
+  end
+
   private
+
+  def story_points
+    estimations.group_by(&:contributor)
+               .values
+               .map { |estims| estims.max_by(&:created_at) }
+               .map(&:story_points)
+  end
 
   def average(values)
     return nil if values.empty?

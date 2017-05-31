@@ -48,11 +48,60 @@ describe "votes/_not_running" do
 
       expect(rendered).to include("average estimate : ?")
     end
+
+    describe "estimations histograms" do
+
+      before :each do
+        @awrel = @team.contributors.create(name: "Awrel")
+
+        @joe.estimations.create(vote: @vote, story_points: 5)
+      end
+
+      it "for 1 vote" do
+        render_partial
+
+        expect(rendered).to have_histogram(5, value: 1)
+      end
+
+      it "for 2 votes" do
+        @awrel.estimations.create(vote: @vote, story_points: 3)
+
+        render_partial
+
+        expect(rendered).to have_histogram(5, value: 1)
+        expect(rendered).to have_histogram(3,  value: 1)
+      end
+
+      it "for 2 identical votes" do
+        @awrel.estimations.create(vote: @vote, story_points: 5)
+
+        render_partial
+
+        expect(rendered).to have_histogram(5, value: 2)
+      end
+
+      it "scales to the max number of identical votes" do
+        @awrel.estimations.create(vote: @vote, story_points: 5)
+
+        render_partial
+
+        PhilousPlanningPoker::FIBOS.each do |points|
+          expect(rendered).to have_histogram(points, max: 2)
+        end
+      end
+    end
   end
 
   def render_partial
     assign(:contributor, @joe)
     render partial: "votes/not_running", locals: {vote: @team.current_vote}
+  end
+
+  def have_histogram(points, progress_attributes = {})
+    progress_xpath = progress_attributes.map do |attribute, expected|
+      "[td/progress/@#{attribute}=#{expected}]"
+    end.join
+    have_xpath("//tr[td/span/text()=#{points}]" + progress_xpath)
   end
 
 end

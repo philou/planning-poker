@@ -68,21 +68,23 @@ describe Vote do
 
     describe "estimates histograms" do
 
-      it "is an empty map without votes" do
-        expect(@vote.estimates_histogram).to eq({})
+      it "is an map with 0 votes" do
+        PhilousPlanningPoker::FIBOS.each do |points|
+          expect(@vote.estimates_histogram).to include({points => 0})
+        end
       end
 
       it "is a singleton map for a single vote" do
         @joe.estimations.create(vote: @vote, story_points: 5)
 
-        expect(@vote.estimates_histogram).to eq({5 => 1})
+        expect(@vote.estimates_histogram).to include({5 => 1})
       end
 
       it "ignores old estimates" do
         @joe.estimations.create(vote: @vote, story_points: 5)
         @joe.estimations.create(vote: @vote, story_points: 3)
 
-        expect(@vote.estimates_histogram).to eq({3 => 1})
+        expect(@vote.estimates_histogram).to include({3 => 1})
       end
 
       it "agglomerates estimations" do
@@ -90,7 +92,7 @@ describe Vote do
         @awrel.estimations.create(vote: @vote, story_points: 3)
         @howard.estimations.create(vote: @vote, story_points: 3)
 
-        expect(@vote.estimates_histogram).to eq({3 => 2, 5 => 1})
+        expect(@vote.estimates_histogram).to include({3 => 2, 5 => 1})
       end
 
     end

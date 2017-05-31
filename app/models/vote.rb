@@ -18,7 +18,7 @@ class Vote < ApplicationRecord
 
 
   def estimates_histogram
-    res = Hash.new {0}
+    res = empty_histograms
     story_points.each do |points|
       res[points] += 1
     end
@@ -26,6 +26,10 @@ class Vote < ApplicationRecord
   end
 
   private
+
+  def empty_histograms
+    PhilousPlanningPoker::FIBOS.map { |point| [point, 0] }.to_h
+  end
 
   def story_points
     estimations.group_by(&:contributor)

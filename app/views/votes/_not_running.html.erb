@@ -1,5 +1,13 @@
 <% unless vote.nil? %>
   <p>Last vote's average estimate : <%= vote.average_estimate || "?" %> </p>
+  <table>
+    <% vote.estimates_histogram.each do |points, count| %>
+      <tr>
+        <td><span><%= points %></span></td>
+        <td><progress value="<%= count %>" max="<%= vote.estimates_histogram.values.max %>"></progress></td>
+      </tr>
+    <% end %>
+  </table>
 <% end %>
 
 <p>Nothing is currently being voted</p>

@@ -12,15 +12,17 @@
 * Add scenarios
     * ~~write the scenario outline~~
     * implement the steps (maybe not the last one depending on progress bars)
-* Compute the histograms from the vote model
+* ~~Compute the histograms from the vote model~~
     * ~~test and code~~
     * ~~refactor the tests to put things in common between average estimates and histograms~~
 * Display progress bars
   <table><tr><td><span>0</span></td><td><progress value="0" max="2"></progress></td></tr>
+      * ~~display empty progress bars for all vote values~~
+      * pass feature tests
+      * extract a helper to display the histograms (to be able to extract variables, fix the histograms, and compute the max only once)
 * style the progress bars
-    * make them vertical
-    * make sure they display at the same scale
-    * add the names of the voters
+    * center them
+    * scale them
 * Remove 'soon' from the landing page
 * update dependencies
 * fix dependencies version related TODOS
@@ -29,5 +31,6 @@
 
 * Garbage collect old elections and votes
 * Run jasmine tests from RubyMine
+* add the names of the voters to the results
 
 # Smells

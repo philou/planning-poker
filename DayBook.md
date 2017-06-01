@@ -21,7 +21,7 @@
 * ~~Remove 'soon' from the landing page~~
 * ~~style the progress bars~~
     * ~~center them~~
-* update dependencies
+* ~~update dependencies~~
 * Fix issues
 * fix dependencies version related TODOS
 

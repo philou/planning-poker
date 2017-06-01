@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 describe Vote do
 
   before :each do
@@ -45,21 +46,21 @@ describe Vote do
       end
 
       it "is X when the only given estimation is X" do
-        @joe.estimations.create(vote: @vote, story_points: 5)
+        estimate(@joe, 5)
 
         expect(@vote.average_estimate).to eq 5
       end
 
       it "is the average of estimations" do
-        @joe.estimations.create(vote: @vote, story_points: 5)
-        @awrel.estimations.create(vote: @vote, story_points: 3)
+        estimate(@joe, 5)
+        estimate(@awrel, 3)
 
         expect(@vote.average_estimate).to eq 4
       end
 
       it "ignore old estimates" do
-        @joe.estimations.create(vote: @vote, story_points: 5)
-        @joe.estimations.create(vote: @vote, story_points: 3)
+        estimate(@joe, 5)
+        estimate(@joe, 3)
 
         expect(@vote.average_estimate).to eq 3
       end
@@ -75,26 +76,31 @@ describe Vote do
       end
 
       it "is a singleton map for a single vote" do
-        @joe.estimations.create(vote: @vote, story_points: 5)
+        estimate(@joe, 5)
 
         expect(@vote.estimates_histogram).to include({5 => 1})
       end
 
       it "ignores old estimates" do
-        @joe.estimations.create(vote: @vote, story_points: 5)
-        @joe.estimations.create(vote: @vote, story_points: 3)
+        estimate(@joe, 5)
+        estimate(@joe, 3)
 
         expect(@vote.estimates_histogram).to include({3 => 1})
       end
 
       it "agglomerates estimations" do
-        @joe.estimations.create(vote: @vote, story_points: 5)
-        @awrel.estimations.create(vote: @vote, story_points: 3)
-        @howard.estimations.create(vote: @vote, story_points: 3)
+        estimate(@joe, 5)
+        estimate(@awrel, 3)
+        estimate(@howard, 3)
 
         expect(@vote.estimates_histogram).to include({3 => 2, 5 => 1})
       end
 
     end
+
+    def estimate(contributor, points)
+      contributor.estimations.create(vote: @vote, story_points: points)
+    end
+
   end
 end

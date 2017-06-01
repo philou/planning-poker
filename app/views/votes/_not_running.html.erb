@@ -1,6 +1,8 @@
+<p>Nothing is currently being voted</p>
+
 <% unless vote.nil? %>
   <p>Last vote's average estimate : <%= vote.average_estimate || "?" %> </p>
-  <table>
+  <table id="estimate-histograms">
     <% vote.estimates_histogram.each do |points, count| %>
       <tr>
         <td><span><%= points %></span></td>
@@ -9,8 +11,6 @@
     <% end %>
   </table>
 <% end %>
-
-<p>Nothing is currently being voted</p>
 
 <% if @contributor.animator? %>
   <%= button_to team_vote_path(@contributor.team), class: "btn btn-primary", id: "team-vote-start" do %>

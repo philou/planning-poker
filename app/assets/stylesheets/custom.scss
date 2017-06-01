@@ -50,6 +50,8 @@ p {
   line-height: 1.7em;
 }
 
+/* Custom element alignment */
+
 #team-vote-countdown {
     width: 400px;
     margin-left: auto;
@@ -58,4 +60,8 @@ p {
 
 #team-vote-clock {
     margin-bottom: 0;
+}
+
+#estimate-histograms {
+  margin: 2em auto;
 }

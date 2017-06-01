@@ -21,7 +21,6 @@
 * ~~Remove 'soon' from the landing page~~
 * ~~style the progress bars~~
     * ~~center them~~
-* extract a helper to display the histograms (to be able to extract variables, fix the histograms, and compute the max only once)
 * update dependencies
 * Fix issues
 * fix dependencies version related TODOS

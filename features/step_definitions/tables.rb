@@ -13,7 +13,8 @@ When(/^the "([^"]*)" vote$/) do |_team_name, votes_table|
   end
 end
 
-Then(/^"([^"]*)" should see a repartition of votes$/) do |arg1, table|
-  # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^"([^"]*)" should see a repartition of votes$/) do |_team_name, votes_table|
+  votes_table.hashes.each do |vote|
+   expect(page).to have_histogram(vote["Vote"], value: vote["Count"])
+  end
 end

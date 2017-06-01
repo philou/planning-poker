@@ -37,7 +37,6 @@ Feature: Vote
     Then "William" should see a vote result of 4
 
   @javascript
-  @wip
   Scenario: A histogram of votes
 
     Given the "Daltons" entered space
@@ -53,8 +52,8 @@ Feature: Vote
       | Howard | 8    |
       | Awrel  | 5    |
     And "Joe" waits for the end of the vote
-#    Then "Joe" should see a repartition of votes
-#      | Vote | Count |
-#      | 3    | 1     |
-#      | 5    | 2     |
-#      | 8    | 1     |
+    Then "Joe" should see a repartition of votes
+      | Vote | Count |
+      | 3    | 1     |
+      | 5    | 2     |
+      | 8    | 1     |

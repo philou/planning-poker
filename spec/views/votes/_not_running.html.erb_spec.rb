@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'support/matchers/histogram_matchers'
 
 
 describe "votes/_not_running" do
@@ -95,13 +96,6 @@ describe "votes/_not_running" do
   def render_partial
     assign(:contributor, @joe)
     render partial: "votes/not_running", locals: {vote: @team.current_vote}
-  end
-
-  def have_histogram(points, progress_attributes = {})
-    progress_xpath = progress_attributes.map do |attribute, expected|
-      "[td/progress/@#{attribute}=#{expected}]"
-    end.join
-    have_xpath("//tr[td/span/text()=#{points}]" + progress_xpath)
   end
 
 end

@@ -1,0 +1,1 @@
+require Rails.root.join('spec/support/matchers/histogram_matchers')

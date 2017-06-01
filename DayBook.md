@@ -9,21 +9,20 @@
 * we'd use the max votes as the max of every bar
 
 ## to do
-* Add scenarios
+* ~~Add scenarios~~
     * ~~write the scenario outline~~
-    * implement the steps (maybe not the last one depending on progress bars)
+    * ~~implement the steps (maybe not the last one depending on progress bars)~~
 * ~~Compute the histograms from the vote model~~
     * ~~test and code~~
     * ~~refactor the tests to put things in common between average estimates and histograms~~
-* Display progress bars
-  <table><tr><td><span>0</span></td><td><progress value="0" max="2"></progress></td></tr>
+* ~~Display progress bars~~
       * ~~display empty progress bars for all vote values~~
-      * pass feature tests
-      * extract a helper to display the histograms (to be able to extract variables, fix the histograms, and compute the max only once)
+      * ~~pass feature tests~~
+* ~~Remove 'soon' from the landing page~~
 * style the progress bars
     * center them
     * scale them
-* Remove 'soon' from the landing page
+* extract a helper to display the histograms (to be able to extract variables, fix the histograms, and compute the max only once)
 * update dependencies
 * fix dependencies version related TODOS
 

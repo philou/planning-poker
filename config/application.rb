@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 # We want to include the spec dir when looking for special annotation comments
 # TODO define env var in some special purpose place (check dotenv gem)
-# TODO find a way to track annotation comments in files at the root of the repo
 ENV['SOURCE_ANNOTATION_DIRECTORIES'] = ['spec',ENV['SOURCE_ANNOTATION_DIRECTORIES']].join(',')
 
 

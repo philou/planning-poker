@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :teams, only: [] do
-    # TODO try to use a plural :votes as usual
-    resource :vote, only: :create
+    resource :votes, only: :create
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

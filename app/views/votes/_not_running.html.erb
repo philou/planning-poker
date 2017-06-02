@@ -15,7 +15,7 @@
 <% end %>
 
 <% if @contributor.animator? %>
-  <%= button_to team_vote_path(@contributor.team), class: "btn btn-primary", id: "team-vote-start" do %>
+  <%= button_to team_votes_path(@contributor.team), class: "btn btn-primary", id: "team-vote-start" do %>
     <i class="glyphicon glyphicon-play"></i> Start Vote
   <% end %>
 <% end %>

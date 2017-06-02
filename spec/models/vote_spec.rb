@@ -52,10 +52,10 @@ describe Vote do
       end
 
       it "is the average of estimations" do
-        estimate(@joe, 5)
+        estimate(@joe, 2)
         estimate(@awrel, 3)
 
-        expect(@vote.average_estimate).to eq 4
+        expect(@vote.average_estimate).to eq 2.5
       end
 
       it "ignore old estimates" do

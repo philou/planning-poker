@@ -29,11 +29,19 @@ describe "votes/_not_running" do
     expect(rendered).not_to include("average estimate")
   end
 
+  it "does not display vote histograms" do
+    render_partial
+
+    expect(rendered).not_to have_xpath("//progress")
+  end
+
   describe "When a vote has ended" do
 
     before :each do
       @ending = DateTime.parse("2000-05-01T08:02:34Z")
       @vote = @team.start_vote(@ending)
+      @awrel = @team.contributors.create(name: "Awrel")
+      @howard = @team.contributors.create(name: "Howard")
     end
 
     it "displays the average estimate" do
@@ -42,6 +50,16 @@ describe "votes/_not_running" do
       render_partial
 
       expect(rendered).to include("average estimate : 5")
+    end
+
+    it "displays the average estimate" do
+      @joe.estimations.create(vote: @vote, story_points: 5)
+      @awrel.estimations.create(vote: @vote, story_points: 3)
+      @howard.estimations.create(vote: @vote, story_points: 3)
+
+      render_partial
+
+      expect(rendered).to include("average estimate : 3.67")
     end
 
     it "displays a question mark if no estimations were given" do
@@ -53,8 +71,6 @@ describe "votes/_not_running" do
     describe "estimations histograms" do
 
       before :each do
-        @awrel = @team.contributors.create(name: "Awrel")
-
         @joe.estimations.create(vote: @vote, story_points: 5)
       end
 

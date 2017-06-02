@@ -41,6 +41,6 @@ class Vote < ApplicationRecord
   def average(values)
     return nil if values.empty?
 
-    values.inject(&:+) / values.count
+    values.inject(&:+).to_f / values.count
   end
 end

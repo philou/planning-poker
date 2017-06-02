@@ -3,7 +3,7 @@
 <p>Nothing is currently being voted</p>
 
 <% unless vote.nil? %>
-  <p>Last vote's average estimate : <%= vote.average_estimate || "?" %> </p>
+  <p>Last vote's average estimate : <%= number_with_precision(vote.average_estimate, precision: 2) || "?" %> </p>
   <table id="estimate-histograms">
     <% vote.estimates_histogram.each do |points, count| %>
       <tr>

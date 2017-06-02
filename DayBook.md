@@ -22,8 +22,18 @@
 * ~~style the progress bars~~
     * ~~center them~~
 * ~~update dependencies~~
-* Fix issues
-* fix dependencies version related TODOS
+* ~~Fix issues~~
+* fix average
+* add stories to the backlog
+* fix TODOs that amper the continuous delivery flow
+    * versioning
+    * env
+    * ...
+    * don't bother with design debt
+* write a follow up on TODO to mark tech debt :
+    * side project, don't want it perfect, don't know what will happen later
+    * open source, com to others
+    * managed to finish earlier, took some debt, it's known !
 
 # Next Stories
 

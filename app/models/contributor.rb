@@ -15,4 +15,8 @@ class Contributor < ApplicationRecord
     !team.nil? && team.currently_voting?
   end
 
+  def estimate(vote, points:)
+    estimations.create(vote: vote, story_points: points)
+  end
+
 end

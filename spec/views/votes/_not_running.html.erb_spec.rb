@@ -45,7 +45,7 @@ describe "votes/_not_running" do
     end
 
     it "displays the average estimate" do
-      @joe.estimations.create(vote: @vote, story_points: 5)
+      @joe.estimate(@vote, points: 5)
 
       render_partial
 
@@ -53,9 +53,9 @@ describe "votes/_not_running" do
     end
 
     it "displays the average estimate" do
-      @joe.estimations.create(vote: @vote, story_points: 5)
-      @awrel.estimations.create(vote: @vote, story_points: 3)
-      @howard.estimations.create(vote: @vote, story_points: 3)
+      @joe.estimate(@vote, points: 5)
+      @awrel.estimate(@vote, points: 3)
+      @howard.estimate(@vote, points: 3)
 
       render_partial
 
@@ -71,7 +71,7 @@ describe "votes/_not_running" do
     describe "estimations histograms" do
 
       before :each do
-        @joe.estimations.create(vote: @vote, story_points: 5)
+        @joe.estimate(@vote, points: 5)
       end
 
       it "for 1 vote" do
@@ -81,7 +81,7 @@ describe "votes/_not_running" do
       end
 
       it "for 2 votes" do
-        @awrel.estimations.create(vote: @vote, story_points: 3)
+        @awrel.estimate(@vote, points: 3)
 
         render_partial
 
@@ -90,7 +90,7 @@ describe "votes/_not_running" do
       end
 
       it "for 2 identical votes" do
-        @awrel.estimations.create(vote: @vote, story_points: 5)
+        @awrel.estimate(@vote, points: 5)
 
         render_partial
 
@@ -98,7 +98,7 @@ describe "votes/_not_running" do
       end
 
       it "scales to the max number of identical votes" do
-        @awrel.estimations.create(vote: @vote, story_points: 5)
+        @awrel.estimate(@vote, points: 5)
 
         render_partial
 

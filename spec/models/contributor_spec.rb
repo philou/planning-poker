@@ -45,5 +45,15 @@ describe Contributor do
     expect(@john_doe).to_not be_currently_voting
   end
 
+  it "estimate creates an estimation for the given vote" do
+    vote = @daltons.start_vote(DateTime.now + 1.hour)
+
+    @joe.estimate(vote, points: 5)
+
+    expect(@joe.estimations.size).to eq 1
+    expect(@joe.estimations.first.vote).to eq vote
+    expect(@joe.estimations.first.story_points).to eq 5
+  end
+
 
 end

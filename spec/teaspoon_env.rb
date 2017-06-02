@@ -121,9 +121,7 @@ Teaspoon.configure do |config|
   #config.server_host = nil
 
   # Specify a port to run on a specific port, otherwise Teaspoon will use a random available port.
-  # TODO put back the default config.server_port = nil when the bug in puma 3.7.0, which overrides command line port with config file is fixed. Currently Teaspoon cannot pass its default port this way. (https://github.com/jejacks0n/teaspoon/issues/512 & https://github.com/puma/puma/issues/1154)
-  # TODO try to use a different port with teaspoon port to avoid conflicts with `rails server`
-  config.server_port = 3000
+  # config.server_port = nil
 
   # Timeout for starting the server in seconds. If your server is slow to start you may have to bump this, or you may
   # want to lower this if you know it shouldn't take long to start.

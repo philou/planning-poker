@@ -31,19 +31,40 @@
         * TODOs for technical debt (esp at beginning)~~
 * The video
     * write down a script
+      * Hi
+      * goal : demo remote planning poker with philou's planning poker app
+      * imagine the toons team 3 members : Jerry, Tom and Coyote
+      * all different place, all different sessions
+      * they start a phone conference
+      * they all go to the planning poker homepage
+      * jerry enters first
+      * followed by Tom
+      * they discuss and agree to start estimating a story
+      * Tom votes 5
+      * Jerry 3
+      * Coyote is late
+      * he enters the space
+      * he gets in the vote !
+      * he votes 3
+      * results appear everywhere
+      * average
+      * twice as many 3s than 5s
+      * Discussion
+      * Could re-vote or vote another story
     * setup obs
+      * does not seem to work on retina display
+      * I'll have to try the quick time stuff
     * record it
-    * push it to github
+    * push it to youtube
     * add it to readme
     * add it to the homepage
 * ~~links at the bottom:
     * the author, my blog
     * repo, open source
-    * a doc page~~
-    * push
-* make it responsive !
-    * check the work needed
-    * can I do it this week or do I need another one ?
+    * a doc page
+    * push~~
+~~* make it responsive !
+    * check the work needed~~
 * v0.1
 * publish the homepage to social media
     * is it published through my rss ?

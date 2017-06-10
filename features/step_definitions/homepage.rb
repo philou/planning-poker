@@ -1,7 +1,7 @@
 def enter_team_space(contributor_name, team_name)
   visit root_path
 
-  within("#Session") do
+  within("#session") do
     fill_in 'Team', :with => team_name
     fill_in 'Name', :with => contributor_name
   end

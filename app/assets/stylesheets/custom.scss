@@ -53,7 +53,7 @@ p {
 /* Custom element alignment */
 
 #team-vote-countdown {
-    width: 400px;
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -64,4 +64,8 @@ p {
 
 #estimate-histograms {
   margin: 2em auto;
+}
+
+#estimates-buttons {
+  line-height: 275%;
 }

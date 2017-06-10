@@ -1,43 +1,14 @@
 # TODO Release Alpha
 
-* ~~Doc / home page
-    * ~~Explain what's the need
-    * how to use it~~
-    * ~~where it's available
-    * limitations
-    * explain it's open source, with the licence, and that instructions can be found in the repo
-    * links to the different parts
-        * the app
-        * repo
-        * author
-    * Ask for feedback~~
-* ~~readme
-    * ~~link badges
-      * heroku live
-      * zenhub issues
-    * what it does
-      * ~~the vision~~
-    * ~~run it~~
-      * ~~how it is deployed~~
-      * ~~how to deploy it yourself~~
-    * ~~how to contribute
-      * issue board
-      * the 'CI'
-      * coding conventions
-        * TDD
-        * few mocks
-        * follow standards
-        * simplest things
-        * TODOs for technical debt (esp at beginning)~~
 * The video
-    * write down a script
+    * ~~write down a script~~
       * Hi
       * goal : demo remote planning poker with philou's planning poker app
       * imagine the toons team 3 members : Jerry, Tom and Coyote
       * all different place, all different sessions
       * they start a phone conference
       * they all go to the planning poker homepage
-      * jerry enters first
+      * jerry enters first -> animator
       * followed by Tom
       * they discuss and agree to start estimating a story
       * Tom votes 5
@@ -51,25 +22,17 @@
       * twice as many 3s than 5s
       * Discussion
       * Could re-vote or vote another story
-    * setup obs
-      * does not seem to work on retina display
-      * I'll have to try the quick time stuff
+      * that's all for the demo
+      * find it live on heroku, repeat url
+    * ~~setup quick time~~
     * record it
     * push it to youtube
     * add it to readme
     * add it to the homepage
-* ~~links at the bottom:
-    * the author, my blog
-    * repo, open source
-    * a doc page
-    * push~~
-~~* make it responsive !
-    * check the work needed~~
-* v0.1
 * publish the homepage to social media
-    * is it published through my rss ?
-    * twitter ?
-    * hackernews
+    * ~~is it published through my rss ?~~ NO
+    * twitter ? My latest #SideProject, a remote #PlanningPoker app #agile
+    * hackernews [Show HN] Open Source remote planning poker app
 
 # Next Stories
 # Smells

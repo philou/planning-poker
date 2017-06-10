@@ -20,9 +20,9 @@ In the long run, it could improve the estimation experience for both remote and 
 
 ## How to use it
 
-More usage details can be found on the [project's homepage](http://philippe.bourgau.net/planning-poker).
+More usage details can be found on the [project's homepage](http://philippe.bourgau.net/planning-poker). Here is a video.
 
-[//]: # (Here is a video. TODO video)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yUTpabukwxE" frameborder="0" allowfullscreen></iframe>
 
 ## How to run it
 

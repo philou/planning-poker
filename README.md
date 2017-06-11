@@ -22,7 +22,7 @@ In the long run, it could improve the estimation experience for both remote and 
 
 More usage details can be found on the [project's homepage](http://philippe.bourgau.net/planning-poker). Here is a video.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yUTpabukwxE" frameborder="0" allowfullscreen></iframe>
+[![Demo video on Youtube](video.jpg)](https://www.youtube.com/embed/yUTpabukwxE)
 
 ## How to run it
 
@@ -86,6 +86,7 @@ They are managed with bundler. Just run the following :
 ```
 bundle install
 ```
+
 bundle might complain that some dependencies are missing on your OS, in this case follow its advices and install them.
 
 #### Database

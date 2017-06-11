@@ -22,7 +22,7 @@ In the long run, it could improve the estimation experience for both remote and 
 
 More usage details can be found on the [project's homepage](http://philippe.bourgau.net/planning-poker). Here is a video.
 
-[![Demo video on Youtube](video.jpg)](https://www.youtube.com/embed/yUTpabukwxE)
+[![Demo video on Youtube](video.jpg)](https://www.youtube.com/watch?v=yUTpabukwxE)
 
 ## How to run it
 

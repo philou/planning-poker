@@ -21,6 +21,8 @@ module PhilousPlanningPoker
 
     # Track comments annotations on other file formats
     config.annotations.register_extensions("scss", "sass", "less", "coffee") { |tag| /\/\/\s*(#{tag}):?\s*(.*)$/ }
+
+    config.active_record.sqlite3.represent_boolean_as_integer = true
   end
 
   TITLE = "Philou's Planning Poker"

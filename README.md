@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/philou/planning-poker/badges/gpa.svg)](https://codeclimate.com/github/philou/planning-poker)
 [![Test Coverage](https://codeclimate.com/github/philou/planning-poker/badges/coverage.svg)](https://codeclimate.com/github/philou/planning-poker/coverage)
 [![Issue Count](https://codeclimate.com/github/philou/planning-poker/badges/issue_count.svg)](https://codeclimate.com/github/philou/planning-poker)
-[![Heroku](https://heroku-badge.herokuapp.com/?app=philous-planning-poker&style=flat&svg=1)](https://philous-planning-poker.herokuapp.com/)
+[![Heroku App Status](http://heroku-shields.herokuapp.com/philous-planning-poker)](https://philous-planning-poker.herokuapp.com)
 
 An app to enable agile teams to do effective remote [Planning Poker](https://en.wikipedia.org/wiki/Planning_poker) estimations.
 

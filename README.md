@@ -5,7 +5,7 @@
 [![Test Coverage](https://codeclimate.com/github/philou/planning-poker/badges/coverage.svg)](https://codeclimate.com/github/philou/planning-poker/coverage)
 [![Issue Count](https://codeclimate.com/github/philou/planning-poker/badges/issue_count.svg)](https://codeclimate.com/github/philou/planning-poker) [![Heroku](https://heroku-badge.herokuapp.com/?app=philous-planning-poker&style=flat&svg=1)](https://philous-planning-poker.herokuapp.com/)
 
-Effective [Planning Poker](https://en.wikipedia.org/wiki/Planning_poker) sessions for remote teams.
+An app to enable agile teams to do effective remote [Planning Poker](https://en.wikipedia.org/wiki/Planning_poker) estimations.
 
 [![Screenshot of the tool](screenshot.jpg)](https://philous-planning-poker.herokuapp.com/)
 
@@ -201,3 +201,7 @@ Here are the few guidelines I followed when building the initial version of this
 * Test Driven Development is key in allowing Continuous Delivery
 * As few mocks as possible. Mocks are brittle, difficult to maintain and provide a false sense of security
 * I tracked technical debt (the things I decided not to do now) using #TODO comments, which appear in Code Climate
+
+## Authors
+
+* [Philippe Bourgau](http://philippe.bourgau.net)

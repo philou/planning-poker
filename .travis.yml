@@ -1,3 +1,7 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=9c3c9d52ed7edabf1e074b43f690dcba38c5872ad61ff4438fab675b4ca7e559
+
 language: ruby
 
 before_install:
@@ -13,13 +17,16 @@ services:
 bundler_args: --retry 5
 
 before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
   - psql -c 'create database planning_poker_test;' -U postgres
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rake
-after_success:
-  - bundle exec codeclimate-test-reporter
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 deploy:
   provider: heroku
@@ -30,5 +37,3 @@ deploy:
 
 addons:
   postgresql: '9.4'
-  code_climate:
-    repo_token: 9c3c9d52ed7edabf1e074b43f690dcba38c5872ad61ff4438fab675b4ca7e559

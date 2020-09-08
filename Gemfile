@@ -1,5 +1,5 @@
 # Ruby version, repeated in Dockerfile
-ruby '2.3.3'
+ruby '2.7.1'
 
 source 'https://rubygems.org'
 source 'https://rails-assets.org'

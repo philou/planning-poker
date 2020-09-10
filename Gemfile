@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.0.0.rc1'
+gem 'rails', '= 5.2.3'
 # Use postgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server. We want to avoid 3.7.0 because it has a serious bug that breaks cucumber

@@ -76,3 +76,8 @@ build-iPhoneSimulator/
 
 # Intellij
 .idea
+
+# Ignore precompiled javascript packs
+/public/packs
+/public/packs-test
+/public/assets

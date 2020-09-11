@@ -35,7 +35,7 @@ When(/^"([^"]*)" starts a vote$/) { |contributor_name| start_vote_as(contributor
 Given(/^"([^"]*)" started a vote$/) { |contributor_name| start_vote_as(contributor_name) }
 
 def vote(value)
-  click_button(value)
+  click_button(value.to_s)
 end
 
 When(/^"([^"]*)" votes (\d+)$/) do |_contributor_name, value|

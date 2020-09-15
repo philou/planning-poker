@@ -43,7 +43,7 @@ gem 'jbuilder'
 
 group :production do
   # Use Redis adapter to run Action Cable in production
-  gem 'redis', '~> 3.0'
+  gem 'redis'
 end
 
 group :development do

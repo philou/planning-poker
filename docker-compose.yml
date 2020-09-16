@@ -2,15 +2,17 @@ db:
 
   # /!\ DUPLICATED in .travis.yml
   # (2020/09/15) Heroku uses 12.4
-  # TODO upgrade postgresql to the same as Heroku
-  image: postgres:9.4.5
-  #image: postgres:12.4
+  #image: postgres:9.4.5
+  image: postgres:12.4
 
   volumes:
     - planning-poker-postgres:/var/lib/postgresql/data
 
   ports:
     - "5432:5432"
+
+  environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
 
 redis:
 

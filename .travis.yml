@@ -1,6 +1,7 @@
 env:
   global:
     - CC_TEST_REPORTER_ID=9c3c9d52ed7edabf1e074b43f690dcba38c5872ad61ff4438fab675b4ca7e559
+    - PGPORT=5433
 
 language: ruby
 
@@ -10,15 +11,6 @@ before_install:
   - "if [ $(phantomjs --version) != '2.1.1' ]; then wget https://assets.membergetmember.co/software/phantomjs-2.1.1-linux-x86_64.tar.bz2 -O $PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2; fi"
   - "if [ $(phantomjs --version) != '2.1.1' ]; then tar -xvf $PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 -C $PWD/travis_phantomjs; fi"
   - "phantomjs --version"
-# Install and configure postgres (a version different from stock). cf
-#  - https://stackoverflow.com/questions/55161807/travis-ci-not-connecting-to-postgresql-11-2
-#  - https://travis-ci.community/t/postgres-default-port-changed-from-5432-to-5433/7347/7
-  - sudo apt-get update
-  - sudo apt-get --yes remove postgresql\*
-  - sudo apt-get install -y postgresql-12 postgresql-client-12
-  - sudo sed -i 's/port = 5433/port = 5432/' /etc/postgresql/12/main/postgresql.conf
-  - sudo cp /etc/postgresql/{9.6,12}/main/pg_hba.conf
-  - sudo service postgresql restart 12
 
 services:
   - postgresql
@@ -42,8 +34,13 @@ after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 # /!\ DUPLICATED in docker-compose.yml
+# from official travis doc https://docs.travis-ci.com/user/database-setup/#postgresql
 addons:
   postgresql: '12.4'
+  apt:
+    packages:
+    - postgresql-12
+    - postgresql-client-12
 
 deploy:
   provider: heroku

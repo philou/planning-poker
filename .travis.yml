@@ -10,10 +10,13 @@ before_install:
   - "if [ $(phantomjs --version) != '2.1.1' ]; then wget https://assets.membergetmember.co/software/phantomjs-2.1.1-linux-x86_64.tar.bz2 -O $PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2; fi"
   - "if [ $(phantomjs --version) != '2.1.1' ]; then tar -xvf $PWD/travis_phantomjs/phantomjs-2.1.1-linux-x86_64.tar.bz2 -C $PWD/travis_phantomjs; fi"
   - "phantomjs --version"
-# to use postgres 12, from https://travis-ci.community/t/postgresql-11-2-cannot-connect/2680/5
+# Install and configure postgres (a version different from stock). cf
+#  - https://stackoverflow.com/questions/55161807/travis-ci-not-connecting-to-postgresql-11-2
+#  - https://travis-ci.community/t/postgres-default-port-changed-from-5432-to-5433/7347/7
   - sudo apt-get update
   - sudo apt-get --yes remove postgresql\*
   - sudo apt-get install -y postgresql-12 postgresql-client-12
+  - sudo sed -i 's/port = 5433/port = 5432/' /etc/postgresql/12/main/postgresql.conf
   - sudo cp /etc/postgresql/{9.6,12}/main/pg_hba.conf
   - sudo service postgresql restart 12
 
@@ -26,13 +29,21 @@ before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
-  - psql -c 'create database planning_poker_test;' -U postgres
+  - psql --version
+  - psql -c 'CREATE DATABASE planning_poker_test;' -U postgres
+  - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
+
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rake
+
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
+# /!\ DUPLICATED in docker-compose.yml
+addons:
+  postgresql: '12.4'
 
 deploy:
   provider: heroku
@@ -40,7 +51,3 @@ deploy:
   run: "rake db:migrate"
   api_key:
     secure: WfncEdDiKKs3KDBSgDbYFjNTwL2ht9z5mn5lOxB+mbxuWQeCxQHmuxiCOQ2f4jSHD9S1F1M3ggiefV8OYbz27RCOrFJLYVDLlZbkMD1lqR98vb8EL4qBSR/mvE9a/yn2ZjS/SW2wRMbW1748A1TkFTm2kZs9EIWgBXWPU4SWcDifLz2ERQAKDSUuwdc77sdFB+Ts+Q8NN4aGI1a1X5B9eTtR9dncX3zPLQtOQdvJm/86h3Sk/CBpcAFKjpvU2L52UGuaCmkzEesSAmWcoW9IexMcJgK3mOXPZ9WoXbVyQdkF/xwxKgpldjACJCSys6bCz5Gyj8Ars7xd6O83kMjqczGe99gKKkEbzugOaKwF6UDykcngOC+Qa1xYWryI+x438zFaoVFGRW7vFpuvCrwaU1Z2YGcfyTmgAuGHHC54mhhxyMw74NJM6eDpNjMWj/tpud8VXqiLN03KNnqH355NImXqVydsrlWC/q8HWV4O7QktvLJWMhf9PVrqwcxKaJj8X3hqo0ep05lUysZrD/l1HJrUnkyebd65tRcrRG1MYDaYwoGkCGpk/psRsNccmhkZr38Lr0m/HcRjoMSGEDAAe/aGWIa23jOQjkB1YH55uMPsQUAS+XGfkGii8ULg1tg7g/msSnv1qP1/8Oh0H+Zrj8K0O2rDtJkjJI8fuJwT0Qs=
-
-# /!\ DUPLICATED in docker-compose.yml
-addons:
-  postgresql: '12.4'

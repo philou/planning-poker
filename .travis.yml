@@ -32,7 +32,6 @@ before_script:
   - psql --version
   - psql -c 'CREATE DATABASE planning_poker_test;' -U postgres
   - psql -c 'CREATE ROLE travis SUPERUSER LOGIN CREATEDB;' -U postgres
-  - cp config/database.yml.travis config/database.yml
 
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace

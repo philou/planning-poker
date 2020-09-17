@@ -13,7 +13,7 @@ before_install:
 # Install and configure postgres (a version different from stock). cf
 #  - https://stackoverflow.com/questions/55161807/travis-ci-not-connecting-to-postgresql-11-2
 #  - https://travis-ci.community/t/postgres-default-port-changed-from-5432-to-5433/7347/7
-- sudo apt-get update
+  - sudo apt-get update
   - sudo apt-get --yes remove postgresql\*
   - sudo apt-get install -y postgresql-11 postgresql-client-11
   - sudo sed -i 's/port = 5433/port = 5432/' /etc/postgresql/11/main/postgresql.conf

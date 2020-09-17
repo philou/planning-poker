@@ -15,10 +15,10 @@ before_install:
 #  - https://travis-ci.community/t/postgres-default-port-changed-from-5432-to-5433/7347/7
   - sudo apt-get update
   - sudo apt-get --yes remove postgresql\*
-  - sudo apt-get install -y postgresql-11 postgresql-client-11
-  - sudo sed -i 's/port = 5433/port = 5432/' /etc/postgresql/11/main/postgresql.conf
-  - sudo cp /etc/postgresql/{9.6,11}/main/pg_hba.conf
-  - sudo service postgresql restart 11
+  - sudo apt-get install -y postgresql-12 postgresql-client-12
+  - sudo sed -i 's/port = 5433/port = 5432/' /etc/postgresql/12/main/postgresql.conf
+  - sudo cp /etc/postgresql/{9.6,12}/main/pg_hba.conf
+  - sudo service postgresql restart 12
 
 services:
   - postgresql
@@ -43,7 +43,7 @@ after_script:
 
 # /!\ DUPLICATED in docker-compose.yml
 addons:
-  postgresql: '11.2'
+  postgresql: '12.4'
 
 deploy:
   provider: heroku

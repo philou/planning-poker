@@ -13,6 +13,7 @@ require 'capybara/poltergeist'
 # Capybara.default_selector = :xpath
 
 # Use poltergeist and PhantomJS to drive javascript tests
+# TODO phantomjs is no longer maintained. We should switch to another headless browser
 Capybara.javascript_driver = :poltergeist
 
 # Required to test action cable.

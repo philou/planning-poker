@@ -42,6 +42,7 @@ When(/^"([^"]*)" votes (\d+)$/) do |_contributor_name, value|
   vote(value)
 end
 
+# TODO don't mention the countdown. There are many ways to show that the vote is started
 Then(/^"([^"]*)" should see a vote countdown/) do |_contributor_name|
   # TODO do some polling instead of sleeping for a full second
   sleep 1
@@ -51,8 +52,8 @@ end
 
 
 # TODO remove the 'from his browser' from the step def. This is really implementation specific
-# I would rather have steps starting with 'I ...' for things happening in the main test session
-# and steps starting with other names for things happening in other sessions
+# I would rather have steps starting with 'I (X) ...' for things happening in the main test
+# session and steps starting with other names for things happening in other sessions
 
 When(/^"([^"]*)" starts a vote from his browser$/) do |contributor_name|
   Capybara.using_session(contributor_name) do

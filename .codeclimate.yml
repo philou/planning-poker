@@ -21,6 +21,7 @@ engines:
     enabled: true
   fixme:
     enabled: true
+# TODO Rubocop is broken on CodeClimate
   rubocop:
     enabled: true
 ratings:

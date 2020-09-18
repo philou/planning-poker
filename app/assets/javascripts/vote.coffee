@@ -1,3 +1,5 @@
+# TODO migrate away from coffeescript to vanilla js
+
 class window.App.Vote
   @VOTE_CLOCK_ID: "team-vote-clock"
   @$voteClock: ->

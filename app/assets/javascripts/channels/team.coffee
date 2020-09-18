@@ -1,3 +1,5 @@
+# TODO migrate away from coffeescript to vanilla js
+
 window.App.Channels ||= {}
 
 class window.App.Channels.Team

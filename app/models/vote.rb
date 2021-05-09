@@ -1,5 +1,5 @@
 class Vote < ApplicationRecord
-  belongs_to :team
+  belongs_to :team, required: true
   has_many :estimations
   validates :ending, presence: true
 

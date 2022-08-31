@@ -1,3 +1,5 @@
+‼ 2022/08/31 Since Heroku is stoping its free DBs, this app is no longer available online.
+
 # Planning-Poker
 
 [![CI Build Status Badge](https://api.travis-ci.org/philou/planning-poker.svg?branch=master)](https://travis-ci.org/philou/planning-poker)
